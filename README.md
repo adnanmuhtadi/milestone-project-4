@@ -1,8 +1,8 @@
-<h1 align="center">Milestone Project 4 - Cloutmafia</h1>
+<h1 align="center">Milestone Project 4 - Clout Mafia</h1>
 
 [View project here](#)
 
-This eCommerce site is based on advertising and selling exclusive shoes. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different option of shoes and sizes as well as being able to search for them to select from depending on availability.
+This eCommerce site is based on advertising and selling exclusive sneakers. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different option of sneakers and sizes as well as being able to search for them to select from depending on availability.
 
 This site would be utilizing Python and Django which was taught from the Code Institute. I will also be using various technologies such as HTML5, CSS3, JQuery and Bootstrap. This project will be responsive and accessible to different size browsers and devices.
 
@@ -12,7 +12,7 @@ This site would be utilizing Python and Django which was taught from the Code In
 
 ### The Audience
 
-The purpose of this site is to ...
+The intended audience for this project is individuals who are into casual contemporary fashion, namely exclusive designer footwear and streetwear.
 
 ### User Objectives
 
@@ -30,13 +30,14 @@ The intended type of users which this website is targeted for are ...
 
 ### Design
 -   #### Colour Scheme
-    -   
+    -   The colour scheme I will be working with is mainly black and white to keep it simple and easy on the eyes. The concept is to make the images of the sneakers be the focus of the site.
 
 -   #### Typography
-    -   
+    -   I have chosen to use [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Sarabun](https://fonts.google.com/specimen/Sarabun) 
+font as the main fonts throughout the website with Sans Serif as the emergency font in the case for any reason the font is not being imported into the site correctly. Both [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Sarabun](https://fonts.google.com/specimen/Sarabun) are attractive fonts to use as it easy to clear and easy to read. [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) would be used for all the headers of the site where as [Sarabun](https://fonts.google.com/specimen/Sarabun) would be used for the rest of the content
 
 -   #### Imagery
-    -   
+    -   The images that were used as based on the purpose of the site being focused on selling sneakers. All images have been taken personally as I would also be advertising sneakers that have been sold before this project.
 
 *   ### Wireframes
 
