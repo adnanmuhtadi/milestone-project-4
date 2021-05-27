@@ -1,4 +1,4 @@
-<h1 align="center">Milestone Project 4 - Cloutmadia</h1>
+<h1 align="center">Milestone Project 4 - Cloutmafia</h1>
 
 [View project here](#)
 
