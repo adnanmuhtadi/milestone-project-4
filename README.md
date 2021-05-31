@@ -24,9 +24,26 @@ The intended audience for this project is individuals who are into casual contem
 
 ### User Stories
 
-The intended type of users which this website is targeted for are ...
+The intended type of users which this website is targeted for are individuals who enjoy online shopping and have a unique taste is fashion.
 
-1. As a user, I want to be able to ... so ...
+1. As a user, I want to be able to view a list of products, so that i can purchase one of them.
+1. As a user, I want to be able to view the details of an individual item, so I can see the price, description, product image and available size.
+1. As a user, I want to be able to sort the sneakers, so I can identify the best priced and alphabetically 
+1. As a user, I want to be able to sort a specific by category of sneakers, so i can find the specific sneakers I am looking for
+1. As a user, I want to be able to search by name and/or description, so I can find sneakers easily
+1. As a user, I want to be able to see the number of results appear from my search, so I can see how many sneakers are available from my search
+1. As a user, I want to be able to select the size and quantity of a pair of sneakers, so I can ensure I purchase the right size and amount of my desired order
+1. As a user, I want to be able to easily register for an account, so I can have a personal account within the site and be able to view my personal information
+1. As a user, I want to be able to recover my password in case i forget it, so I can recover it if needed.
+1. As a user, I want to be able to view a personalised profile page, so I can view my personal information as well as my order history
+1. As a user, I want to be able to view the total of my shopping bag, so I can see my total spending
+1. As a user, I want to be able to update my shopping bag at checkout by updating the quantity of my order, so I can have the option to change my mind if I don’t want to spend as much
+1. As a user, I want to be able to easily enter my payment details, so I can easily purchase my items
+1. As a user, I want to be able to view an order confirmation after I have purchased my items, so I can verify my purchase order
+1. As a site owner, I want to be able to add a product, so I can a new pair of sneakers to my store
+1. As a site owner, I want to be able to edit, update a product in my store, so i can amend the name, price, description, image and any other product details
+1. As a site owner, I want to be able to mark a product as sold when a product has been purchased, so I can ensure it will not be purchased again
+1. As a site owner, I want to be able to delete a product, so I can remove the product from my store.
 
 ### Design
 -   #### Colour Scheme
