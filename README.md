@@ -102,8 +102,8 @@ The features that will be utilised in this project will be as follows:
 #### Databases
 1. [DB Diagram](https://dbdiagram.io/)
     - Online tool to design the database.
-1. [Mongodb:](https://www.mongodb.com/)
-    - Database which stores the data to be recalled onto the website.
+1. [SQLite3:](https://www.sqlite.org/index.html)
+    - Database which stores the data to be recalled onto the website l.
 
 #### Frameworks
 1. [Bootstrap:](https://getbootstrap.com)
