@@ -103,7 +103,7 @@ The features that will be utilised in this project will be as follows:
 1. [DB Diagram](https://dbdiagram.io/)
     - Online tool to design the database.
 1. [SQLite3:](https://www.sqlite.org/index.html)
-    - Database which stores the data to be recalled onto the website l.
+    - Database which stores the data to be recalled onto the website.
 
 #### Frameworks
 1. [Bootstrap:](https://getbootstrap.com)
@@ -114,18 +114,14 @@ The features that will be utilised in this project will be as follows:
 #### Library
 1. [Google Fonts:](https://fonts.google.com/)
     - Google fonts were used to import the font into the style.css file which is used on all pages throughout the project.
-1. [Font Awesome 5.13.3:](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css)
+1. [Font Awesome:](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css)
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-1. [Hover:](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css)
-    - Hover effects used for the animation on hovering over links and buttons.
 
 #### Programs
 1. [Google Chrome:](https://www.google.co.uk/intl/en_uk/chrome/)
     - Default browser used to visually display the build process as well as utilising Chrome Dev Tools to assist where needed.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the code of the project after being pushed from GitPod.
-1. [GitPod:](https://www.gitpod.io/)
-    - A cloud development environment that allows us to create the website.
 1. [Visual Studio Code](https://code.visualstudio.com/)
     - Code editing software was used to replace GitPod as the free license expired due to over 50 hours useage. 
 1. [GitHub Desktop:](https://desktop.github.com/)
@@ -134,10 +130,12 @@ The features that will be utilised in this project will be as follows:
     - Online tool which assists with the English grammar.
 1. [Balsamiq:](https://balsamiq.com/)
     - Balsamiq was used to create the [wireframes](#) during the design process.
-1. [RandomKeygen:](https://randomkeygen.com/)
-    - A tool to randomly generate a password.
+1. [Stripe:](https://stripe.com/gb)
+    - Online payment processing for internet businesses.
 1. [Heroku:](https://www.heroku.com)
     - A platform as a service (PaaS) that enables me to deploy my website in the cloud.
+1. [AWS:](https://aws.amazon.com/?nc2=h_lg)
+    - Amazon Web Services (AWS) is a secure cloud services platform, allowing the running web and application servers in the cloud to host dynamic websites.
 
 ## Testing
 
@@ -192,11 +190,11 @@ or use this template
 
 ## Deployment
 
-### Making a Deployment
-
-
-
 ### Making a Clone
+
+
+
+### Making a Deployment
 
 
 
