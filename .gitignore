@@ -1,0 +1,4 @@
+# To ignore compiled python code which is not needed in version control
+*.sqlite3
+*.pyc
+__pycache__
