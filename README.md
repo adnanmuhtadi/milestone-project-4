@@ -16,11 +16,15 @@ The intended audience for this project is individuals who are into casual contem
 
 ### User Objectives
 
+To be able to find and purchase a pair of sneakers easily. Navigate through the site with a consistent layout and structure making the sneakers clear to be seen and accessible. When a pair of sneakers is selected, it will direct the user to a detailed product page, which would display a larger picture of the product, a description and sneaker size.
 
+After having some items added to the basket, to be able to preview the selected sneakers and to see the total price. Once decided to make an order, to be able to go and check out and put in all the card details to purchase the items. To also have the ability to create an account and store the previous orders associated with the account.
 
 ### My Objectives
 
+To create a site that would allow a user to register and have a profile on the site. For the user to be able to search for a product and select it to find out more details about it. Within the details page for the user, to be able to select the size that they want and add it to their bag. Having the user then go to checkout and purchase their order.
 
+The site would have a CRUD software architectural style (Create, Read, Update and Delete) for basic operations of persistent storage with the products being added by the admin user. Validation would be included in the site when it comes to adding products, user details and user card details.
 
 ### User Stories
 
