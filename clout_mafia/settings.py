@@ -84,14 +84,14 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# account authentication method is what tells allauth that we want to allow 
+# account authentication method is what tells allauth that we want to allow
 # authentication using either usernames or emails.
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # email settings
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-#username length of a min of 4 characters 
+# username length of a min of 4 characters
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
