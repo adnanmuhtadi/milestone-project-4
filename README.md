@@ -20,34 +20,38 @@ To be able to find and purchase a pair of sneakers easily. Navigate through the 
 
 After having some items added to the basket, to be able to preview the selected sneakers and to see the total price. Once decided to make an order, to be able to go and check out and put in all the card details to purchase the items. To also have the ability to create an account and store the previous orders associated with the account.
 
+Having an additional option to post a testimonial about the service/website to share with other users and having it displayed on the home page to be seen by other users.
+
 ### My Objectives
 
 To create a site that would allow a user to register and have a profile on the site. For the user to be able to search for a product and select it to find out more details about it. Within the details page for the user, to be able to select the size that they want and add it to their bag. Having the user then go to checkout and purchase their order.
 
-The site would have a CRUD software architectural style (Create, Read, Update and Delete) for basic operations of persistent storage with the products being added by the admin user. Validation would be included in the site when it comes to adding products, user details and user card details.
+The site would have a CRUD software architectural style (Create, Read, Update and Delete) for basic operations of persistent storage with the products being added by the admin user. Validation would be included in the site when it comes to adding products, user details and user card details. When a user sends an email to the site admin, to have the subject automatically post to the database for analysing. 
 
 ### User Stories
 
 The intended type of users which this website is targeted for are individuals who enjoy online shopping and have a unique taste is fashion.
 
-1. As a user, I want to be able to view a list of products, so that i can purchase one of them.
+1. As a user, I want to be able to view a list of products, so that I can purchase one of them.
 1. As a user, I want to be able to view the details of an individual item, so I can see the price, description, product image and available size.
 1. As a user, I want to be able to sort the sneakers, so I can identify the best priced and alphabetically 
-1. As a user, I want to be able to sort a specific by category of sneakers, so i can find the specific sneakers I am looking for
+1. As a user, I want to be able to sort a specific category of sneakers, so I can find the specific sneakers I am looking for
 1. As a user, I want to be able to search by name and/or description, so I can find sneakers easily
-1. As a user, I want to be able to see the number of results appear from my search, so I can see how many sneakers are available from my search
+1. As a user, I want to be able to see the number of results that appear from my search, so I can see how many sneakers are available from my search
 1. As a user, I want to be able to select the size and quantity of a pair of sneakers, so I can ensure I purchase the right size and amount of my desired order
 1. As a user, I want to be able to easily register for an account, so I can have a personal account within the site and be able to view my personal information
-1. As a user, I want to be able to recover my password in case i forget it, so I can recover it if needed.
+1. As a user, I want to be able to recover my password in case I forget it, so I can recover it if needed.
 1. As a user, I want to be able to view a personalised profile page, so I can view my personal information as well as my order history
 1. As a user, I want to be able to view the total of my shopping bag, so I can see my total spending
-1. As a user, I want to be able to update my shopping bag at checkout by updating the quantity of my order, so I can have the option to change my mind if I don’t want to spend as much
+1. As a user, I want to be able to update my shopping bag at the checkout by updating the quantity of my order, so I can have the option to change my mind if I don’t want to spend as much
 1. As a user, I want to be able to easily enter my payment details, so I can easily purchase my items
-1. As a user, I want to be able to view an order confirmation after I have purchased my items, so I can verify my purchase order
+1. As a user, I want to be able to view an order confirmation after I have purchased my items, so I can verify my purchase order.
+1. As a user, I want to be able to post a testimonial, so I can express my opinion of the service/website.
 1. As a site owner, I want to be able to add a product, so I can a new pair of sneakers to my store
-1. As a site owner, I want to be able to edit, update a product in my store, so i can amend the name, price, description, image and any other product details
+1. As a site owner, I want to be able to edit, update a product in my store, so I can amend the name, price, description, image and any other product details
 1. As a site owner, I want to be able to mark a product as sold when a product has been purchased, so I can ensure it will not be purchased again
 1. As a site owner, I want to be able to delete a product, so I can remove the product from my store.
+1. As a site owner, I want to be able to see a list of subjects that get used when contacting the site admin, so I can see what user are mostly asking
 
 ### Design
 -   #### Colour Scheme
@@ -62,11 +66,36 @@ font as the main fonts throughout the website with Sans Serif as the emergency f
 
 *   ### Wireframes
 
-    #### Home Page
-    
+    #### Home Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/home-page.pdf)
+
+    #### Register Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/register-page.pdf)
+
+    #### Login Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/login-page.pdf)
+
+    #### All Products Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/all-products-page.pdf)
+
+    #### Product Details Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/product-details-page.pdf)
+
+    #### Superuser Add/Edit Product Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/superuser-add-edit-product.pdf)
+
+    #### Change Username Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/change-username.pdf)
+
+    #### Change Password Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/change-password.pdf)
+
+    #### Testimonials Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/testimonials-page.pdf)
+
+    #### Shipping & Returns Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/shipping-and-returns-page.pdf)
+
+    #### Privacy Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/privacy-page.pdf)
+
+    #### Terms & Conditions Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/terms-page.pdf)
+
+    #### About Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/about-page.pdf)
+
+    #### Contact Us Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/contact-us-page.pdf)
     
     #### Master Wireframes
-    - Master Wireframes - [View](#)
+    - Master Wireframes - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/clout-mafia-wireframes.bmpr)
     
 #### Database Mapping
 
@@ -108,6 +137,8 @@ The features that will be utilised in this project will be as follows:
     - Online tool to design the database.
 1. [SQLite3:](https://www.sqlite.org/index.html)
     - Database which stores the data to be recalled onto the website.
+1. [Heroku Postgresql:](https://www.sqlite.org/index.html)
+    - Reliable and powerful database as a service based on PostgreSQL.
 
 #### Frameworks
 1. [Bootstrap:](https://getbootstrap.com)
@@ -140,6 +171,16 @@ The features that will be utilised in this project will be as follows:
     - A platform as a service (PaaS) that enables me to deploy my website in the cloud.
 1. [AWS:](https://aws.amazon.com/?nc2=h_lg)
     - Amazon Web Services (AWS) is a secure cloud services platform, allowing the running web and application servers in the cloud to host dynamic websites.
+
+#### Other
+1. [Django Secret Key Generator:](https://miniwebtool.com/django-secret-key-generator/)
+    - The Django Secret Key Generator is used to generate a new SECRET_KEY that you can put in your settings.py module.
+1. [Tempmail:](https://temp-mail.org/en/)
+    - A free email service that allows to receive email at a temporary address that self-destructed after a certain time elapses
+1. [JSON Formatter:](https://jsonformatter.org/)
+    - A formatter which cleans JSON code to a more readable format
+1. [Python Tutor:](http://pythontutor.com/)
+    - A platform which helps a user to visualize python code.
 
 ## Testing
 
