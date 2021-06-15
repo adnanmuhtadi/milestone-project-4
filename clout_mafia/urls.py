@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Include all of the login, log out, password reset etc. from allauth
     path('accounts/', include('allauth.urls')),
+    path('', include('home.urls')),
+
 ]
