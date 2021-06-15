@@ -40,9 +40,9 @@ The intended type of users which this website is targeted for are individuals wh
 1. As a user, I want to be able to see the number of results that appear from my search, so I can see how many sneakers are available from my search
 1. As a user, I want to be able to select the size and quantity of a pair of sneakers, so I can ensure I purchase the right size and amount of my desired order
 1. As a user, I want to be able to easily register for an account, so I can have a personal account within the site and be able to view my personal information
-1. As a user, I want to be able to recover my password in case I forget it, so I can recover it if needed.
+1. As a user, I want to be able to recover my password, so I can recover it if needed.
 1. As a user, I want to be able to view a personalised profile page, so I can view my personal information as well as my order history
-1. As a user, I want to be able to view the total of my shopping bag, so I can see my total spending
+1. As a user, I want to be able to view the overall total of my shopping bag, so I can see my total spending
 1. As a user, I want to be able to update my shopping bag at the checkout by updating the quantity of my order, so I can have the option to change my mind if I don’t want to spend as much
 1. As a user, I want to be able to easily enter my payment details, so I can easily purchase my items
 1. As a user, I want to be able to view an order confirmation after I have purchased my items, so I can verify my purchase order.
