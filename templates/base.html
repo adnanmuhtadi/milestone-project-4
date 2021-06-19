@@ -38,7 +38,65 @@
 
     <body>
 
-        <header class="container-fluid fixed-top"></header>
+        <header class="container-fluid fixed-top">
+            <div class="row">
+                <!-- linking 'home' url which was defined in urls.py-->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a href="" class="nav-link main-logo-link">Clout Mafia</a>
+                </div>
+                <!-- Search functionality -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <form method="GET" action="">
+                        <div class="input-group w-100">
+                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                            <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
+                            <div class="input-group-append">
+                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Icons to display 'My Account' and the shopping basket -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <!-- drop to display 'My Account Information' -->
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-0">My Account</p>
+                                </div>
+                            </a>
+                            <!-- Drop Down options -->
+                            <div class="dropdown-menu border-1" aria-labelledby="user-menu">
+                                <!-- If the user has an account and is categories as a super user display the following -->
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="" class="dropdown-item">Product Management</a>
+                                        <a href="" class="dropdown-item">Add a Product</a>
+                                    {% endif %}
+                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="" class="dropdown-item">Write a Review</a>
+                                    <a href="" class="dropdown-item">Contact Us</a>
+                                    <a href="" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="" class="dropdown-item">Register</a>
+                                    <a href="" class="dropdown-item">Login</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <!-- Placeholder for the shopping bag-->
+                        <li class="list-inline-item">
+                            <div><i class="fas fa-shopping-bag fa-lg">Shopping bag</i></div>
+                        </li>   
+                    </ul>
+                </div>
+            </div>
+        </header>
 
         {% if messages %}
             <div class="message-container"></div>
