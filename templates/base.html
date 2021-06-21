@@ -19,6 +19,7 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <!-- https://fonts.google.com/specimen/Barlow+Condensed -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun&display=swap">
             <!-- Custome CSS -->
             <link rel="stylesheet" href="{% static 'css/base.css' %}"
 
@@ -49,30 +50,30 @@
     <body>
 
         <header class="container-fluid fixed-top">
-            <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+            <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
                 <!-- linking 'home' url which was defined in urls.py-->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="" class="nav-link main-logo-link">Clout Mafia</a>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
+                    <a href="" class="title nav-link main-logo-link logo-font">Clout Mafia</a>
                 </div>
                 <!-- Search functionality -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <form method="GET" action="">
-                        <div class="input-group w-100">
-                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                        <div class="input-search input-group">
                             <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
-                            <div class="input-group-append">
-                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <div class="search-box input-group-append">
+                                <button class="form-control btn btn-black border" type="submit">
                                     <span class="icon">
                                         <i class="fas fa-search"></i>
                                     </span>
                                 </button>
                             </div>
+                            <input class="search-box form-control border" type="text" name="q" placeholder="Search the site">
                         </div>
                     </form>
                 </div>
                 <!-- Icons to display 'My Account' and the shopping basket -->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <ul class="list-inline list-unstyled text-lg-right my-0">
                         <!-- drop to display 'My Account Information' -->
                         <li class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,12 +101,22 @@
                             </div>
                         </li>
                         <!-- Placeholder for the shopping bag-->
-                        <li class="list-inline-item">
-                            <div><i class="fas fa-shopping-bag fa-lg">Shopping bag</i></div>
+                        <li class="text-center list-inline-item">
+                            <div><i class="fas fa-shopping-bag fa-lg"></i>
+                            <p class="my-0">Shopping Bag</p></div>
                         </li>   
                     </ul>
                 </div>
             </div>
+            <div class="topnav row bg-white">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                </nav>
+            </div> 
         </header>
 
         {% if messages %}
@@ -118,18 +129,22 @@
         {% block content %}
         {% endblock %}
 
-        <footer class="text-muted">
+        <footer class="footer-pos text-muted">
 
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-2">Shipping & Return</div>|
                     <div class="col-12 col-md-1">Privacy</div>|
-                    <div class="col-12 col-md-2">Terms and Conditions</div>|
+                    <div class="col-12 col-md-1">T & C's</div>|
                     <div class="col-12 col-md-1">About</div>|
                     <div class="col-auto mr-auto col-12 col-md-2">Contact Us</div>
                     <div class="col-auto">
+                        <span class="icon">
                         <i class="fab fa-instagram-square"></i>
+                        </span>
+                        <spam class="icon">
                         <i class="fab fa-facebook-square"></i>
+                        </span>
                     </div>
                 </div>
             </div>
