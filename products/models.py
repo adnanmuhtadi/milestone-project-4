@@ -15,6 +15,7 @@ class Category(models.Model):
     # string to return the readable name
     def get_friendly_name(self):
         return self.readable_name
+
 # Product model
 
 
