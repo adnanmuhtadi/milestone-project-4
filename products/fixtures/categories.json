@@ -4,7 +4,7 @@
         "model": "products.category",
         "fields": {
             "name": "sneakers",
-            "friendly_name": "Sneakers"
+            "readable_name": "Sneakers"
         }
     },
     {
@@ -12,7 +12,7 @@
         "model": "products.category",
         "fields": {
             "name": "slip_ons",
-            "friendly_name": "Slip Ons"
+            "readable_name": "Slip Ons"
         }
     },
     {
@@ -20,7 +20,7 @@
         "model": "products.category",
         "fields": {
             "name": "high_tops",
-            "friendly_name": "High Tops"
+            "readable_name": "High Tops"
         }
     },
     {
@@ -28,6 +28,6 @@
         "model": "products.category",
         "fields": {
             "name": "other",
-            "friendly_name": "Other"
+            "readable_name": "Other"
         }
     }
