@@ -4,6 +4,11 @@ from django.db import models
 
 
 class Category(models.Model):
+
+    # To fix the name in the admin page
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     # field being optional
     readable_name = models.CharField(max_length=254, null=True, blank=True)
