@@ -24,4 +24,5 @@ urlpatterns = [
     # Include all of the login, log out, password reset etc. from allauth
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
+    path('products/', include('products.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
