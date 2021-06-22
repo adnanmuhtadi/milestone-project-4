@@ -108,15 +108,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="topnav row">
-                <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="row topnav">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     {% include 'includes/mobile-top-header.html' %}
                     {% include 'includes/main-nav.html' %}
                 </nav>
-            </div> 
+            </div>
         </header>
 
         {% if messages %}
@@ -129,13 +129,13 @@
         {% block content %}
         {% endblock %}
 
-        <footer class="footer-pos text-muted">
-
+        <footer class="text-muted">
+        <div class="container">
             <div class="row">
-                <div class="col-12 col-md-1">Shipping & Return</div>
-                <div class="col-12 col-md-1">Privacy</div>
-                <div class="col-12 col-md-1">T & C's</div>
-                <div class="col-12 col-md-1">About</div>
+                <div class="col-12 col-md-auto">Shipping & Return</div>
+                <div class="col-12 col-md-auto">Privacy</div>
+                <div class="col-12 col-md-auto">T & C's</div>
+                <div class="col-12 col-md-auto">About</div>
                 <div class="col-auto mr-auto col-12 col-md-1">Contact Us</div>
                 <div class="col-12 col-md-1 col-auto">
                     <span class="icon">
@@ -145,6 +145,7 @@
                     <i class="fab fa-facebook-square"></i>
                     </span>
                 </div>
+            </div>
             </div>
         </footer>
 
