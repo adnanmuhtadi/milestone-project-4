@@ -1,0 +1,44 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001340155",
+            "name": "Arizona Original Bootcut Jeans",
+            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
+            "price": 53.99,
+            "category": 2,
+            "size": 6,
+            "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/180707013_506114120753186_5703099695879570592_n_17882825819254625.jpg",
+            "image": "180707013_506114120753186_5703099695879570592_n_17882825819254625.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001600425",
+            "name": "Liz Claiborne Audra Classic Fit Straight Leg Pants",
+            "description": "Straight-leg styling and on-the-job comfort make our Audra pants a flattering business decision. flat front zip fly with hook-and-bar closure 2 front and 2 back welt pockets 34 1/2\" inseam polyester/rayon/spandex washable imported",
+            "price": 58.99,
+            "category": 3,
+            "size": 9,
+            "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/180870300_281731710288990_3233138070165725929_n_17920230469624277.jpg",
+            "image": "180870300_281731710288990_3233138070165725929_n_17920230469624277.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730010",
+            "name": "Royal Velvet Matte Satin Square 3-pc. Coverlet Set",
+            "description": "Add a 5-star resort feel to your bedroom with the elegant Matte Satin Square coverlet set, featuring modern embroidered squares and flanged trim.  square embroidered pattern flanged-edge trim fabric is washable for easy care 3-piece set includes: coverlet 2 shams Polyester coverlet with cotton fill; polyester shams. Washable. Imported. Full/Queen: coverlet is 92x96\" King: coverlet is 110x96\"",
+            "price": 205.99,
+            "category": 3,
+            "size": 8.5,
+            "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/180908450_955245968576008_1080631438642826262_n_17845505096577609.jpg",
+            "image": "180908450_955245968576008_1080631438642826262_n_17845505096577609.jpg"
+        }
+    }
+]
