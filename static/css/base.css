@@ -4,6 +4,13 @@ html {
 
 body {
   font-family: 'Sarabun', sans-serif;
+      height: calc(100vh - 400px);
+
+}
+
+.vr {
+  border-right-style: inset;
+  border-left-style: outset;
 }
 
 .title {
@@ -107,7 +114,16 @@ footer {
 }
 
 
+.overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: -1;
 
+}
 
 /* -------------------------------- Media Queries */
 

@@ -40,5 +40,33 @@
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/180908450_955245968576008_1080631438642826262_n_17845505096577609.jpg",
             "image": "180908450_955245968576008_1080631438642826262_n_17845505096577609.jpg"
         }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001600435",
+            "name": "Liz Claiborne Audra Classic Fit Straight Leg Pants",
+            "description": "Straight-leg styling and on-the-job comfort make our Audra pants a flattering business decision. flat front zip fly with hook-and-bar closure 2 front and 2 back welt pockets 34 1/2\" inseam polyester/rayon/spandex washable imported",
+            "price": 58.99,
+            "category": 3,
+            "size": 9,
+            "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/180870300_281731710288990_3233138070165725929_n_17920230469624277.jpg",
+            "image": "180870300_281731710288990_3233138070165725929_n_17920230469624277.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001600425",
+            "name": "Liz Claiborne Audra Classic Fit Straight Leg Pants",
+            "description": "Straight-leg styling and on-the-job comfort make our Audra pants a flattering business decision. flat front zip fly with hook-and-bar closure 2 front and 2 back welt pockets 34 1/2\" inseam polyester/rayon/spandex washable imported",
+            "price": 58.99,
+            "category": 3,
+            "size": 9,
+            "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/180870300_281731710288990_3233138070165725929_n_17920230469624277.jpg",
+            "image": "180870300_281731710288990_3233138070165725929_n_17920230469624277.jpg"
+        }
     }
 ]
