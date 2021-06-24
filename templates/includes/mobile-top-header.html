@@ -7,9 +7,9 @@
                 <p class="my-0">Search</p>
             </div>
         </a>
-        <!-- The search form is displayed as drop down menu for space utilisation -->
+        <!-- The search form is displayed as drop down menu for space utilisation and it will search in the product page -->
         <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-            <form class="form" method="GET" action="">
+            <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-search input-group">
                     <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
                     <div class="search-box input-group-append">

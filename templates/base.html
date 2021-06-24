@@ -55,9 +55,9 @@
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
                     <a href="" class="title nav-link main-logo-link logo-font">Clout Mafia</a>
                 </div>
-                <!-- Search functionality -->
+                <!-- Search functionality and the results would appear in the products page-->
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <form method="GET" action="">
+                    <form method="GET" action="{% url 'products' %}">
                         <div class="input-search input-group">
                             <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
                             <div class="search-box input-group-append">
@@ -67,7 +67,7 @@
                                     </span>
                                 </button>
                             </div>
-                            <input class="search-box form-control border" type="text" name="q" placeholder="Search the site">
+                            <input class="search-box form-control border" type="text" name="search_q" placeholder="Search the site">
                         </div>
                     </form>
                 </div>
