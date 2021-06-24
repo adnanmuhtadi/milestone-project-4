@@ -115,3 +115,37 @@
         </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+<!-- to append this code to anything already in the block-->
+    {{ block.super }}
+    <script type="text/javascript">
+    /* once capturing the change event from the source selector
+    two variables set, one for the selector and the other for a new url for the object 
+    which takes the window location */
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            /* get the value from selector box and the breaking them out 
+            into sort and direction*/
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                /* change the get parameters to the method calls */
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                /* change the current location to the updated URL  */
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
+{% endblock %}
