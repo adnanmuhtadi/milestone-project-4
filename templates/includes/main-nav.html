@@ -20,7 +20,7 @@
                 Sneakers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="sneakers-link">
-                <a href="" class="dropdown-item">Bed &amp; Bath</a>
+                <a href="{% url 'products' %}?category=sneakers" class="dropdown-item">Sneakers</a>
             </div>
         </li>
 
@@ -30,7 +30,7 @@
                 Slip-ons
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="slip-on-link">
-                <a href="" class="dropdown-item">Kitchen &amp; Dining</a>
+                <a href="{% url 'products' %}?category=slip_ons" class="dropdown-item">Slip Ons</a>
                 <a href="" class="dropdown-item">All Homeware</a>
             </div>
         </li>
@@ -41,7 +41,7 @@
                 High Tops
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="high-tops-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=high_tops" class="dropdown-item">New Arrivals</a>
                 <a href="" class="dropdown-item">Deals</a>
                 <a href="" class="dropdown-item">All Specials</a>
                 <a href="" class="dropdown-item">Clearance</a>
