@@ -57,8 +57,6 @@
                                 <option value="reset" {% if sorting_products == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if sorting_products == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if sorting_products == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                                <option value="rating_asc" {% if sorting_products == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                                <option value="rating_desc" {% if sorting_products == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
                                 <option value="name_asc" {% if sorting_products == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                                 <option value="name_desc" {% if sorting_products == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                                 <option value="category_asc" {% if sorting_products == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
@@ -141,29 +139,28 @@
     </div>
 {% endblock %}
 
-{% block postloadjs %}
-<!-- to append this code to anything already in the block-->
+
+{% block afterloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-    /* once capturing the change event from the source selector
-    two variables set, one for the selector and the other for a new url for the object 
-    which takes the window location */
-        $('#sort-selector').change(function() {
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector3').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
 
-            /* get the value from selector box and the breaking them out 
-            into sort and direction*/
             var selectedVal = selector.val();
             if(selectedVal != "reset"){
                 var sort = selectedVal.split("_")[0];
                 var direction = selectedVal.split("_")[1];
 
-                /* change the get parameters to the method calls */
                 currentUrl.searchParams.set("sort", sort);
                 currentUrl.searchParams.set("direction", direction);
 
-                /* change the current location to the updated URL  */
                 window.location.replace(currentUrl);
             } else {
                 currentUrl.searchParams.delete("sort");
