@@ -2,134 +2,139 @@
 
 <!doctype html>
 <html lang="en">
-    <head>
-        
-        {% block meta %}
-            <meta http-equiv="X-UA-compatible" content="ie-edge"
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        {% endblock %}
-        
-        <!-- additional meta data placeholder -->
-        {% block other_meta %}
-        {% endblock %}
 
-        {% block corecss %}
-            <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-            <!-- https://fonts.google.com/specimen/Barlow+Condensed -->
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun&display=swap">
-            <!-- Custome CSS -->
-            <link rel="stylesheet" href="{% static 'css/base.css' %}"
+<head>
 
-        {% endblock %}
+    {% block meta %}
+    <meta http-equiv="X-UA-compatible" content="ie-edge" <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
 
-        <!-- additional css placeholder -->
-        {% block other_css %}
-        {% endblock %}
+    <!-- additional meta data placeholder -->
+    {% block other_meta %}
+    {% endblock %}
 
-        {% block corejs %}
-            <!-- Fontawesome JS -->
-            <script src="https://kit.fontawesome.com/9b32562ec0.js" crossorigin="anonymous"></script>
-            <!-- Jquery JS -->
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <!-- Bootstrap JS -->
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        {% endblock %}
+    {% block corecss %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- https://fonts.google.com/specimen/Barlow+Condensed -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun&display=swap">
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" {% endblock %} <!-- additional css placeholder -->
 
-        <!-- additional js placeholder -->
-        {% block other_js %}
-        {% endblock %}
+    {% block other_css %}
+    {% endblock %}
 
-        <title>Clout Mafia {% block other_title %}{% endblock %}</title>
-        
-    </head>
+    {% block corejs %}
+    <!-- Fontawesome JS -->
+    <script src="https://kit.fontawesome.com/9b32562ec0.js" crossorigin="anonymous"></script>
+    <!-- Jquery JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    {% endblock %}
 
-    <body>
+    <!-- additional js placeholder -->
+    {% block other_js %}
+    {% endblock %}
 
-        <header class="container-fluid fixed-top">
-            <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-                <!-- linking 'home' url which was defined in urls.py-->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
-                    <a href="" class="title nav-link main-logo-link logo-font">Clout Mafia</a>
-                </div>
-                <!-- Search functionality and the results would appear in the products page-->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <form method="GET" action="{% url 'products' %}">
-                        <div class="input-search input-group w-100">
-                            <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
-                            <div class="search-box input-group-append">
-                                <button class="form-control btn btn-black border" type="submit">
-                                    <span class="icon">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                </button>
-                            </div>
-                            <input class="search-box form-control border" type="text" name="search_q" placeholder="Search the site">
+    <title>Clout Mafia {% block other_title %}{% endblock %}</title>
+
+</head>
+
+<body>
+
+    <header class="container-fluid fixed-top">
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+            <!-- linking 'home' url which was defined in urls.py-->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
+                <a href="" class="title nav-link main-logo-link logo-font">Clout Mafia</a>
+            </div>
+            <!-- Search functionality and the results would appear in the products page-->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-search input-group w-100">
+                        <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
+                        <div class="search-box input-group-append">
+                            <button class="form-control btn btn-black border" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
                         </div>
-                    </form>
-                </div>
-                <!-- Icons to display 'My Account' and the shopping basket -->
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <ul class="list-inline list-unstyled text-lg-right my-0">
-                        <!-- drop to display 'My Account Information' -->
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0">My Account</p>
-                                </div>
-                            </a>
-                            <!-- Drop Down options -->
-                            <div class="dropdown-menu border-1" aria-labelledby="user-menu">
-                                <!-- If the user has an account and is categories as a super user display the following -->
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="" class="dropdown-item">Product Management</a>
-                                        <a href="" class="dropdown-item">Add a Product</a>
-                                    {% endif %}
-                                    <a href="" class="dropdown-item">My Profile</a>
-                                    <a href="" class="dropdown-item">Write a Review</a>
-                                    <a href="" class="dropdown-item">Contact Us</a>
-                                    <a href="" class="dropdown-item">Logout</a>
-                                {% else %}
-                                    <a href="" class="dropdown-item">Register</a>
-                                    <a href="" class="dropdown-item">Login</a>
-                                {% endif %}
+                        <input class="search-box form-control border" type="text" name="search_q"
+                            placeholder="Search the site">
+                    </div>
+                </form>
+            </div>
+            <!-- Icons to display 'My Account' and the shopping basket -->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="nav justify-content-end list-inline list-unstyled my-0">
+                    <!-- drop to display 'My Account Information' -->
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
                             </div>
-                        </li>
-                        <!-- Placeholder for the shopping bag-->
-                        <li class="text-center list-inline-item">
-                            <div><i class="fas fa-shopping-bag fa-lg"></i>
-                            <p class="my-0">Shopping Bag</p></div>
-                        </li>   
-                    </ul>
-                </div>
+                        </a>
+                        <!-- Drop Down options -->
+                        <div class="dropdown-menu border-1" aria-labelledby="user-menu">
+                            <!-- If the user has an account and is categories as a super user display the following -->
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="" class="dropdown-item">Product Management</a>
+                            <a href="" class="dropdown-item">Add a Product</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="" class="dropdown-item">Write a Review</a>
+                            <a href="" class="dropdown-item">Contact Us</a>
+                            <a href="" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="" class="dropdown-item">Register</a>
+                            <a href="" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <!-- Placeholder for the shopping bag-->
+                    <li class="list-inline-item">
+                        <div><i class="fas fa-shopping-bag fa-lg"></i>
+                            <p class="my-0">Shopping Bag</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="row topnav">
-                <nav class="navbar navbar-expand-lg navbar-light w-100">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    {% include 'includes/mobile-top-header.html' %}
-                    {% include 'includes/main-nav.html' %}
-                </nav>
-            </div>
-        </header>
+        </div>
+        <div class="row topnav">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
+        </div>
+    </header>
 
-        {% if messages %}
-            <div class="message-container"></div>
-        {% endif %}
+    {% if messages %}
+    <div class="message-container"></div>
+    {% endif %}
 
-        {% block page_header %}
-        {% endblock %}
+    {% block page_header %}
+    {% endblock %}
 
-        {% block content %}
-        {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-        <footer class="text-muted">
+    <footer class="text-muted">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-auto">Shipping & Return</div>
@@ -139,18 +144,19 @@
                 <div class="col-auto mr-auto col-12 col-md-auto">Contact Us</div>
                 <div class="col-12 col-md-1 col-auto">
                     <span class="icon">
-                    <i class="fab fa-instagram-square"></i>
+                        <i class="fab fa-instagram-square"></i>
                     </span>
                     <span class="icon">
-                    <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-facebook-square"></i>
                     </span>
                 </div>
             </div>
-            </div>
-        </footer>
+        </div>
+    </footer>
 
-        {% block afterloadjs %}
-        {% endblock %}
+    {% block afterloadjs %}
+    {% endblock %}
 
-    </body>
+</body>
+
 </html>
