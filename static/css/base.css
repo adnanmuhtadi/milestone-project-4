@@ -121,6 +121,10 @@ a.category-badge>span.badge:hover {
   color: #fff !important;
 }
 
+.details {
+  margin-top: 75px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
