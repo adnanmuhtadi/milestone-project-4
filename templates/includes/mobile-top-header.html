@@ -1,5 +1,5 @@
 <ul>
-    <li class="list-inline-item">
+    <li class="list-inline-item mt-1">
         <!-- -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -36,11 +36,11 @@
             </div>
         </a>
         <!-- The search form is displayed as drop down menu for space utilisation and it will search in the product page -->
-        <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="user-menu">
+        <div class="dropdown-menu border-1 w-100 p-3 rounded-0 my-0" aria-labelledby="user-menu">
             <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-a input-group">
                     <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
-                    <div class="input-group-append">
+                    <div class="input-group text-end">
                         <!-- If the user has an account and is categories as a super user display the following -->
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
