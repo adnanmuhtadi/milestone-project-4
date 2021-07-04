@@ -25,7 +25,9 @@
             </form>
         </div>
     </li>
-    <li class="list-inline-item dropdown">
+
+    <li class="list-inline-item">
+        <!-- -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -33,24 +35,32 @@
                 <p class="my-0">My Account</p>
             </div>
         </a>
-        <!-- Drop Down options -->
-        <div class="dropdown-menu border-1" aria-labelledby="user-menu">
-            <!-- If the user has an account and is categories as a super user display the following -->
-            {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-            <a href="" class="dropdown-item">Product Management</a>
-            <a href="" class="dropdown-item">Add a Product</a>
-            {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="" class="dropdown-item">Write a Review</a>
-            <a href="" class="dropdown-item">Contact Us</a>
-            <a href="" class="dropdown-item">Logout</a>
-            {% else %}
-            <a href="" class="dropdown-item">Register</a>
-            <a href="" class="dropdown-item">Login</a>
-            {% endif %}
+        <!-- The search form is displayed as drop down menu for space utilisation and it will search in the product page -->
+        <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="user-menu">
+            <form class="form" method="GET" action="{% url 'products' %}">
+                <div class="input-a input-group">
+                    <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
+                    <div class="input-group-append">
+                        <!-- If the user has an account and is categories as a super user display the following -->
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="" class="dropdown-item">Product Management</a>
+                        <a href="" class="dropdown-item">Add a Product</a>
+                        {% endif %}
+                        <a href="" class="dropdown-item">My Profile</a>
+                        <a href="" class="dropdown-item">Write a Review</a>
+                        <a href="" class="dropdown-item">Contact Us</a>
+                        <a href="" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="" class="dropdown-item">Register</a>
+                        <a href="" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
         </div>
     </li>
+
     <!-- Placeholder for the shopping bag-->
     <li class="list-inline-item">
         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"

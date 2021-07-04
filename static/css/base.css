@@ -121,9 +121,9 @@ a.category-badge>span.badge:hover {
   color: #fff !important;
 }
 
-.details {
+/* .details {
   margin-top: 75px;
-}
+} */
 
 /* -------------------------------- Media Queries */
 
@@ -157,5 +157,17 @@ a.category-badge>span.badge:hover {
 
   body {
     height: calc(100vh - 116px);
+  }
+}
+
+@media (max-width: 425px) {
+  .nav-link {
+    padding: 7px;
+  }
+}
+
+@media (max-width: 320px) {
+  .nav-link {
+    padding: 2px;
   }
 }
