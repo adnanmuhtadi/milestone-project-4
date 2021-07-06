@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
-    'bag',
+    'basket',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bag.contexts.bag_items', #allows the context processor available to the entire application
+                # allows the context processor available to the entire application
+                'basket.contexts.basket_contents',
             ],
         },
     },
