@@ -1,9 +1,8 @@
-from django.conf import settings
 from decimal import Decimal
-Context
+from django.conf import settings
 
 
-def basket_items(request):
+def basket_contents(request):
     # Will return a dictionary
 
     basket_produts = []
