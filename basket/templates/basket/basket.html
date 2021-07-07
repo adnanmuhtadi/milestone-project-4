@@ -25,7 +25,9 @@
             <div class="col">
                 <!-- if something is in the bag, the table of contents will display-->
                 {% if basket_contents %}
-                <div class="table-responsive rounded"></div>
+                <div class="table-responsive rounded">
+                    {{ basket_products }}
+                </div>
                 {% else %}
                 <!-- Message if the bag is empty and a link to go back to all products-->
                 <p class="lead mt-5">No items have been added to the bag.</p>
