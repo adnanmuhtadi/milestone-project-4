@@ -159,5 +159,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-FREE_DELIVERY_LIMIT = 199.99
+# To calculations for the delivery
+FREE_DELIVERY_LIMIT = 200
 STANDARD_DELIVERY_PERCENTAGE = 10

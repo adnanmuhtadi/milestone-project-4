@@ -5,7 +5,7 @@ from products.models import Product
 
 
 def basket_contents(request):
-    # Will return a dictionary
+    # empty list for the bag items to live in which will return a dictionary
 
     basket_products = []
     total = 0
@@ -13,7 +13,7 @@ def basket_contents(request):
     # adding the basket so it works throughout the site
     basket = request.session.get('basket', {})
 
-    # for each item and quantity within the basket, get the basket and then set the calculations
+    # for each item and quantity within the basket, get the product then the basket and its calculations
     for item_id, quantity in basket.items():
         product = get_object_or_404(Product, pk=item_id)
         total += quantity * product.price
@@ -30,14 +30,14 @@ def basket_contents(request):
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_message = settings.FREE_DELIVERY_LIMIT - total
     else:
-        # delivery will be 0 if they meet the threshold
+        # delivery will be 0 if they meet the delivery limit
         delivery = 0
         free_delivery_message = 0
 
-    # calculations of the grand total
+    # calculations to add the delivery to the grand total
     grand_price = delivery + total
 
-    # adding items to the context
+    # adding items to the context which will available to all templates across the site
     context = {
         'basket_products': basket_products,
         'total': total,

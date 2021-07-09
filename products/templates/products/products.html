@@ -14,6 +14,7 @@
 
 {% block content %}
 <div class="container-fluid">
+    <!-- Title for the page -->
     <div class="row">
         <div class="col text-center mt-lg-5 mt-md-2">
             <h2 class="logo-font title">Products</h2>
@@ -29,47 +30,11 @@
     <div class="row mt-4">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
-                <div class="col-12 col-md-3 d-flex">
-                    <div class="sort-select-wrapper w-100 d-flex justify-content-start">
-                        <select id="colour-selector"
-                            class="custom-select custom-select-sm rounded-0 border border w-100">
-                            <option value="reset" {% if sorting_products == 'None_None' %}selected{% endif %}>Colour...
-                            </option>
-                            <option value="blue" {% if sorting_products == 'blue' %}selected{% endif %}>Blue
-                            </option>
-                            <option value="black" {% if sorting_products == 'black' %}selected{% endif %}>Black
-                            </option>
-                            <option value="white" {% if sorting_products == 'white' %}selected{% endif %}>White
-                            </option>
-                            <option value="red" {% if sorting_products == 'red' %}selected{% endif %}>Red
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 d-flex ">
-                    <div class="sort-select-wrapper w-100 d-flex justify-content-center">
-                        <select id="size-selector" class="custom-select custom-select-sm rounded-0 border w-100">
-                            <option value="reset" {% if sorting_size == 'None_None' %}selected{% endif %}>Size...
-                            </option>
-                            <option value="size6" {% if sorting_size == 'size6' %}selected{% endif %}>6</option>
-                            <option value="size7" {% if sorting_size == 'size7' %}selected{% endif %}>7
-                            </option>
-                            <option value="size8" {% if sorting_size == 'size8' %}selected{% endif %}>8
-                            </option>
-                            <option value="size9" {% if sorting_size == 'size9' %}selected{% endif %}>9
-                            </option>
-                            <option value="size10" {% if sorting_size == 'size10' %}selected{% endif %}>10
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-md-1 d-flex">
-                    <button id="findbtn">Find</button>
-                </div>
-                <div class="col-12 col-md-3 offset-md-2">
+                <div class="col-12">
+                    <!-- the sort drop down option placeholder -->
                     <div class="sort-select-wrapper my-auto d-flex justify-content-end">
                         <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded-0 border border-{% if sorting_products != 'None_None' %}info{% else %}black{% endif %} w-75">
+                            class="custom-select custom-select-sm rounded-0 border border-{% if sorting_products != 'None_None' %}info{% else %}black{% endif %} w-25">
                             <option value="reset" {% if sorting_products == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
                             <option value="price_asc" {% if sorting_products == 'price_asc' %}selected{% endif %}>Price
@@ -87,122 +52,136 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-1 mb-2">
-                <div class="col-12 col-md-6 order-md">
-                    <p class="text-muted mt-3">
-                        {% if search_term or present_categories or sorting_products != 'None_None' %}
-                        <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
-                        {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for
-                        <strong>"{{ search_term }}"</strong>{% endif %}
-                    </p>
+                <div class="row mt-1 mb-2">
+                    <!-- count for the number of search items appear as well as the breadcrumbs when categories are selected -->
+                    <div class="col-12 col-md-6 order-md">
+                        <p class="text-muted mt-3">
+                            {% if search_term or present_categories or sorting_products != 'None_None' %}
+                            <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                            {% endif %}
+                            {{ products|length }} Products{% if search_term %} found for
+                            <strong>"{{ search_term }}"</strong>{% endif %}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                {% for product in products %}
-                <div class="vr col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-5">
-                    <div class="card h-100 border-0">
-                        {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0">
-                            <p class="mb-3 text-center">{{ product.name }}</p>
-                        </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold text-center">£{{ product.price }}</p>
-                                    <!-- {% if product.category %}
-                                    <p class="small mt-1 mb-0">
-                                        <a class="text-muted"
-                                            href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.readable_name }}
-                                        </a>
-                                    </p>
-                                    {% endif %}
-                                    {% if product.size %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>Size:
-                                        {{ product.size }}</small>
-                                    {% else %}
-                                    <small class="text-muted">No Rating</small>
-                                    {% endif %} -->
+                <div class="row">
+                    <!-- a new card placeholder for every time in the product database -->
+                    {% for product in products %}
+                    <div class="vr col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-5">
+                        <div class="card h-100 border-0">
+                            {% if product.image %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                    alt="{{ product.name }}">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ product.name }}">
+                            </a>
+                            {% endif %}
+                            <!-- Produce details placed underneath the image -->
+                            <div class="card-body pb-0">
+                                <p class="mb-3 text-center">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold text-center">£{{ product.price }}
+                                        </p>
+                                        <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
+                                            <!-- csrf_token is django's cross-site request forgery protection -->
+                                            {% csrf_token %}
+                                            <div class="form-row">
+                                                <div class="col-12">
+                                                    <div class="form-group w-50">
+                                                        <div class="input-group">
+                                                            <input class="form-control qty_input d-none my-0"
+                                                                type="number" name="quantity" value="1" min="1" max="99"
+                                                                data-item_id="{{ product.id }}"
+                                                                id="id_qty_{{ product.id }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Button to add the product within the card to the basket -->
+                                                <div class="col-12 text-center">
+                                                    <input type="submit"
+                                                        class="btn btn-black rounded-0 text-uppercase mt-2"
+                                                        value="Add to Basket">
+                                                </div>
+                                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- To layout of the cards dependant on the size of the device -->
+                    {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% if forloop.counter|divisibleby:1 %}
-                <div class="col-12 d-sm-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:3 %}
-                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% endfor %}
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
 
 
-{% block afterloadjs %}
-<!-- to append this code to anything already in the block-->
-{{ block.super }}
-<script type="text/javascript">
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
+    {% block afterloadjs %}
+    <!-- to append this code to anything already in the block-->
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.btt-link').click(function (e) {
+            window.scrollTo(0, 0)
+        })
+    </script>
 
-<script type="text/javascript">
-    /* once capturing the change event from the source selector
+    <script type="text/javascript">
+        /* once capturing the change event from the source selector
     two variables set, one for the selector and the other for a new url for the object 
     which takes the window location */
-    $('#sort-selector').change(function () {
-        var selector = $(this);
-        var currentUrl = new URL(window.location);
+        $('#sort-selector').change(function () {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
 
-        /* get the value from the selector box and the breaking them out 
-        into sort and direction*/
-        var selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
+            /* get the value from the selector box and the breaking them out 
+            into sort and direction*/
+            var selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
 
-            /* change the get parameters to the method calls */
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
+                /* change the get parameters to the method calls */
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
 
-            /* change the current location to the updated URL  */
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
+                /* change the current location to the updated URL  */
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
 
-            window.location.replace(currentUrl);
-        }
-    })
-</script>
-{% endblock %}
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
+    {% endblock %}

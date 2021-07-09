@@ -1,6 +1,6 @@
 <ul>
     <li class="list-inline-item mt-1">
-        <!-- -->
+        <!-- mobile search placeholder -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -20,6 +20,7 @@
                             </span>
                         </button>
                     </div>
+                    <!-- placeholder for the search text box -->
                     <input class="search-box form-control border" type="text" name="q" placeholder="Search the site">
                 </div>
             </form>
@@ -27,7 +28,7 @@
     </li>
 
     <li class="list-inline-item">
-        <!-- -->
+        <!-- navigation for mobile view -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -41,7 +42,7 @@
                 <div class="input-a input-group">
                     <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
                     <div class="input-group text-end">
-                        <!-- If the user has an account and is categories as a super user display the following -->
+                        <!-- If the user has an account and is classified as a super user display the following -->
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                         <a href="" class="dropdown-item">Product Management</a>
@@ -61,7 +62,7 @@
         </div>
     </li>
 
-    <!-- Placeholder for the shopping bag-->
+    <!-- Placeholder for the shopping basket -->
     <li class="list-inline-item">
         <a class="{% if grand_price %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
             href="{% url 'view_basket' %}">
