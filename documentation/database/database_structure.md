@@ -1,6 +1,6 @@
 <h1 align="center">Database Structure</h1>
 
-The User model used in this project is provided by Django which came from the Code Institute 'Boutique Ado' video tutorials as a part of defaults `django.contrib.auth.models`. For more information about [Click here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
+The User model used in this project is provided by Django which came from the Code Institute 'Boutique Ado' video tutorials as a part of defaults `django.contrib.auth.models`. For more information about [click here](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/).
 
 # Data Modelling
 

@@ -101,6 +101,12 @@ font as the main fonts throughout the website with Sans Serif as the emergency f
     #### Master Wireframes
     - Master Wireframes - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/clout-mafia-wireframes.bmpr)
     
+#### Database Structure
+
+During the development of my project, I was using sqlite for my database, but then changed over to postgres when it was deployed (Postgres is an addon provided by Heroku).
+
+Database Structure - [View Tables](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/database/database_structure.md)
+
 #### Database Mapping
 
 The database was designed using an online tool called [DB Diagram](https://dbdiagram.io/). The tables where mapped depending on the field requirements.
