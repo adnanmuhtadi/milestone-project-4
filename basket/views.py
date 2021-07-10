@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
+
+from products.models import Product
 
 # Create your views here.
 
@@ -14,6 +17,7 @@ def add_to_basket(request, item_id):
     """ Add a quantity of the specified product to the shopping basket """
 
     # get the quantity from the the and url to redirect the user to
+    product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     """ session created till the browser is closed to keep the user
@@ -25,6 +29,7 @@ def add_to_basket(request, item_id):
         basket[item_id] += quantity
     else:
         basket[item_id] = quantity
+        messages.success(request, f'product has been add {product.name}')
 
     # overwriting the variable in the session with the updated version of the basket
     request.session['basket'] = basket
