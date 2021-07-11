@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import get_object_or_404, render, redirect, HttpResponse
 from django.contrib import messages
 
 from products.models import Product
@@ -17,7 +17,7 @@ def add_to_basket(request, item_id):
     """ Add a quantity of the specified product to the shopping basket """
 
     # get the quantity from the the and url to redirect the user to
-    product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     """ session created till the browser is closed to keep the user
@@ -26,7 +26,8 @@ def add_to_basket(request, item_id):
 
     # adding the product and quantity in the basket, and if the product is already there, add the quantity to the basket
     if item_id in list(basket.keys()):
-        basket[item_id] += quantity
+        messages.error(
+            request, f'Item is already in the basket {product.name}')
     else:
         basket[item_id] = quantity
         messages.success(request, f'product has been add {product.name}')
@@ -42,11 +43,14 @@ def remove_from_basket(request, item_id):
 
     # try block to catch any expections that might happen with a server 500 error
     try:
+        product = get_object_or_404(Product, pk=item_id)
         basket = request.session.get('basket', {})
         basket.pop(item_id)
 
         request.session['basket'] = basket
+        messages.success(request, f'product has been removed {product.name}')
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Error removing item {e}')
         return HttpResponse(status=500)

@@ -140,13 +140,10 @@
     <div class="message-container">
         {% for message in messages %}
         {% with message.level as level %}
-        <!-- 40 in django is considered as an error -->
         {% if level == 40 %}
         {% include 'includes/toasts/toast_error.html' %}
-        <!-- 30 in django is considered as a warning -->
         {% elif level == 30 %}
         {% include 'includes/toasts/toast_warning.html' %}
-        <!-- 25 in django is considered as success -->
         {% elif level == 25 %}
         {% include 'includes/toasts/toast_success.html' %}
         {% else %}
@@ -187,7 +184,12 @@
     {% block afterloadjs %}
     <script type="text/javascript">
         // to display the toast
-        $('.toast').toast('show');
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, {
+                autohide: false
+            }).show()
+        })
     </script>
     {% endblock %}
 
