@@ -17,12 +17,12 @@
     <div class="row">
         <div class="col text-center mt-lg-5 mt-md-2">
             <h2 class="logo-font">Shopping Bag</h2>
-            <hr class="w-50 mb-1 mx-auto">
+            <hr class="w-50 mb-5 mx-auto">
         </div>
 
 
         <div class="row">
-            <div class="col">
+            <div class="col-6">
                 <!-- if something is in the basket, the table of contents will display it here -->
                 {% if basket_products %}
                 <div class="table-responsive rounded">
@@ -60,37 +60,6 @@
                             </td>
                         </tr>
                         {% endfor %}
-                        <tr>
-                            <!-- To display the financial break down summary of the Total, the delivery price and the grand total  -->
-                            <td colspan="5" class="pt-5 text-end">
-                                <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
-                                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                                <h4 class="mt-4"><strong>Grand Total: £{{ grand_price|floatformat:2 }}</strong></h4>
-                                {% if free_delivery_message > 0 %}
-                                <p class="mb-1 text-danger">
-                                    You could get free delivery by spending just
-                                    <strong>£{{ free_delivery_message }}</strong> more!
-                                </p>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- To take the user back to the all products page or to take them to the checkout page -->
-                            <td colspan="5" class="text-end">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Carry on Shopping</span>
-                                </a>
-                                <a href="" class="btn btn-black rounded-0 btn-lg">
-                                    <span class="text-uppercase">Secure Checkout</span>
-                                    <span class="icon">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                </a>
-                            </td>
-                        </tr>
                     </table>
                 </div>
                 {% else %}
@@ -104,6 +73,36 @@
                     <span class="text-uppercase">Carry on Shopping</span>
                 </a>
                 {% endif %}
+            </div>
+            <div class="offset-6 col-6 justify-content-end position-fixed">
+                <!-- To display the financial break down summary of the Total, the delivery price and the grand total  -->
+                <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
+                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                <h4 class="mt-4"><strong>Grand Total: £{{ grand_price|floatformat:2 }}</strong></h4>
+                {% if free_delivery_message > 0 %}
+                <p class="mb-1 text-danger">
+                    You could get free delivery by spending just
+                    <strong>£{{ free_delivery_message }}</strong> more!
+                </p>
+                {% endif %}
+
+                <tr>
+                    <!-- To take the user back to the all products page or to take them to the checkout page -->
+                    <td colspan="5" class="text-end">
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Carry on Shopping</span>
+                        </a>
+                        <a href="" class="btn btn-black rounded-0 btn-lg">
+                            <span class="text-uppercase">Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
             </div>
         </div>
     </div>
