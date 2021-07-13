@@ -1,0 +1,9 @@
+<!-- To display the financial break down summary of the Total, the delivery price and the grand total  -->
+<h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
+<h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+<h4 class="mt-4"><strong>Grand Total: £{{ grand_price|floatformat:2 }}</strong></h4>
+{% if free_delivery_message > 0 %}
+<p class="offset-sm-4 col-12 col-md-8 mb-1 text-danger fs-6">
+    Spend <strong>£ {{ free_delivery_message }}</strong> more to get free delivery!
+</p>
+{% endif %}
