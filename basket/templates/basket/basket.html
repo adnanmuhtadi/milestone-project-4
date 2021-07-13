@@ -17,22 +17,55 @@
     <div class="row">
         <div class="col text-center mt-lg-5 mt-md-2">
             <h2 class="logo-font">Shopping Bag</h2>
-            <hr class="w-50 mb-5 mx-auto">
+            <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
-
-
-        <div class="row">
-            <div class="col-6">
-                <!-- if something is in the basket, the table of contents will display it here -->
-                {% if basket_products %}
-                <div class="table-responsive rounded">
+        <div class="row mx-auto">
+            <!-- if something is in the basket, the table of contents will display it here -->
+            {% if basket_products %}
+            <div class="d-block d-md-none">
+                <div class="row text-center">
+                    <div class="col">
+                        {% include "basket/basket-total.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include "basket/checkout-buttons.html" %}
+                        <p class="text-center text-muted mb-5">Basket summary below</p>
+                    </div>
+                </div>
+                {% for item in basket_products %}
+                <div class="row text-center">
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "basket/product-image.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "basket/product-info.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "basket/product-size.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 order-sm-last">
+                        <p class="my-0">£ {{ item.product.price }}</p>
+                        <a class="remove-item text-danger float-right"
+                            id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-8 col-lg-8 ">
+                <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm table-borderless">
                         <thead class="text-black">
                             <tr>
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
+                                <th scope="col"></th>
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
@@ -40,23 +73,18 @@
                         {% for item in basket_products %}
                         <tr>
                             <td class="p-3 w-25">
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                {% include "basket/product-image.html" %}
                             </td>
                             <td class="py-3">
-                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0">£{{ item.product.price }}</p>
+                                {% include "basket/product-info.html" %}
                             </td>
                             <td class="py-3 w-25">
-                                <p class="my-0">{{ item.quantity }}</p>
-                                <!--  Anchor to remove the item  -->
+                                {% include "basket/product-size.html" %}
+                            </td>
+                            <td class="py-3 checkout_price">
+                                <p class="my-0">£ {{ item.product.price }}</p>
                                 <a class="remove-item text-danger float-right"
                                     id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0">£{{ item.product.price }}</p>
                             </td>
                         </tr>
                         {% endfor %}
@@ -74,33 +102,13 @@
                 </a>
                 {% endif %}
             </div>
-            <div class="offset-6 col-6 justify-content-end position-fixed">
-                <!-- To display the financial break down summary of the Total, the delivery price and the grand total  -->
-                <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
-                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                <h4 class="mt-4"><strong>Grand Total: £{{ grand_price|floatformat:2 }}</strong></h4>
-                {% if free_delivery_message > 0 %}
-                <p class="mb-1 text-danger">
-                    You could get free delivery by spending just
-                    <strong>£{{ free_delivery_message }}</strong> more!
-                </p>
-                {% endif %}
-
+            <div
+                class="offset-lg-6 col-6 offset-md-7 col-md-4 justify-content-end position-fixed text-end d-none d-md-block">
+                {% include "basket/basket-total.html" %}
                 <tr>
                     <!-- To take the user back to the all products page or to take them to the checkout page -->
-                    <td colspan="5" class="text-end">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Carry on Shopping</span>
-                        </a>
-                        <a href="" class="btn btn-black rounded-0 btn-lg">
-                            <span class="text-uppercase">Secure Checkout</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </a>
+                    <td colspan="12" class="text-end">
+                        {% include "basket/checkout-buttons.html" %}
                     </td>
                 </tr>
             </div>

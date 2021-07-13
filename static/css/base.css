@@ -5,6 +5,13 @@ html {
 body {
   font-family: 'Sarabun', sans-serif;
   height: calc(100vh - 400px);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .vr {
@@ -56,6 +63,9 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
   text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 /* from Bulma */
@@ -149,6 +159,10 @@ a.category-badge>span.badge:hover {
   height: 100px;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.checkout_price {
+  width: 80px;
 }
 
 /* -------------------------------- Media Queries */
