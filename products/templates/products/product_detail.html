@@ -15,11 +15,13 @@
     <div class="row mt-lg-5 mt-md-2">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <!-- Product image -->
-            <div class="small-container single-product">
+            <div class="small-container single-product mb-3">
+                <!-- Product title to be displayed in mobile view and hidden in the desktop view -->
                 <h3 class="mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
                 {% if product.image.url %}
+                <!-- getting the main image for the product -->
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" id="ProductImg" src="{{ product.image.url }}"
+                    <img class="card-img-top img-fluid mb-2" id="ProductImg" src="{{ product.image.url }}"
                         alt="{{ product.name }}">
                 </a>
                 {% else %}
@@ -27,20 +29,22 @@
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
-                <div class="small-image-row">
-                    <div class="small-image-col">
-                        <div class="small-image">
-                            <img class="small-image w-100 card-img-top img-fluid" src="{{ product.image.url }}"
-                                alt="{{ product.name }}">
-                        </div>
-                        <div class="small-image">
-                            <img class=" small-image w-100 card-img-top img-fluid" src="{{ product.image.url }}"
-                                alt="{{ product.name }}">
-                        </div>
-                        <div class="small-image">
-                            <img class=" small-image w-100 card-img-top img-fluid" src="{{ product.image.url }}"
-                                alt="{{ product.name }}">
-                        </div>
+                <div class="small-image-row row">
+                    <div class="small-image-col col-3">
+                        <img class="sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ product.image.url }}"
+                            alt="{{ product.name }}">
+                    </div>
+                    <div class="small-image-col col-3">
+                        <img class="sm-image w-100 card-img-top img-fluid img-thumbnail"
+                            src="{{ product.imagetwo.url }}" alt="{{ product.name }}">
+                    </div>
+                    <div class="small-image-col col-3">
+                        <img class="sm-image w-100 card-img-top img-fluid img-thumbnail"
+                            src="{{ product.imagethree.url }}" alt="{{ product.name }}">
+                    </div>
+                    <div class="small-image-col col-3">
+                        <img class="sm-image w-100 card-img-top img-fluid img-thumbnail"
+                            src="{{ product.imagefour.url }}" alt="{{ product.name }}">
                     </div>
                 </div>
             </div>
@@ -98,4 +102,26 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block afterloadjs %}
+
+<script type="text/javascript">
+    var ProductImg = document.getElementById("ProductImg");
+    var SmallImg = document.getElementsByClassName("sm-image");
+
+    SmallImg[0].onclick = function () {
+        ProductImg.src = SmallImg[0].src;
+    }
+    SmallImg[1].onclick = function () {
+        ProductImg.src = SmallImg[1].src;
+    }
+    SmallImg[2].onclick = function () {
+        ProductImg.src = SmallImg[2].src;
+    }
+    SmallImg[3].onclick = function () {
+        ProductImg.src = SmallImg[3].src;
+    }
+</script>
+
 {% endblock %}
