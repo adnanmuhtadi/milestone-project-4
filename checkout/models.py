@@ -6,19 +6,24 @@ from django.conf import settings
 
 from products.models import Product
 
+# will handle all orders across the store
+
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=32, null=False, editable=False)
+    # editable field means the field can not be changed was created
+    order_number = models.CharField(max_length=32, null=True, editable=False)
+    profile = models.CharField(max_length=128, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    address_line1 = models.CharField(max_length=80, null=False, blank=False)
+    address_line2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    street_address1 = models.CharField(max_length=80, null=False, blank=False)
-    street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    county = models.CharField(max_length=80, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+    county_state = models.CharField(max_length=80, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    country = models.CharField(max_length=40, null=False, blank=False)
+    # auto_now will be automatically generated as soon as the user presses the buy now button
+    purchase_date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
@@ -27,19 +32,22 @@ class Order(models.Model):
         max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):
-        """
-        Generate a random, unique order number using UUID
+        """"
+        the underscore is to define that it is a private method which would only be used inside this class
+        but this class is to create a random and unique order number using the UUID
         """
         return uuid.uuid4().hex.upper()
 
-    def update_total(self):
+    def update_final_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs.
+        Update the final total each time a line item has been added
+        and the delivery costs
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))[
-            'lineitem_total__sum']
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
+        # setting the order total to lineitem_total_sum
+        self.order_total = self.lineitemorder.aggregate(
+            Sum('lineitem_total'))['lineitem_total_sum']
+        # using what has been set in settings for delivery cost and standard delivery percentage
+        if self.order_total < settings.FREE_DELIVERY_LIMIT:
             self.delivery_cost = self.order_total * \
                 settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
@@ -49,35 +57,45 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the order number
-        if it hasn't been set already.
+        Will override the original save method to set the order number,
+        If it has not already been set.
         """
+        # if the order does not have an order number, it will create one and then save
         if not self.order_number:
             self.order_number = self._generate_order_number()
-        super().save(*args, **kwargs)
+        super().save()
 
+    # string method to return the order number
     def __str__(self):
         return self.order_number
 
+    """
+    Order Line Product class is set up so when an order instance is created,
+    it will go through the list of line items, amend the calculations if need to be,
+    and then attach it to the order.
+    """
 
-class OrderLineItem(models.Model):
+
+class OrderLineProduct(models.Model):
+    # the related name is so we can the call easier to make, for example order.lineitemorder.filter
     order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, related_name='lineitems')
-    product = models.ForeignKey(
-        Product, null=False, blank=False, on_delete=models.CASCADE)
+                              on_delete=models.CASCADE, related_name='lineitemorder')
+    product = models.ForeignKey(Product, null=False, blank=False,
+                                on_delete=models.CASCADE)
     product_size = models.CharField(
-        max_length=2, null=True, blank=True)  # XS, S, M, L, XL
+        max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
-    def save(self, *args, **kwargs):
+    def save_order(self, *args, **kwargs):
         """
-        Override the original save method to set the lineitem total
-        and update the order total.
+        Override the original save method to set the line item total
+        update the order total
         """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
+    # string method to return the sku of each product along with the order number for which it is related to
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        return f'SKY {self.product.sku} on order {self.order.order_number}'
