@@ -21,7 +21,7 @@
                 {% if product.image.url %}
                 <!-- getting the main image for the product -->
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid mb-2" id="ProductImg" src="{{ product.image.url }}"
+                    <img class="card-img-top img-fluid mb-3" id="ProductImg" src="{{ product.image.url }}"
                         alt="{{ product.name }}">
                 </a>
                 {% else %}
@@ -29,6 +29,7 @@
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
+                <!-- small image placeholder where when clicked, it will be displayed on the main image placeholder -->
                 <div class="small-image-row row">
                     <div class="small-image-col col-3">
                         <img class="sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ product.image.url }}"
@@ -107,6 +108,7 @@
 {% block afterloadjs %}
 
 <script type="text/javascript">
+    // Javascript to activate the onclick functionality for the image changes
     var ProductImg = document.getElementById("ProductImg");
     var SmallImg = document.getElementsByClassName("sm-image");
 
