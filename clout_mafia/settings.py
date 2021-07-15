@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'basket',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,12 @@ DATABASES = {
     }
 }
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
