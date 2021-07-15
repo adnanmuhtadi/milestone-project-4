@@ -22,6 +22,7 @@
         <div class="row mx-auto">
             <!-- if something is in the basket, the table of contents will display it here -->
             {% if basket_products %}
+            <!-- only will be displayed for small screen devices -->
             <div class="d-block d-md-none">
                 <div class="row text-center">
                     <div class="col">
@@ -34,17 +35,22 @@
                         <p class="text-center text-muted mb-5">Basket summary below</p>
                     </div>
                 </div>
+                <!-- will create a new row for each product that is added to the basket -->
                 {% for item in basket_products %}
                 <div class="row text-center">
                     <div class="col-12 col-sm-6 mb-2">
+                        <!-- including the product image -->
                         {% include "basket/product-image.html" %}
                     </div>
                     <div class="col-12 col-sm-6 mb-2">
+                        <!-- including the details of the product -->
                         {% include "basket/product-info.html" %}
                     </div>
                     <div class="col-12 col-sm-6 mb-2">
+                        <!-- including the size of the product (shoe) -->
                         {% include "basket/product-size.html" %}
                     </div>
+                    <!-- price and remove button placeholder -->
                     <div class="col-12 col-sm-6 order-sm-last">
                         <p class="my-0">£ {{ item.product.price }}</p>
                         <a class="remove-item text-danger float-right"
@@ -53,6 +59,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                        <!-- line to separate each item -->
                         <hr>
                     </div>
                 </div>

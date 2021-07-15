@@ -15,19 +15,32 @@
     <div class="row mt-lg-5 mt-md-2">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <!-- Product image -->
-            <div class="image-container">
+            <div class="small-container single-product">
+                <h3 class="mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
                 {% if product.image.url %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid" id="ProductImg" src="{{ product.image.url }}"
+                        alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
-                <div class="row">
-                    <div class="col">
-                        test
+                <div class="small-image-row">
+                    <div class="small-image-col">
+                        <div class="small-image">
+                            <img class="small-image w-100 card-img-top img-fluid" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                        </div>
+                        <div class="small-image">
+                            <img class=" small-image w-100 card-img-top img-fluid" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                        </div>
+                        <div class="small-image">
+                            <img class=" small-image w-100 card-img-top img-fluid" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,7 +48,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <!-- all product detail information -->
             <div class="product-details-container mb-5 mt-md-2 text-lg-start text-md-start text-center">
-                <h3 class="mb-1">{{ product.name }}</h3>
+                <h3 class="mb-1 d-none d-sm-block">{{ product.name }}</h3>
                 <p class="mb-3 text-muted">Product Code: {{ product.sku }}</p>
                 <p class="lead mb-3 font-weight-bold">£ {{ product.price }}</p>
                 <p class="mr-1">Colour: {{ product.colour }}</p>
@@ -58,7 +71,7 @@
                     {% csrf_token %}
                     <div class="form-row">
                         <!-- The quantity input field which is hidden as only one item can be purchased -->
-                        <div class="col-12">
+                        <div class="col-12 d-none">
                             <div class="input-group">
                                 <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
                                     max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
@@ -68,13 +81,13 @@
                         <!-- Submit button for the form which would take the user to the all products page as well 
                         having them adding items to the basket -->
                         <div class="col-12">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-3">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Carry on Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5"
+                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-3"
                                 value="Add to Basket">
                         </div>
                         <!-- will redirect the user to the same page once they have clicked on the 'Add to Basket' button -->
