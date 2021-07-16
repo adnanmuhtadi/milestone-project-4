@@ -29,12 +29,6 @@
                         {% include "basket/basket-total.html" %}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        {% include "basket/checkout-buttons.html" %}
-                        <p class="text-center text-muted mb-5">Basket summary below</p>
-                    </div>
-                </div>
                 <!-- will create a new row for each product that is added to the basket -->
                 {% for item in basket_products %}
                 <div class="row text-center">
@@ -109,16 +103,13 @@
                 </a>
                 {% endif %}
             </div>
+            <!-- Basket total and buttons side button -->
+            {% if basket_products %}
             <div
                 class="offset-lg-6 col-6 offset-md-7 col-md-4 justify-content-end position-fixed text-end d-none d-md-block">
                 {% include "basket/basket-total.html" %}
-                <tr>
-                    <!-- To take the user back to the all products page or to take them to the checkout page -->
-                    <td colspan="12" class="text-end">
-                        {% include "basket/checkout-buttons.html" %}
-                    </td>
-                </tr>
             </div>
+            {% endif %}
         </div>
     </div>
 
