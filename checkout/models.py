@@ -28,7 +28,7 @@ class Order(models.Model):
         max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(
+    grand_price = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):
@@ -52,7 +52,7 @@ class Order(models.Model):
                 settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+        self.grand_price = self.order_total + self.delivery_cost
         self.save()
 
     def save(self, *args, **kwargs):

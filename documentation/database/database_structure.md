@@ -61,7 +61,7 @@ Country | country | CountryField |
 Purchase Date | purchase_date | DateTimeField | 
 Delivery Cost | delivery_cost | DecimalField | 
 Order Total | order_total | DecimalField | 
-Grand Total | grand_total | DecimalField | 
+Grand Price | grand_price | DecimalField | 
 
 ### Order Item Details
 
