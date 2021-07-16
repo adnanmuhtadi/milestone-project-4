@@ -43,9 +43,9 @@ class Order(models.Model):
         Update the final total each time a line item has been added
         and the delivery costs
         """
-        # setting the order total to lineitem_total_sum
+        # setting the order total to lineproduct_total_sum
         self.order_total = self.lineitemorder.aggregate(
-            Sum('lineitem_total'))['lineitem_total_sum']
+            Sum('lineproduct_total'))['lineproduct_total_sum']
         # using what has been set in settings for delivery cost and standard delivery percentage
         if self.order_total < settings.FREE_DELIVERY_LIMIT:
             self.delivery_cost = self.order_total * \
@@ -85,7 +85,7 @@ class OrderLineProduct(models.Model):
     product_size = models.CharField(
         max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(
+    lineproduct_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save_order(self, *args, **kwargs):
@@ -93,7 +93,7 @@ class OrderLineProduct(models.Model):
         Override the original save method to set the line item total
         update the order total
         """
-        self.lineitem_total = self.product.price * self.quantity
+        self.lineproduct_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     # string method to return the sku of each product along with the order number for which it is related to
