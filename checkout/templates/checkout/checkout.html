@@ -121,28 +121,29 @@
 
                         <!-- Placeholder for when there is an error -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+
+                        <!-- submit buttons for the form where the user can edit their basket or but now -->
+                        <div class="submit-button text-right mt-5 mb-2">
+                            <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="font-weight-bold">Adjust Bag</span>
+                            </a>
+                            <button id="submit-button" class="btn btn-black rounded-0">
+                                <span class="font-weight-bold">Complete Order</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </button>
+                            <p class="small text-danger my-0">
+                                <span class="icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </span>
+                                <span>Your card will be charged <strong>${{ grand_price|floatformat:2 }}</strong></span>
+                            </p>
+                        </div>
                     </fieldset>
-                    <!-- submit buttons for the form where the user can edit their basket or but now -->
-                    <div class="submit-button text-right mt-5 mb-2">
-                        <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="font-weight-bold">Adjust Basket</span>
-                        </a>
-                        <button id="submit-button" class="btn btn-black rounded-0">
-                            <span class="font-weight-bold">Buy Now</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </button>
-                        <p class="small text-danger my-0">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span>You will be charged <strong>${{ grand_price|floatformat:2 }}</strong></span>
-                        </p>
-                    </div>
                 </form>
             </div>
         </div>
@@ -154,7 +155,7 @@
 {% block afterloadjs %}
 {{ block.super }}
 <!-- template filters called json_script as it is not possible to render Django template variables in external js files -->
-{{ stripe_public_key|json)script:"id_stripe_public_key" }}
-{{ stripe_public_key|json)script:"id_client_secret" }}
-
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ stripe_public_key|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
