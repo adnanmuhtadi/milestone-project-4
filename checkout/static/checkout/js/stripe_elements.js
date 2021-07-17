@@ -7,10 +7,10 @@
 */
 
 // pulling the the stripe public key and client secret key
-var stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
-var client_secret = $('#id_client_secret').text().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
 // variable created using stripe public key
-var stripe = Stripe(stripe_public_key);
+var stripe = Stripe(stripePublicKey);
 // Instance of Stripe element
 var elements = stripe.elements();
 // styling based around the instance
@@ -54,15 +54,19 @@ card.addEventListener('change', function (event) {
 // Handle form submit
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', function(ev) {
+form.addEventListener('submit', function (ev) {
+    // prevent default form action which is to post
     ev.preventDefault();
+    // disabling the card element and submitted button to prevent multiple submissions
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+    // confirming the card payment method, providing the card to stripe and then execute the results
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
         }
-    }).then(function(result) {
+    }).then(function (result) {
+        // if there is an error, an error message would appear
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
             var html = `
@@ -71,9 +75,11 @@ form.addEventListener('submit', function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
+            // renable to the card and submit button if there was an issue so it can be fixed
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
         } else {
+            // if succeeded, we will submit the form. 
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
             }

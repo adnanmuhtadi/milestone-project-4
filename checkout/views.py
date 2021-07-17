@@ -4,13 +4,8 @@ from django.conf import settings
 
 from .forms import OrderForm
 from basket.contexts import basket_contents
-import environ
 
 import stripe
-
-env = environ.Env()
-# reading .env file
-environ.Env.read_env()
 
 
 def checkout(request):
@@ -27,9 +22,20 @@ def checkout(request):
             request, "There's nothing in the your basket at the moment")
         return redirect(reverse('products'))
 
+    # setting up the secret key on stripe and payment intent giving it the amount and currency
     current_basket = basket_contents(request)
     total = current_basket['grand_price']
     stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
+    # alert if the public key hasnt been set
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Has it been forgotten to be set in the local environment?')
 
     # instance of the order form which would empty
     # creating the template and the creating the context containing the order form
@@ -37,8 +43,8 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': env('STRIPE_PUBLIC_KEY'),
-        'client_secret': 'test client secret',
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
