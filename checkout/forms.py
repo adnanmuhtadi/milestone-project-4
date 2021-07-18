@@ -25,21 +25,21 @@ class OrderForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'address_line1': 'Street Address 1',
             'address_line2': 'Street Address 2',
-            'county_state': 'County',
-            'country': 'Country',
+            'county_state': 'County or State',
         }
 
         # Set the full name with the autofocus attribute so the cursor would begin in
         # that area of the form when the page is loaded
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                # * added a '*' if the field is mandatory
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            # setting the placeholder attributes to their values in the dictionary above
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field != 'country':
+                if self.fields[field].required:
+                    # * added a '*' if the field is mandatory
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                # setting the placeholder attributes to their values in the dictionary above
+                self.fields[field].widget.attrs['placeholder'] = placeholder
             # CSS class which is used in base.css
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             # removing the form field labels

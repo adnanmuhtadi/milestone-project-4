@@ -31,7 +31,19 @@
 }
 
 #payment-form .form-control,
-#card-element {
+#card-element,
+.form-select {
     color: #000;
     border: 1px solid #000;
+}
+
+select,
+select option {
+    color: #000000;
+}
+
+/* if not having anything selected and/or when it is empty */
+select::invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }
