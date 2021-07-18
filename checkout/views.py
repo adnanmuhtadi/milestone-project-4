@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
-from .models import Order, OrderLineProduct
+from .models import Order, OrderLineItem
 from products.models import Product
 from basket.contexts import basket_contents
 
@@ -37,31 +37,39 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id in basket.products():
+            for item_id, item_data in basket.items():
                 try:
-                    # get the product ID out of the basket
                     product = Product.objects.get(id=item_id)
-                    if isinstance():
-                        order_line_item = OrderLineProduct(
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
                             order=order,
                             product=product,
+                            quantity=item_data,
                         )
                         order_line_item.save()
-                # if the item can not be found, an error message would appear, delete the empty
+                    else:
+                        for size, quantity in item_data['items_by_size'].items():
+                            size = request.POST['product_size']
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                product_size=size,
+                            )
+                            order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your Basket wasn't found in our database. "
+                        "One of the products in your bag wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_basket'))
-            # option for the user to save their profile information to the session
+                    return redirect(reverse('view_bag'))
+
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            # if the order form is not valid, a message would be appear for the user
             messages.error(request, 'There was an error with your form. \
-                Please double check your information and try again.')
+                Please double check your information.')
     else:
         basket = request.session.get('basket', {})
         if not basket:
@@ -81,22 +89,22 @@ def checkout(request):
 
         order_form = OrderForm()
 
-        # alert if the public key hasnt been set
-        if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Has it been forgotten to be set in the local environment?')
+    # alert if the public key hasnt been set
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Has it been forgotten to be set in the local environment?')
 
-        # instance of the order form which would empty
-        # creating the template and the creating the context containing the order form
+    # instance of the order form which would empty
+    # creating the template and the creating the context containing the order form
 
-        template = 'checkout/checkout.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': intent.client_secret,
-        }
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    }
 
-        return render(request, template, context)
+    return render(request, template, context)
 
 
 def checkout_success(request, order_number):
@@ -110,7 +118,7 @@ def checkout_success(request, order_number):
     # success message letting the user know the order number
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation email \
-        will be sent to {order_email}.')
+        will be sent to {order.email}.')
 
     # deleting the user shopping basket from the session
     if 'basket' in request.session:

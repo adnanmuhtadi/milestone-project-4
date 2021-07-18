@@ -80,8 +80,10 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show a specific product by take the parameter Product ID, 
-    Context is added to send things back to the template"""
+    """ 
+    A view to show a specific product by take the parameter Product ID, 
+    Context is added to send things back to the template
+    """
 
     product = get_object_or_404(Product, pk=product_id)
 
@@ -93,7 +95,10 @@ def product_detail(request, product_id):
 
 
 def add_product(request):
-    """ Add a product to the store """
+    """ 
+    Add a product to the store, it will render an empty instance of our form,
+    a new template, and will include context which includes the product form
+    """
     form = ProductForm()
     template = 'products/add_product.html'
     context = {

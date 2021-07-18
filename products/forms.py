@@ -17,7 +17,8 @@ class ProductForm(forms.ModelForm):
         # creating a list of readable names associated with the categories
         friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
 
-        # updating the category field in the form from the pulled list
+        # updating the category field in the form from the pulled list and instead of seeing the
+        # category ID or the name field, we would see the friendly name
         self.fields['category'].choices = friendly_name
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
