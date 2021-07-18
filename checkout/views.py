@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect, reverse
+from decimal import Context
+from django.shortcuts import get_object_or_404, render, redirect, reverse, get_list_or_404
 from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
+from .models import Order, OrderLineProduct
+from products.models import Product
 from basket.contexts import basket_contents
 
 import stripe
@@ -16,35 +19,107 @@ def checkout(request):
     gets the basket from the session and checks if it is empty or not,
     if there is nothing in the bag, it will direct the user to the products page
     """
-    basket = request.session.get('basket', {})
-    if not basket:
-        messages.error(
-            request, "There's nothing in the your basket at the moment")
-        return redirect(reverse('products'))
+    # handler to post the user details, first the check if the method is post
+    if request.method == 'POST':
+        basket = request.session.get('basket', {})
 
-    # setting up the secret key on stripe and payment intent giving it the amount and currency
-    current_basket = basket_contents(request)
-    total = current_basket['grand_price']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+        form_data = {
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'postcode': request.POST['postcode'],
+            'town_or_city': request.POST['town_or_city'],
+            'address_line1': request.POST['address_line1'],
+            'address_line2': request.POST['address_line2'],
+            'county_state': request.POST['county_state'],
+            'country': request.POST['country'],
+        }
+        # creating an instance of the form
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order = order_form.save()
+            for item_id, item_data in basket.items():
+                try:
+                    # get the product ID out of the basket
+                    product = Product.objects.get(id=item_id)
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineProduct(
+                            order=order,
+                            product=product,
+                        )
+                        order_line_item.save()
+                # if the item can not be found, an error message would appear, delete the empty
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in your bag wasn't found in our database. "
+                        "Please call us for assistance!")
+                    )
+                    order.delete()
+                    return redirect(reverse('view_bag'))
+            # option for the user to save their profile information to the session
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+        else:
+            # if the order form is not valid, a message would be appear for the user
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information and try again.')
+    else:
+        basket = request.session.get('basket', {})
+        if not basket:
+            messages.error(
+                request, "There's nothing in the your basket at the moment")
+            return redirect(reverse('products'))
 
-    # alert if the public key hasnt been set
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Has it been forgotten to be set in the local environment?')
+        # setting up the secret key on stripe and payment intent giving it the amount and currency
+        current_basket = basket_contents(request)
+        total = current_basket['grand_price']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
-    # instance of the order form which would empty
-    # creating the template and the creating the context containing the order form
-    order_form = OrderForm()
-    template = 'checkout/checkout.html'
+        # alert if the public key hasnt been set
+        if not stripe_public_key:
+            messages.warning(request, 'Stripe public key is missing. \
+                Has it been forgotten to be set in the local environment?')
+
+        # instance of the order form which would empty
+        # creating the template and the creating the context containing the order form
+        order_form = OrderForm()
+        template = 'checkout/checkout.html'
+        context = {
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
+        }
+
+        return render(request, template, context)
+
+
+def checkout_success(request, order_number):
+    """
+    Handle successful checkouts
+    """
+    # retrieving the shopping bag
+    save_info = request.session.get('save_info')
+    # using the order number to get the order created which will be sent back to the template
+    order = get_object_or_404(Order, order_number=order_number)
+    # success message letting the user know the order number
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation email \
+        will be sent to {order_email}')
+
+    # deleting the user shopping basket from the session
+    if 'basket' in request.session:
+        del request.session['basket']
+
+    # set the template and the context
+    template = 'checkout/checkout_success.html'
     context = {
-        'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
+        'order': order,
     }
 
+    # render the template
     return render(request, template, context)
