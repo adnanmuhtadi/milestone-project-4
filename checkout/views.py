@@ -1,5 +1,4 @@
-from decimal import Context
-from django.shortcuts import get_object_or_404, render, redirect, reverse, get_list_or_404
+from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
 
@@ -17,7 +16,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     """
     gets the basket from the session and checks if it is empty or not,
-    if there is nothing in the bag, it will direct the user to the products page
+    if there is nothing in the basket, it will direct the user to the products page
     """
     # handler to post the user details, first the check if the method is post
     if request.method == 'POST':
@@ -38,11 +37,11 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id, item_data in basket.items():
+            for item_id in basket.products():
                 try:
                     # get the product ID out of the basket
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
+                    if isinstance():
                         order_line_item = OrderLineProduct(
                             order=order,
                             product=product,
@@ -51,11 +50,11 @@ def checkout(request):
                 # if the item can not be found, an error message would appear, delete the empty
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your Basket wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
+                    return redirect(reverse('view_basket'))
             # option for the user to save their profile information to the session
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
@@ -80,6 +79,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        order_form = OrderForm()
+
         # alert if the public key hasnt been set
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
@@ -87,7 +88,7 @@ def checkout(request):
 
         # instance of the order form which would empty
         # creating the template and the creating the context containing the order form
-        order_form = OrderForm()
+
         template = 'checkout/checkout.html'
         context = {
             'order_form': order_form,
@@ -102,14 +103,14 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
-    # retrieving the shopping bag
+    # retrieving the shopping basket
     save_info = request.session.get('save_info')
     # using the order number to get the order created which will be sent back to the template
     order = get_object_or_404(Order, order_number=order_number)
     # success message letting the user know the order number
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation email \
-        will be sent to {order_email}')
+        will be sent to {order_email}.')
 
     # deleting the user shopping basket from the session
     if 'basket' in request.session:

@@ -43,9 +43,10 @@ class Order(models.Model):
         Update the final total each time a line item has been added
         and the delivery costs
         """
-        # setting the order total to lineproduct_total_sum
+        # setting the order total to lineproduct_total_sum, by adding 0 at the end, it will prevent an
+        # error if we manually delete all the line items for an order by making sure that this sets the order total to 0
         self.order_total = self.lineitemorder.aggregate(
-            Sum('lineproduct_total'))['lineproduct_total_sum']
+            Sum('lineproduct_total'))['lineproduct_total_sum'] or 0
         # using what has been set in settings for delivery cost and standard delivery percentage
         if self.order_total < settings.FREE_DELIVERY_LIMIT:
             self.delivery_cost = self.order_total * \
@@ -63,7 +64,7 @@ class Order(models.Model):
         # if the order does not have an order number, it will create one and then save
         if not self.order_number:
             self.order_number = self._generate_order_number()
-        super().save()
+        super().save(*args, **kwargs)
 
     # string method to return the order number
     def __str__(self):
