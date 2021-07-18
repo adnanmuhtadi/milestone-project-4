@@ -13,3 +13,9 @@ def privacy(request):
     """ A view to return the privacy page """
 
     return render(request, 'home/privacy.html')
+
+
+def tandc(request):
+    """ A view to return the privacy page """
+
+    return render(request, 'home/tandc.html')
