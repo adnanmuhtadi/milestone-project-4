@@ -46,10 +46,10 @@ class Order(models.Model):
         Update the final total each time a line item has been added
         and the delivery costs
         """
-        # setting the order total to lineproduct_total_sum, by adding 0 at the end, it will prevent an
+        # setting the order total to lineitem_total_sum, by adding 0 at the end, it will prevent an
         # error if we manually delete all the line items for an order by making sure that this sets the order total to 0
-        self.order_total = self.lineitemorder.aggregate(
-            Sum('lineproduct_total'))['lineproduct_total_sum'] or 0
+        self.order_total = self.lineitem.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
         # using what has been set in settings for delivery cost and standard delivery percentage
         if self.order_total < settings.FREE_DELIVERY_LIMIT:
             self.delivery_cost = self.order_total * \
@@ -80,26 +80,26 @@ class Order(models.Model):
     """
 
 
-class OrderLineProduct(models.Model):
-    # the related name is so we can the call easier to make, for example order.lineitemorder.filter
+class OrderLineItem(models.Model):
+    # the related name is so we can the call easier to make, for example order.lineitem.filter
     order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, related_name='lineitemorder')
+                              on_delete=models.CASCADE, related_name='lineitem')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     product_size = models.CharField(
         max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineproduct_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=False, editable=False)
 
     def save_order(self, *args, **kwargs):
         """
         Override the original save method to set the line item total
         update the order total
         """
-        self.lineproduct_total = self.product.price * self.quantity
+        self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     # string method to return the sku of each product along with the order number for which it is related to
     def __str__(self):
-        return f'SKY {self.product.sku} on order {self.order.order_number}'
+        return f'SKU {self.product.sku} on order {self.order.order_number}'

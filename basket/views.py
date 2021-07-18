@@ -18,6 +18,9 @@ def add_to_basket(request, item_id):
 
     # get the quantity from the the and url to redirect the user to
     product = get_object_or_404(Product, pk=item_id)
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     """ session created till the browser is closed to keep the user

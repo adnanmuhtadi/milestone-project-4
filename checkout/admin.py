@@ -1,16 +1,16 @@
 from django.contrib import admin
-from .models import Order, OrderLineProduct
+from .models import Order, OrderLineItem
 # Register your models here.
 
 
-class OrderLineProductAdminInline(admin.TabularInline):
+class OrderLineItemAdminInline(admin.TabularInline):
     # admin class enabling you to add and edit line products in admin page
-    model = OrderLineProduct
-    readonly_fields = ('lineproduct_total',)
+    model = OrderLineItem
+    readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
-    inlines = (OrderLineProductAdminInline,)
+    inlines = (OrderLineItemAdminInline,)
 
     # fields that can not be edited, would be calculated bu the model method,
     readonly_fields = ('profile', 'order_number', 'purchase_date',
