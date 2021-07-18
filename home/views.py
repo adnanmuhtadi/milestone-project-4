@@ -21,7 +21,7 @@ def privacy(request):
     return render(request, 'home/privacy.html')
 
 
-def tandc(request):
+def terms(request):
     """ A view to return the terms and conditions page """
 
-    return render(request, 'home/tandc.html')
+    return render(request, 'home/terms.html')
