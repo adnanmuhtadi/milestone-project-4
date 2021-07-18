@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'products',
     'basket',
     'checkout',
+    'profiles',
     
     # Other
     # crispy forms for bootstrap5 was assisted from (https://github.com/django-crispy-forms/crispy-bootstrap5)
