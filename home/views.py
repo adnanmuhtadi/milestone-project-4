@@ -9,10 +9,10 @@ def index(request):
     return render(request, 'home/index.html')
 
 
-def delivery(request):
-    """ A view to return the shipping and returns page """
+def refunds(request):
+    """ A view to return the returns page """
 
-    return render(request, 'home/delivery.html')
+    return render(request, 'home/refunds.html')
 
 
 def privacy(request):
