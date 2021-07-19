@@ -75,7 +75,23 @@
                 <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                     <!-- csrf_token is django's cross-site request forgery protection -->
                     {% csrf_token %}
-                    <div class="form-row">
+                    <div class="form-row d-none">
+                        {% with product.has_sizes as s %}
+                        {%if s %}
+                        <div class="col-12">
+                            <p><strong>Size:</strong></p>
+                            <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9" selected>9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                            </select>
+                        </div>
+                        {% endif %}
                         <!-- The quantity input field which is hidden as only one item can be purchased -->
                         <div class="col-12 d-none">
                             <div class="input-group">
@@ -98,6 +114,7 @@
                         </div>
                         <!-- will redirect the user to the same page once they have clicked on the 'Add to Basket' button -->
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
                     </div>
                 </form>
             </div>

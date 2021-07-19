@@ -138,6 +138,10 @@ a.category-badge>span.badge:hover {
   color: #fff !important;
 }
 
+.remove-item{
+  cursor: pointer;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {

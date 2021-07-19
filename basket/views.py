@@ -23,17 +23,29 @@ def add_to_basket(request, item_id):
         size = request.POST['product_size']
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    """ session created till the browser is closed to keep the user
-    shopping or if they would like to come back to it"""
+    # session created till the browser is closed to keep the user shopping or if they would like to come back to it
     basket = request.session.get('basket', {})
 
-    # adding the product and quantity in the basket, and if the product is already there, add the quantity to the basket
-    if item_id in list(basket.keys()):
-        messages.error(
-            request, f'Item is already in the basket {product.name}')
+    # if statement to check if a product with sizes is added or not.
+    if size:
+        # if the product is in basket
+        if item_id in list(basket.keys()):
+            # condition: has the same size, increase quantity
+            if size in basket[item_id]['items_by_size'].keys():
+                basket[item_id]['items_by_size'][size] += quantity
+            else:
+                # same item, different size, add it as a new item.
+                basket[item_id]['items_by_size'][size] = quantity
+        else:
+            basket[item_id] = {'items_by_size': {size: quantity}}
     else:
-        basket[item_id] = quantity
-        messages.success(request, f'product has been add {product.name}')
+        # adding the product and quantity in the basket, and if the product is already there, add the quantity to the basket
+        if item_id in list(basket.keys()):
+            messages.error(
+                request, f'Item is already in the basket {product.name}')
+        else:
+            basket[item_id] = quantity
+            messages.success(request, f'product has been add {product.name}')
 
     # overwriting the variable in the session with the updated version of the basket
     request.session['basket'] = basket
