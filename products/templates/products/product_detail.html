@@ -18,7 +18,7 @@
             <div class="small-container single-product mb-3">
                 <!-- Product title to be displayed in mobile view and hidden in the desktop view -->
                 <h3 class="mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
-                {% if product.image.url %}
+                {% if product.image %}
                 <!-- getting the main image for the product -->
                 <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top img-fluid mb-3" id="ProductImg" src="{{ product.image.url }}"

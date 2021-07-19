@@ -82,11 +82,17 @@
                             {% endif %}
                             <!-- Produce details placed underneath the image -->
                             <div class="card-body pb-0">
-                                <p class="mb-3 text-center">{{ product.name }}</p>
+                                <p class="mb-1 text-center">{{ product.name }}</p>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col">
+                                        {% if request.use.is_superuser %}
+                                            <small class="mt-2">
+                                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                            </small>
+                                        {% endif %}
                                         <p class=" mb-0 text-center text-muted">Size: {{ product.size }}</p>
                                         <p class="lead mb-0 font-weight-bold text-center">£{{ product.price }}
                                         </p>

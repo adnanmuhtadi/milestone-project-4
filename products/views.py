@@ -103,9 +103,9 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
@@ -122,21 +122,21 @@ def edit_product(request, product_id):
     """
     Edit a product in store
     """
-    # prefilling the form using the product_objetc_or_404
+    # prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
     # checking if the request method is post, telling the instance to post new information of that instance of the product.
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product!')
+            messages.success(request, f'{product.name} has successfully been updated!')
             return redirect(reverse('product_detail', args=[product_id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid')
+            messages.error(request, f'Failed to update {product.name}. Please ensure the form is valid and try again')
     else:
     # creating the1 instance of the product form
         form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.name}')
+        messages.info(request, f'You are now editing {product.name}')
 
     # informing it which template to use.
     template = 'products/edit_product.html'
@@ -146,3 +146,14 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """
+    delete a product from store
+    """
+    # prefilling the form using the product_object_or_404
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, f'{product.name} has been deleted!')
+    return redirect(reverse('products'))
