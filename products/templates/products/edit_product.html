@@ -27,6 +27,14 @@
             <!-- to render the form that will be filled out to add a product -->
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
+                <!-- removing the label from cripy forms -->
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
                 {{ form | crispy}}
                 <div class="text-right">
                     <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
@@ -37,4 +45,17 @@
     </div>
 
 </div>
+{% endblock %}
+
+<!-- JS to notify the user what the image is being changed to -->
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+    // listening the changing event on the new image input
+        $('#new-image').change(function() {
+            // setting the file name paragraph in the widget to the file name
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
 {% endblock %}
