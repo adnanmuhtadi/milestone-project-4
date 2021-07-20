@@ -87,7 +87,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
+    order_form = OrderForm()
 
     # alert if the public key hasnt been set
     if not stripe_public_key:

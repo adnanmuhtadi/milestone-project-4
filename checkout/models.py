@@ -13,7 +13,7 @@ from products.models import Product
 
 class Order(models.Model):
     # editable field means the field can not be changed was created
-    order_number = models.CharField(max_length=32, null=True, editable=False)
+    order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -39,6 +39,8 @@ class Order(models.Model):
         but this class is to create a random and unique order number using the UUID
         """
         return uuid.uuid4().hex.upper()
+
+        print(self.order_number)
 
     def update_final_total(self):
         """
@@ -80,15 +82,11 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     # the related name is so we can the call easier to make, for example order.lineitems.filter
-    order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, related_name='lineitems')
-    product = models.ForeignKey(Product, null=False, blank=False,
-                                on_delete=models.CASCADE)
-    product_size = models.CharField(
-        max_length=2, null=True, blank=True)
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    product_size = models.CharField(max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
