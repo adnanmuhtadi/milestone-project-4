@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
-
-
-# Create your views here.
 
 
 def all_products(request):
@@ -76,8 +74,6 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-# Product detail view
-
 
 def product_detail(request, product_id):
     """ 
@@ -94,11 +90,19 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+# @login required will make django check if the user is already logged in or not.
+# if not, it will redirect the user to the login page
+@login_required
 def add_product(request):
     """ 
     Add a product to the store, it will render an empty instance of our form,
     a new template, and will include context which includes the product form
     """
+    # if not superuser, a message would be displayed and become redirected to the the home page
+    if not request.user.is_superuser:
+       messages.error(request, 'Sorry, only store owners can do that.')
+       return redirect(reverse('home'))
+
     # to ensure we capture the image, then we are checking if the form is valid
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -118,10 +122,17 @@ def add_product(request):
 
     return render(request, template, context)
 
+
+@login_required
 def edit_product(request, product_id):
     """
     Edit a product in store
     """
+    # if not superuser, a message would be displayed and become redirected to the the home page
+    if not request.user.is_superuser:
+       messages.error(request, 'Sorry, only store owners can do that.')
+       return redirect(reverse('home'))
+
     # prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
     # checking if the request method is post, telling the instance to post new information of that instance of the product.
@@ -148,10 +159,16 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product(request, product_id):
     """
     delete a product from store
     """
+    # if not superuser, a message would be displayed and become redirected to the the home page
+    if not request.user.is_superuser:
+       messages.error(request, 'Sorry, only store owners can do that.')
+       return redirect(reverse('home'))
+       
     # prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
