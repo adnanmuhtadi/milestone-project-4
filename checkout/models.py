@@ -14,7 +14,6 @@ from products.models import Product
 class Order(models.Model):
     # editable field means the field can not be changed was created
     order_number = models.CharField(max_length=32, null=True, editable=False)
-    profile = models.CharField(max_length=128, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -48,16 +47,15 @@ class Order(models.Model):
         """
         # setting the order total to lineitem_total_sum, by adding 0 at the end, it will prevent an
         # error if we manually delete all the line items for an order by making sure that this sets the order total to 0
-        self.order_total = self.lineitem.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         # using what has been set in settings for delivery cost and standard delivery percentage
         if self.order_total < settings.FREE_DELIVERY_LIMIT:
-            self.delivery_cost = self.order_total * \
-                settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
         self.grand_price = self.order_total + self.delivery_cost
         self.save()
+    
 
     def save(self, *args, **kwargs):
         """
@@ -81,18 +79,18 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    # the related name is so we can the call easier to make, for example order.lineitem.filter
+    # the related name is so we can the call easier to make, for example order.lineitems.filter
     order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, related_name='lineitem')
+                              on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     product_size = models.CharField(
         max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=False, editable=False)
+        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
-    def save_order(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         """
         Override the original save method to set the line item total
         update the order total
