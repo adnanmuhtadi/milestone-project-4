@@ -21,6 +21,7 @@ def checkout(request):
     # handler to post the user details, first the check if the method is post
     if request.method == 'POST':
         basket = request.session.get('basket', {})
+        print(basket)
 
         form_data = {
             'full_name': request.POST['full_name'],
