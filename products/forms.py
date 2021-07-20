@@ -12,9 +12,10 @@ class ProductForm(forms.ModelForm):
 
     # Allowing the widget to be available for all 4 image inputs
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    image = forms.ImageField(label='Imagetwo', required=False, widget=CustomClearableFileInput)
-    image = forms.ImageField(label='Imagethree', required=False, widget=CustomClearableFileInput)
-    image = forms.ImageField(label='Imagefour', required=False, widget=CustomClearableFileInput)
+    imagetwo = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    imagethree = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    imagefour = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+
 
     # to override the init method
     def __init__(self, *args, **kwargs):
