@@ -46,6 +46,7 @@ def checkout(request):
                             order=order,
                             product=product,
                             quantity=item_data,
+                            product_size=product.size
                         )
                         order_line_item.save()
                     else:
