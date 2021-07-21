@@ -60,6 +60,11 @@ form.addEventListener('submit', function (ev) {
     // disabling the card element and submitted button to prevent multiple submissions
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+
+    // to activate the fade out of the form when the checkout button is activated
+    $('#payment-form').fadeToggle(100);
+    $('#overlay-processing').fadeToggle(100);
+
     // confirming the card payment method, providing the card to stripe and then execute the results
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -75,6 +80,11 @@ form.addEventListener('submit', function (ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
+
+            // to activate the fade out of the form when the checkout button is activated
+            $('#payment-form').fadeToggle(100);
+            $('#overlay-processing').fadeToggle(100);
+
             // renable to the card and submit button if there was an issue so it can be fixed
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
