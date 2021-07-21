@@ -35,7 +35,7 @@ def basket_contents(request):
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
-                    'size':size
+                    'size': size,
                 }) 
 
     # they will receive free delivery if they spend more than the amount specified in the settings.py
