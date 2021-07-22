@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.shortcuts import get_object_or_404, render, redirect, reverse, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
@@ -8,7 +9,27 @@ from products.models import Product
 from basket.contexts import basket_contents
 
 import stripe
+import json
 
+# checking that the user has selected the save info box on checkout
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        # Stepping up stripe with the secret ID
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # modifying the metadata
+        stripe.PaymentIntent.modify(pid, metadata={
+            'basket': json.dumps(request.session.get('basket', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        # returning a HTTPResponse responding if the status is ok
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Your payment cannot currently be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 def checkout(request):
     # setting up stripe payment intent

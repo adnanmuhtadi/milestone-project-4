@@ -65,34 +65,77 @@ form.addEventListener('submit', function (ev) {
     $('#payment-form').fadeToggle(100);
     $('#overlay-processing').fadeToggle(100);
 
-    // confirming the card payment method, providing the card to stripe and then execute the results
-    stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-            card: card,
-        }
-    }).then(function (result) {
-        // if there is an error, an error message would appear
-        if (result.error) {
-            var errorDiv = document.getElementById('card-errors');
-            var html = `
-                <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
-                </span>
-                <span>${result.error.message}</span>`;
-            $(errorDiv).html(html);
+    // checking if the save info box was  
+    var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    // From using {% csrf_token %} that Django generates in the form
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    // object created to past the view and to pass  the client secret for the payment intent
+    var postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
+    };
+    var url = '/checkout/cache_checkout_data/';
 
-            // to activate the fade out of the form when the checkout button is activated
-            $('#payment-form').fadeToggle(100);
-            $('#overlay-processing').fadeToggle(100);
+    $.post(url, postData).done(function() {
+        // confirming the card payment method, providing the card to stripe and then execute the results
+        stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                // Billing details for webhooks
+                billing_details: {
+                    name: $.trim(form.full_name.value),
+                    phone: $.trim(form.phone_number.value),
+                    email: $.trim(form.email.value),
+                    address:{
+                        line1: $.trim(form.address_line1.value),
+                        line2: $.trim(form.address_line2.value),
+                        city: $.trim(form.town_or_city.value),
+                        state: $.trim(form.county_state.value),
+                        country: $.trim(form.country.value),
+                    }
+                }
+            },
+            // Shipping details for webhooks
+            shipping: {
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone_number.value),
+                address: {
+                    line1: $.trim(form.address_line1.value),
+                    line2: $.trim(form.address_line2.value),
+                    city: $.trim(form.town_or_city.value),
+                    state: $.trim(form.county_state.value),
+                    postal_code: $.trim(form.postcode.value),
+                    country: $.trim(form.country.value),
+                }
+            },
+        }).then(function (result) {
+            // if there is an error, an error message would appear
+            if (result.error) {
+                var errorDiv = document.getElementById('card-errors');
+                var html = `
+                    <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
+                $(errorDiv).html(html);
 
-            // renable to the card and submit button if there was an issue so it can be fixed
-            card.update({ 'disabled': false});
-            $('#submit-button').attr('disabled', false);
-        } else {
-            // if succeeded, we will submit the form. 
-            if (result.paymentIntent.status === 'succeeded') {
-                form.submit();
+                // to activate the fade out of the form when the checkout button is activated
+                $('#payment-form').fadeToggle(100);
+                $('#overlay-processing').fadeToggle(100);
+
+                // renable to the card and submit button if there was an issue so it can be fixed
+                card.update({ 'disabled': false});
+                $('#submit-button').attr('disabled', false);
+            } else {
+                // if succeeded, we will submit the form. 
+                if (result.paymentIntent.status === 'succeeded') {
+                    form.submit();
+                }
             }
-        }
-    });
+        });
+    }).fail(function () {
+        // just reload the page, the error will be in django messages
+        location.reload();
+    })
 });
