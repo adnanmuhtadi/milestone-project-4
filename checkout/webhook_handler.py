@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
+from products.models import Product
 
-import json 
+import json
+import time
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -57,6 +59,8 @@ class StripeWH_Handler:
                     address_line2__iexact=shipping_details.address.line2,
                     county_state__iexact=shipping_details.address.state,
                     grand_price=grand_price,
+                    original_basket=basket,
+                    stripe_pid=pid,
                 )
                 # if the order has been found, the variable name 'order_exists' would be set to true and it would break out of the loop
                 order_exists = True
@@ -82,6 +86,8 @@ class StripeWH_Handler:
                     address_line1=shipping_details.address.line1,
                     address_line2=shipping_details.address.line2,
                     county_state=shipping_details.address.state,
+                    original_basket=basket,
+                    stripe_pid=pid,
                 )
 
             # Taken from my basket context.py and altered for the checkout app,

@@ -58,8 +58,11 @@ def checkout(request):
         # creating an instance of the form
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
-
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_basket = json.dumps(basket)
+            order.save()
             # Taken from my basket context.py and altered for the checkout app
             for item_id, item_data in basket.items():
                 try:
