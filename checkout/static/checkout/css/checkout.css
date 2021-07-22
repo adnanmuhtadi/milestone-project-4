@@ -43,7 +43,7 @@ select option {
 }
 
 /* if not having anything selected and/or when it is empty */
-select::invalid,
+select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
 }

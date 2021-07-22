@@ -59,8 +59,11 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
+
+            # Taken from my basket context.py and altered for the checkout app
             for item_id, item_data in basket.items():
                 try:
+                    # Getting product id, if product hasn't got sizes, then it will save the order_line_item
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
@@ -71,6 +74,7 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
+                        # If the product id has got sizes, then it will print the following line items.
                         for size, quantity in item_data['items_by_size'].items():
                             size = request.POST['product_size']
                             order_line_item = OrderLineItem(
