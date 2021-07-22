@@ -114,6 +114,7 @@
                             {% endif %}
                         </div>
                     </fieldset>
+
                     <fieldset class="px-3">
                         <!-- Payment details placeholder, using Stripe as the way to make payments -->
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment Details</legend>
@@ -121,10 +122,10 @@
                         <div class="mb-3" id="card-element"></div>
 
                         <!-- Placeholder for when there is an error -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert">
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                             <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                        </div>
+                    </fieldset>
 
                         <!-- submit buttons for the form where the user can edit their basket or but now -->
                         <div class="submit-button text-right mt-5 mb-2">
@@ -147,7 +148,6 @@
                                 <span>Your card will be charged <strong>${{ grand_price|floatformat:2 }}</strong></span>
                             </p>
                         </div>
-                    </fieldset>
                 </form>
             </div>
         </div>

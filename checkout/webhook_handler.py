@@ -106,7 +106,6 @@ class StripeWH_Handler:
                     else:
                         # If the product id has got sizes, then it will print the following line items.
                         for size, quantity in item_data['items_by_size'].items():
-                            size = request.POST['product_size']
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
