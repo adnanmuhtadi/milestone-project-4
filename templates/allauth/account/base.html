@@ -1,1 +1,16 @@
 {% extends "base.html" %}
+
+<!-- modifying the base template so our own styling can take place -->
+{% block material %}
+    <div class="container header-container">
+        <div class="overlay"></div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="allauth-form-inner-content">
+                    {% block inner_material %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
