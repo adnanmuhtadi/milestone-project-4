@@ -1,4 +1,7 @@
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -13,6 +16,28 @@ class StripeWH_Handler:
     # to assign the request as an attribute of the class, so we can access any attribute of the request coming from stripe
     def __init__(self, request):
         self.request = request
+
+    def _send_confirmation_email(self, order):
+        """
+        Sends an email confirmation to the user
+        """
+        customer_email = order.email
+        # render_to_string method takes the two files and puts them in a string 
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            # adding it to the context
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        
+        # mail function to send the email
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email]
+        )        
 
     def handle_event(self, event):
         """
@@ -88,6 +113,7 @@ class StripeWH_Handler:
                 time.sleep(1)
         # 200 response if the order has been found
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | Success!: The order has already been verified from our database',
                 status=200)
@@ -138,6 +164,7 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
+        self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook handled received: {event["type"]}',
             status=200)
