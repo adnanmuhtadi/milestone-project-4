@@ -131,17 +131,16 @@ def checkout(request):
                     'address_line1': profile.default_address_line1,
                     'address_line2': profile.default_address_line2,
                     'town_or_city': profile.default_town_or_city,
-                    'county_state': profile.default_state_county,
+                    'county_state': profile.default_county_state,
                     'postcode': profile.default_postcode,
                     'country': profile.default_country,
                 })
+                
                 # empty form will be provided if the user is not authenticated.
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-
-        order_form = OrderForm()
 
     # alert if the public key hasnt been set
     if not stripe_public_key:

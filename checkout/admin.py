@@ -13,12 +13,12 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInline,)
 
     # fields that can not be edited, would be calculated bu the model method,
-    readonly_fields = ('order_number', 'user_profile', 'purchase_date',
+    readonly_fields = ('order_number', 'purchase_date',
                        'delivery_cost', 'order_total',
                        'grand_price', 'original_basket', 'stripe_pid')
 
     # specify the order which is should be displayed in the admin interface
-    fields = ('order_number', 'full_name', 'email', 'phone_number',
+    fields = ('order_number', 'user_profile', 'full_name', 'email', 'phone_number',
               'address_line1', 'address_line2', 'town_or_city', 'county_state',
               'postcode', 'country', 'purchase_date', 'delivery_cost', 'order_total',
               'grand_price', 'original_basket', 'stripe_pid')

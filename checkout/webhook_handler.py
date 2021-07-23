@@ -43,6 +43,8 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+         
+
         # checking if the order already exists and making and adding a delay
         order_exists = False
         attempt = 1
