@@ -5,7 +5,7 @@ from .models import UserProfile
 class UserProfileForm(forms.ModelForm):
     class Meta:
         # Meta option to tell django which model it will be associated to
-        model = User Profile
+        model = UserProfile
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
@@ -17,16 +17,16 @@ class UserProfileForm(forms.ModelForm):
         placeholders = {
             # dictionary of placeholders which will show up in the form
             'default_phone_number': 'Phone Number',
-            'default_postcode': 'PostCode',
-            'default_town_or_city': 'Town or City',
             'default_address_line1': 'Street Address 1',
             'default_address_line2': 'Street Address 2',
+            'default_town_or_city': 'Town or City',
             'default_county_state': 'County or State',
+            'default_postcode': 'PostCode',
         }
 
         # Set the full name with the autofocus attribute so the cursor would begin in
         # that area of the form when the page is loaded
-        self.fields['default.phone_number'].widget.attrs['autofocus'] = True
+        self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'default_country':
                 if self.fields[field].required:

@@ -1,0 +1,18 @@
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+/* To amend the country field */
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+/* First option element of the colour placeholder */
+#id_default_country option:first-child {
+    color: #aab7c4;
+}

@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- creating the basket product count, as well as adding formation of the product -->
-        {% if grand_price %}
+        {% if grand_price and not on_profile_page %}
         <p class="logo-font bg-white text-black py-1">Your Basket ({{ item_count }})</p>
         <div class="bag-notification-wrapper">
             {% for item in basket_products %}
