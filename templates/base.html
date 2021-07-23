@@ -96,9 +96,9 @@
                             <a href="" class="dropdown-item">Product Management</a>
                             <a href="{% url 'add_product' %}" class="dropdown-item">Add a Product</a>
                             {% endif %}
-                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="" class="dropdown-item">Write a Review</a>
-                            <a href="{% url 'profile' %}" class="dropdown-item">Contact Us</a>
+                            <a href="" class="dropdown-item">Contact Us</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
