@@ -14,6 +14,7 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container">
+    <!-- Title of the page -->
     <div class="row">
         <div class="col-12 col-md-6">
             <hr>
@@ -22,14 +23,22 @@
             <hr>
         </div>
     </div>
+
     <div class="row">
         <div class="col-12 col-md-6">
-            <!-- to render the form that will be filled out to add a product -->
+            <!-- to render the form that will be filled out to add a product
+            The enctype="multipart/form-data" allows the user to submit the image -->
             <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!-- removing the label from cripy forms -->
                 {% for field in form %}
                     {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% elif field.name != 'imagetwo' %}
+                        {{ field | as_crispy_field }}
+                    {% elif field.name != 'imagethree' %}
+                        {{ field | as_crispy_field }}
+                    {% elif field.name != 'imagefour' %}
                         {{ field | as_crispy_field }}
                     {% else %}
                         {{ field }}
@@ -44,17 +53,4 @@
     </div>
 
 </div>
-{% endblock %}
-
-<!-- JS to notify the user what the image is being changed to -->
-{% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-    // listening the changing event on the new image input
-        $('#new-image').change(function() {
-            // setting the file name paragraph in the widget to the file name
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
 {% endblock %}

@@ -31,22 +31,54 @@
                 {% endif %}
                 <!-- small image placeholder where when clicked, it will be displayed on the main image placeholder -->
                 <div class="small-image-row row">
+                    {% if product.image %}
                     <div class="small-image-col col-3">
                         <img class="sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ product.image.url }}"
                             alt="{{ product.name }}">
                     </div>
+                    {% else %}
+                    <div class="small-image-col col-3">
+                        <a href="">
+                            <img class="card-img-top sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if product.imagetwo %}
                     <div class="small-image-col col-3">
                         <img class="sm-image w-100 card-img-top img-fluid img-thumbnail"
                             src="{{ product.imagetwo.url }}" alt="{{ product.name }}">
                     </div>
+                    {% else %}
+                    <div class="small-image-col col-3">
+                        <a href="">
+                            <img class="card-img-top sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if product.imagethree %}
                     <div class="small-image-col col-3">
                         <img class="sm-image w-100 card-img-top img-fluid img-thumbnail"
                             src="{{ product.imagethree.url }}" alt="{{ product.name }}">
                     </div>
+                    {% else %}
+                    <div class="small-image-col col-3">
+                        <a href="">
+                            <img class="card-img-top sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if product.imagefour %}
                     <div class="small-image-col col-3">
                         <img class="sm-image w-100 card-img-top img-fluid img-thumbnail"
                             src="{{ product.imagefour.url }}" alt="{{ product.name }}">
                     </div>
+                    {% else %}
+                    <div class="small-image-col col-3">
+                        <a href="">
+                            <img class="card-img-top sm-image w-100 card-img-top img-fluid img-thumbnail" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

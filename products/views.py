@@ -116,6 +116,7 @@ def add_product(request):
     else:
         form = ProductForm()
         
+    # Adding context for the product admin
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -146,7 +147,7 @@ def edit_product(request, product_id):
         else:
             messages.error(request, f'Failed to update {product.name}. Please ensure the form is valid and try again')
     else:
-    # creating the1 instance of the product form
+    # creating the instance of the product form
         form = ProductForm(instance=product)
         messages.info(request, f'You are now editing {product.name}')
 

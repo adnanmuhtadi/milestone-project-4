@@ -8,13 +8,13 @@ class ProductForm(forms.ModelForm):
     class Meta:
         # to define the model and it will include ALL the fields.
         model = Product
-        fields = '__all__'
+        exclude = ('has_sizes',)
 
     # Allowing the widget to be available for all 4 image inputs
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    imagetwo = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    imagethree = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    imagefour = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image 1', required=False, widget=CustomClearableFileInput)
+    imagetwo = forms.ImageField(label='Image 2', required=False, widget=CustomClearableFileInput)
+    imagethree = forms.ImageField(label='Image 3', required=False, widget=CustomClearableFileInput)
+    imagefour = forms.ImageField(label='Image 4', required=False, widget=CustomClearableFileInput)
 
 
     # to override the init method
@@ -24,6 +24,7 @@ class ProductForm(forms.ModelForm):
         categories = Category.objects.all()
         # creating a list of readable names associated with the categories
         friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
+        
 
         # updating the category field in the form from the pulled list and instead of seeing the
         # category ID or the name field, we would see the friendly name
