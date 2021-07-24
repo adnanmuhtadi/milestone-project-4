@@ -21,7 +21,7 @@
     <!-- Title of the page-->
     <div class="row">
         <div class="col text-center mt-lg-5 mt-md-2">
-            <h2 class="custom-font">Thank you</h2>
+            <h2 class="logo-font">Thank you</h2>
             <hr class="w-50 mb-3 mb-md-5 mx-auto">
             <p class="text-black mb-5">Your order information is below. A confirmation email will be sent to
                 <strong>{{ order.email }}</strong>.
@@ -216,31 +216,33 @@
                         </div>
                     </div>
                 </div>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg my-5">
+            
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg my-2">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
                     <span class="text-uppercase">Back to Shop</span>
                 </a>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-7 text-right">
-                    <!-- if the user came from the profile page, allows them to go back to the profile page or home page -->
-                    {% if from_profile %}
-                        <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
-                            <span class="icon mr-2">
-                                <i class="fas fa-angle-left"></i>
-                            </span>
-                            <span class="text-uppercase">Back to Profile</span>
-                        </a>
-                    {% else %}
-                        <a href="{% url 'home' %}" class="btn btn-black rounded-0 my-2">
-                            <span class="icon mr-2">
-                                <i class="fas fa-angle-left"></i>
-                            </span>
-                            <span class="text-uppercase">Back to Homepage</span>
-                        </a>
-                    {% endif %}
+
+                <div class="row">
+                    <div class="col-12 col-lg-7 text-right">
+                        <!-- if the user came from the profile page, allows them to go back to the profile page or home page -->
+                        {% if from_profile %}
+                            <a href="{% url 'profile' %}" class="btn btn-outline-black rounded-0 btn-lg my-2">
+                                <span class="icon">
+                                    <i class="fas fa-angle-left"></i>
+                                </span>
+                                <span class="text-uppercase">Back to Profile</span>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'home' %}" class="btn btn-black rounded-0 btn-lg my-1">
+                                <span class="icon">
+                                    <i class="fas fa-angle-left"></i>
+                                </span>
+                                <span class="text-uppercase">Back to Homepage</span>
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

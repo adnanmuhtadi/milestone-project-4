@@ -92,12 +92,12 @@
                 {% if product.category %}
                 <p class="small mt-1 mb-2">
                     <a class="small text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.category.readable_name }}
+                        <i class="fas fa-tag mr-1"> </i> {{ product.category.readable_name }}
                     </a>
                 </p>
                 {% endif %}
                 {% if product.size %}
-                <p class=""><i class="fas fa-shoe-prints mr-1" name="product_size" id="id_product_size"></i>Size:
+                <p class=""><i class="fas fa-shoe-prints mr-1" name="product_size" id="id_product_size"> </i> Size: 
                     {{ product.size }}</p>
                 {% else %}
                 <p class="text-muted">No Size</p>

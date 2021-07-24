@@ -43,7 +43,7 @@
                     </div>
                     <!-- Image placeholder for the order -->
                     {% for item in basket_products %}
-                    <div class="row">
+                    <div class="row mb-2">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 {% if item.product.image %}
