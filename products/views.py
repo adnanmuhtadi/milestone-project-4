@@ -111,10 +111,11 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'Successfully added product!')
+            messages.success(request, f'{product.name} has been successfully added!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add the product.\
+            Please ensure the form is valid and try again.')
     else:
         form = ProductForm()
         
@@ -144,7 +145,7 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, f'{product.name} has successfully been updated!')
+            messages.success(request, f'{product.name} has now been successfully updated!')
             return redirect(reverse('product_detail', args=[product_id]))
         else:
             messages.error(request, f'Failed to update {product.name}. Please ensure the form is valid and try again')

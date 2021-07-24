@@ -91,7 +91,7 @@ def checkout(request):
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "Please contact us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
@@ -100,12 +100,12 @@ def checkout(request):
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+                Please double check your information and try again.')
     else:
         basket = request.session.get('basket', {})
         if not basket:
             messages.error(
-                request, "There's nothing in the your basket at the moment")
+                request, "There's nothing in the basket at the moment")
             return redirect(reverse('products'))
 
         # Setting up the secret key on stripe and payment intent giving it the amount and currency
@@ -195,7 +195,7 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
     
     # Success message letting the user know the order number
-    messages.success(request, f'Order successfully processed! \
+    messages.success(request, f'Your order has been successfully processed! \
         Your order number is {order_number}. A confirmation email \
         will be sent to {order.email}.')
 

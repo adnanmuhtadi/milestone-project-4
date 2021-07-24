@@ -47,10 +47,10 @@ def add_to_basket(request, item_id):
         # Adding the product and quantity in the basket, and if the product is already there, add the quantity to the basket
         if item_id in list(basket.keys()):
             messages.error(
-                request, f'Item is already in the basket {product.name}')
+                request, f'{product.name} is already in the basket')
         else:
             basket[item_id] = quantity
-            messages.success(request, f'product has been add {product.name}')
+            messages.success(request, f'{product.name} has been added to the basket.')
 
     # Overwriting the variable in the session with the updated version of the basket
     request.session['basket'] = basket
@@ -69,7 +69,7 @@ def remove_from_basket(request, item_id):
         basket.pop(item_id)
 
         request.session['basket'] = basket
-        messages.success(request, f'product has been removed {product.name}')
+        messages.success(request, f'{product.name} has been removed from the basket.')
         return HttpResponse(status=200)
 
     except Exception as e:

@@ -164,8 +164,11 @@ a.category-badge>span.badge:hover {
 
 .message-container {
   position: fixed;
-  top: 72px;
-  right: 15px;
+  top: 130px;
+  right: 5px;
+  overflow: auto;
+  max-height: 665px;
+  overflow-x: hidden;
   z-index: 99999999999;
 }
 
@@ -187,6 +190,21 @@ a.category-badge>span.badge:hover {
   width: 80px;
 }
 
+.toast-success {
+  border: 5px ridge #28a745;
+}
+
+.toast-warning {
+  border: 5px ridge #ffc107;
+}
+
+.toast-info {
+  border: 5px ridge #17a2b8;
+}
+
+.toast-error {
+  border: 5px ridge #dc3545;
+}
 /* -------------------------------- AllAuth Styling */
 
 .allauth-form-inner-content p {
