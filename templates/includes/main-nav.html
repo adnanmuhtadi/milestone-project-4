@@ -7,7 +7,7 @@
                 All Products
             </a>
             <!-- Drop down menu for 'All products' category-->
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-2 mt-2" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=size&direction=asc" class="dropdown-item">By Size</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
@@ -21,8 +21,10 @@
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sneakers
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="sneakers-link">
-                <a href="{% url 'products' %}?category=sneakers" class="dropdown-item">Sneakers</a>
+            <div class="dropdown-menu border-2 mt-2" aria-labelledby="sneakers-link">
+                <a href="{% url 'products' %}?category=sneakers&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?category=sneakers&sort=size&direction=asc" class="dropdown-item">By Size</a>
+                <a href="{% url 'products' %}?category=sneakers" class="dropdown-item">All Sneakers</a>
             </div>
         </li>
 
@@ -32,9 +34,10 @@
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Slip-ons
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="slip-on-link">
-                <a href="{% url 'products' %}?category=slip_ons" class="dropdown-item">Slip Ons</a>
-                <a href="" class="dropdown-item">All Homeware</a>
+            <div class="dropdown-menu border-2 mt-2" aria-labelledby="slip-on-link">
+                <a href="{% url 'products' %}?category=sneakers&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?category=slip_ons&sort=size&direction=asc" class="dropdown-item">By Size</a>
+                <a href="{% url 'products' %}?category=slip_ons" class="dropdown-item">All Slip Ons</a>
             </div>
         </li>
 
@@ -44,25 +47,10 @@
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 High Tops
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="high-tops-link">
-                <a href="{% url 'products' %}?category=high_tops" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">All Specials</a>
-                <a href="" class="dropdown-item">Clearance</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <!-- Drop down menu for 'Other' category-->
-            <a class="logo-font font-weight-bold nav-link text-black mx-5 d-inline-block" href="#" id="other-link"
-                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="other-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+            <div class="dropdown-menu border-2 mt-2" aria-labelledby="high-tops-link">
+                <a href="{% url 'products' %}?category=high_tops&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?category=high_tops&sort=size&direction=asc" class="dropdown-item">By Size</a>
+                <a href="{% url 'products' %}?category=high_tops" class="dropdown-item">All High Tops</a>
             </div>
         </li>
     </ul>
