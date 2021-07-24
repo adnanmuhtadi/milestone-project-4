@@ -2,7 +2,7 @@
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
     <!-- Header for the toast -->
-    <div class="toast-header bg-white text-dark">
+    <div class="toast-header bg-white text-dark text-center">
         <strong class="mr-auto">Success!</strong>
         <!-- close button added to close the toast -->
         <button type="button" class="btn-close ms-auto me-2" data-bs-dismiss="toast" aria-label="Close">
@@ -12,7 +12,7 @@
     <div class="toast-body bg-white">
         <!-- product preview of the item when added to the basket -->
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <!-- message container which will live in the base template -->
                 {{ message }}
                 <hr class="mt-1 mb-3">
@@ -20,7 +20,7 @@
         </div>
         <!-- creating the basket product count, as well as adding formation of the product -->
         {% if grand_price and not on_profile_page %}
-        <p class="logo-font bg-white text-black py-1">Your Basket ({{ item_count }})</p>
+        <p class="custom-font bg-white text-black py-1">Your Basket ({{ item_count }})</p>
         <div class="bag-notification-wrapper">
             {% for item in basket_products %}
             <div class="row">
@@ -42,7 +42,7 @@
             {% endfor %}
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <!-- Total price excluding the Delivery -->
                 <strong>
                     <p class="mt-3 mb-1 text-black">

@@ -56,7 +56,7 @@
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <!-- linking 'home' url which was defined in urls.py-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
-                <a href="{% url 'home' %}" class="title nav-link main-logo-link logo-font">Clout Mafia</a>
+                <a href="{% url 'home' %}" class="title nav-link main-logo-link custom-font">Clout Mafia</a>
             </div>
             <!-- Search functionality and the results would appear in the products page-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -193,11 +193,15 @@
 
     {% block afterloadjs %}
     <script type="text/javascript">
-        // to display the toast
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        var toastList = toastElList.map(function (toastEl) {
+        // Initializing the bootstrap toasts for bootstrap v5 and setting toast options
+        // This code was taken from the bootstrap v5 documentation
+        // Having the toast to disapear after 15 seconds
+        let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        let toastList = toastElList.map(function (toastEl) {
             return new bootstrap.Toast(toastEl, {
-                autohide: false
+                autohide: true,
+                animation: true,
+                delay: 15000,
             }).show()
         })
     </script>

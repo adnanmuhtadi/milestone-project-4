@@ -2,6 +2,12 @@ html {
   height: 100%;
 }
 
+.title,
+.custom-font {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+}
+
 body {
   font-family: 'Sarabun', sans-serif;
   height: calc(100vh - 400px);
@@ -17,11 +23,6 @@ main {
 .vr {
   border-right-style: inset;
   border-left-style: outset;
-}
-
-.title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
 }
 
 .topnav,
@@ -77,7 +78,7 @@ footer {
   width: 1.5rem;
 }
 
-.logo-font {
+.custom-font {
   text-transform: uppercase;
   color: #000000;
 }
@@ -259,6 +260,18 @@ display: inline-block;
 	color: #17a2b8; /* text-info */
 }
 
+/* -------------------------------- Terms and condidtions/Returns/Privacy */
+.extra-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.extra-body {
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

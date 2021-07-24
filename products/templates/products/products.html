@@ -17,7 +17,7 @@
     <!-- Title for the page -->
     <div class="row">
         <div class="col text-center mt-lg-5 mt-md-2">
-            <h2 class="logo-font title">Products</h2>
+            <h2 class="custom-font title">Products</h2>
             {% for c in present_categories %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
                 <span
