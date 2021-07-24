@@ -22,7 +22,6 @@
         <!-- Title of the page -->
         <div class="row">
             <div class="col">
-                <hr>
                 <h2 class="custom-font mb-4">My Profile</h2>
                 <hr>
             </div>
@@ -64,15 +63,16 @@
                                     <td>
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
+                                            - {{ item.product.name }}
                                                 <li class="small">
                                                     {% if item.product.has_sizes %}
                                                         Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                    {% endif %} - {{ item.product.colour}} x{{ item.quantity }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_price }}</td>
+                                    <td>£{{ order.grand_price }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

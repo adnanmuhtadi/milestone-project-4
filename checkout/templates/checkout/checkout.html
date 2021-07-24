@@ -28,8 +28,8 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-12 col-lg-6 order-lg-first mb-5">
+        <div class="row checkout-container">
+            <div class="col-12 col-lg-6 order-lg-first mb-5 order-checkout-summary">
                 <!-- The order summary which displays all the information of the products in the bag -->
                 <div class="bg-light border border-2 rounded-3 p-3">
                     <p class="text-muted">Order Summary ({{ item_count }})</p>
@@ -72,9 +72,9 @@
                             <p class="my-0">Grand Total:</p>
                         </div>
                         <div class="col-3">
-                            <p class="my-0">£ {{ total | floatformat:2 }}</p>
-                            <p class="my-0">£ {{ delivery | floatformat:2 }}</p>
-                            <p class="my-0"><strong>£ {{ grand_price | floatformat:2 }}</strong></p>
+                            <p class="my-0">£{{ total | floatformat:2 }}</p>
+                            <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                            <p class="my-0"><strong>£{{ grand_price | floatformat:2 }}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -84,13 +84,13 @@
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <!-- Placeholder for user details -->
-                    <fieldset class="rounded px-3 mb-5">
+                    <fieldset class="rounded px-3 mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Personal Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <!-- Placeholder for delivery information -->
-                    <fieldset class="rounded px-3 mb-5">
+                    <fieldset class="rounded px-3 mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Delivery Details</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.address_line1 | as_crispy_field }}
@@ -103,7 +103,7 @@
                         <div class="form-check form-check-inline float-right mr-0">
                             <!-- Option for authenticated user to save the delivery details -->
                             {% if user.is_authenticated %}
-                            <label class="form-check-label" for="id-save-info">Save delivery details to my
+                            <label class="form-check-label " for="id-save-info">Save delivery details to my
                                 profile</label>
                             <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
                                 checked>
@@ -130,14 +130,14 @@
                     </fieldset>
 
                         <!-- Submit buttons for the form where the user can edit their basket or but now -->
-                        <div class="submit-button text-right mt-5 mb-2">
-                            <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
+                        <div class="submit-button text-right px-3 mt-3 mb-2 justify-checkout-buttons">
+                            <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0 col-12 col-md-5 mb-2">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="font-weight-bold">Adjust Bag</span>
                             </a>
-                            <button id="submit-button" class="btn btn-black rounded-0">
+                            <button id="submit-button" class="btn btn-black rounded-0 col-12 col-md-5 mb-2">
                                 <span class="font-weight-bold">Complete Order</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
@@ -147,7 +147,7 @@
                                 <span class="icon">
                                     <i class="fas fa-exclamation-circle"></i>
                                 </span>
-                                <span>Your card will be charged <strong>${{ grand_price|floatformat:2 }}</strong></span>
+                                <span>Your card will be charged <strong>£ {{ grand_price|floatformat:2 }}</strong></span>
                             </p>
                         </div>
                 </form>

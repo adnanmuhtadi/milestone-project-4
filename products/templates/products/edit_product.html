@@ -15,14 +15,12 @@
 <div class="overlay"></div>
 <div class="container">
     <div class="row offset-md-2 col-md-8">
-        <div class="title col-12">
-            <hr>
+        <div class="col text-center mt-lg-5 mt-md-2">
             <h2 class="custom-font mb-4">Product Management</h2>
-            <h5 class="text-muted">Edit a Product</h5>
-            <hr>
+            <h2 class="custom-font">Edit {{ product.name }}</h2>
+            <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
-    </div>
-    <div class="row offset-md-2 col-md-8">
+        
         <div class="col-12 ">
             <!-- To render the form that will be filled out to add a product -->
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
@@ -37,8 +35,8 @@
                 {% endfor %}
                 <div class="text-right">
                     <!-- Buttons to either cancel the changes made or to update the product -->
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Update Product</button>
+                    <a class="btn btn-outline-black rounded-0 col-12 col-md-4 mb-3" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn btn-black rounded-0 col-12 col-md-4 mb-3" type="submit">Update Product</button>
                 </div>
             </form>
         </div>
@@ -52,7 +50,7 @@
     {{ block.super }}
     <script type="text/javascript">
     // listening the changing event on the new image input
-        $('#new-image').change(function() {
+        $('#new-image').change (function() {
             // Setting the file name paragraph in the widget to the file name
             var file = $('#new-image')[0].files[0];
             $('#filename').text(`Image will be set to: ${file.name}`);

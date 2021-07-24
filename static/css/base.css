@@ -276,13 +276,6 @@ display: inline-block;
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
   .fixed-top-desktop-only {
     position: fixed;
     top: 0;
@@ -294,8 +287,35 @@ display: inline-block;
   .header-container {
     padding-top: 100px;
   }
+
+  .container {
+    max-width: 80%;
+  }
 }
 
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) and (max-width: 1025px ){
+  .fixed-top-desktop-only {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .header-container {
+    padding-top: 100px;
+  }
+
+  .basket-summary {
+    margin-left: 65%;
+    height: 100px;
+  }
+
+  .price-small {
+    font-size: small;
+  }
+}
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
   .header-container {
@@ -305,16 +325,65 @@ display: inline-block;
   body {
     height: calc(100vh - 116px);
   }
+
+  .price-small {
+    font-size: small;
+  }
+}
+
+@media (max-width: 768px) {
+  .message-container {
+    top: 100px;
+  }
+
+  .justify-checkout-buttons {
+  text-align: right;
+  }
 }
 
 @media (max-width: 425px) {
   .nav-link {
     padding: 7px;
   }
+
+  .justify-checkout-buttons {
+    text-align: center;
+  }
+
+  .price-small {
+    font-size: large;
+  }
+}
+
+@media (max-width: 375px) {
+  .nav-link {
+    padding: 0px;
+  }
+
+  .mobile-sm-nav{
+    font-size: small;
+  }
 }
 
 @media (max-width: 320px) {
   .nav-link {
-    padding: 2px;
+    padding: 0px;
+  }
+
+  .mobile-sm-nav{
+    font-size: small;
+  }
+
+  .toast {
+    margin-left: auto;
+    width: 75%;
+  }
+
+  .checkout-container{
+    --bs-gutter-x: 5px;
+  }
+
+  .order-checkout-summary {
+    font-size: small;
   }
 }
