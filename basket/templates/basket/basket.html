@@ -21,31 +21,31 @@
             <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
         <div class="row mx-auto">
-            <!-- if something is in the basket, the table of contents will display it here -->
+            <!-- If something is in the basket, the table of contents will display it here -->
             {% if basket_products %}
-            <!-- only will be displayed for small screen devices -->
+            <!-- Only will be displayed for small screen devices -->
             <div class="d-block d-md-none">
                 <div class="row text-center">
                     <div class="col">
                         {% include "basket/basket-total.html" %}
                     </div>
                 </div>
-                <!-- will create a new row for each product that is added to the basket -->
+                <!-- Will create a new row for each product that is added to the basket -->
                 {% for item in basket_products %}
                 <div class="row text-center">
                     <div class="col-12 col-sm-6 mb-2">
-                        <!-- including the product image -->
+                        <!-- Including the product image -->
                         {% include "basket/product-image.html" %}
                     </div>
                     <div class="col-12 col-sm-6 mb-2">
-                        <!-- including the details of the product -->
+                        <!-- Including the details of the product -->
                         {% include "basket/product-info.html" %}
                     </div>
                     <div class="col-12 col-sm-6 mb-2">
-                        <!-- including the size of the product (shoe) -->
+                        <!-- Including the size of the product (shoe) -->
                         {% include "basket/product-size.html" %}
                     </div>
-                    <!-- price and remove button placeholder -->
+                    <!-- Price and remove button placeholder -->
                     <div class="col-12 col-sm-6 order-sm-last">
                         <p class="my-0">£ {{ item.product.price | calc_subtotal:item.quantity }}</p>
                         <a class="remove-item text-danger float-right"
@@ -61,6 +61,7 @@
                 {% endfor %}
             </div>
             <div class="col-8 col-lg-8 ">
+                <!-- Table headers for the basket -->
                 <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm table-borderless">
                         <thead class="text-black">
@@ -71,7 +72,7 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
-                        <!-- for each item in the basket, it will create a new row for it -->
+                        <!-- For each item in the basket, it will create a new row for it -->
                         {% for item in basket_products %}
                         <tr>
                             <td class="p-3 w-25">

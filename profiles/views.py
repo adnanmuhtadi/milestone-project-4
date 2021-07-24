@@ -6,6 +6,7 @@ from .forms import UserProfileForm
 
 from checkout.models import Order
 
+
 def profile(request):
     """ Returns the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -19,7 +20,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid')
+            messages.error(request, 'Update failed. \
+            Please ensure the form is valid')
     else:
         # Populatring the view with the uses profiles information
         form = UserProfileForm(instance=profile)
@@ -27,7 +29,7 @@ def profile(request):
 
     template = 'profiles/profile.html'
     context = {
-        'form':form,
+        'form': form,
         'orders': orders,
         'on_profile_page': True
     }
@@ -37,7 +39,8 @@ def profile(request):
 
 def order_history(request, order_number):
     """
-    Taking in the order and providing the user context and template which would include the order number
+    Taking in the order and providing the user
+    context and template which would include the order number
     """
     order = get_object_or_404(Order, order_number=order_number)
 

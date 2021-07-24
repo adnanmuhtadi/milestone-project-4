@@ -1,10 +1,10 @@
 {% if widget.is_initial %}
     <p>{{ widget.initial_text }}:</p>
-    <!-- preview of the image displayed here -->
+    <!-- Preview of the image displayed here -->
     <a href="{{ widget.value.url }}">
         <img width="96" height="96" class="rounded shadow-sm" src="{{ widget.value.url }}">
     </a>
-    <!-- checkbox placeholder -->
+    <!-- Checkbox placeholder -->
     {% if not widget.required %}
         <div class="custom-control custom-checkbox mt-2">
             <input class="custom-control-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
@@ -14,7 +14,7 @@
     {{ widget.input_text }}
 {% endif %}
 
-<!-- allow the file input look like a button -->
+<!-- Allow the file input look like a button -->
 <span class="border-0 btn btn-light rounded-0 btn-file">
 Select Image <input id="new-image" class="border-0" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 </span>

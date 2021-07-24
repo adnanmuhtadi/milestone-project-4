@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- to make the space from the header and the title -->
+<!-- To make the space from the header and the title -->
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -31,7 +31,7 @@
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12">
-                    <!-- the sort drop down option placeholder -->
+                    <!-- The sort drop down option placeholder -->
                     <div class="sort-select-wrapper my-auto d-flex justify-content-end">
                         <select id="sort-selector"
                             class="custom-select custom-select-sm rounded-0 border border-{% if sorting_products != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="row mt-1 mb-2">
-                    <!-- count for the number of search items appear as well as the breadcrumbs when categories are selected -->
+                    <!-- Count for the number of search items appear as well as the breadcrumbs when categories are selected -->
                     <div class="col-12 col-md-6 order-md">
                         <p class="text-muted mt-3">
                             {% if search_term or present_categories or sorting_products != 'None_None' %}
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- a new card placeholder for every time in the product database -->
+                    <!-- A new card placeholder for every time in the product database -->
                     {% for product in products %}
                     <div class="vr col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2">
                         <div class="card h-100 border-0">

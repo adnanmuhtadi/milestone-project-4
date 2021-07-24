@@ -1,3 +1,5 @@
+/*************************** Element Styling */
+
 .StripeElement,
 .stripe-style-input {
     box-sizing: border-box;
@@ -25,6 +27,8 @@
     color: #aab7c4;
 }
 
+/*************************** Display user information */
+
 .fieldset-label {
     position: relative;
     right: .5rem;
@@ -47,6 +51,8 @@ select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
 }
+
+/*************************** To checkout */
 
 /* The loading spinner which would appear after checkout during processing */
 #overlay-processing {

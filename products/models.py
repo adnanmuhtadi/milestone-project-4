@@ -10,22 +10,23 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=254)
-    # field being optional
+    # Field being optional
     readable_name = models.CharField(max_length=254, null=True, blank=True)
 
-    # string which returns the name of the category
+    # String which returns the name of the category
     def __str__(self):
         return self.name
 
-    # string to return the readable name
+    # String to return the readable name
     def get_friendly_name(self):
         return self.readable_name
+
 
 # Product model
 
 
 class Product(models.Model):
-    # foreign key to the category modal, it also being an option field
+    # Foreign key to the category modal, it also being an option field
     # if category is deleted, will give all products a null for this field
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
@@ -45,6 +46,6 @@ class Product(models.Model):
     imagefour_url = models.URLField(max_length=1024, null=True, blank=True)
     imagefour = models.ImageField(null=True, blank=True)
 
-    # string to return the product name
+    # String to return the product name
     def __str__(self):
         return self.name

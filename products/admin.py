@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Product, Category
 
 
+# Displaying a list for the product details in the admin page
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
@@ -16,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
         'imagefour',
     )
 
-# ordering the products by the sku name
+# Ordering the products by the sku name
     ordering = ('sku',)
 
 
@@ -24,7 +25,6 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'readable_name',
         'name',
-
     )
 
 

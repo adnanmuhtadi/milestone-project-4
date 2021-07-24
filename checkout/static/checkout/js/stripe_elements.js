@@ -6,14 +6,14 @@
     https://stripe.com/docs/stripe-js
 */
 
-// pulling the the stripe public key and client secret key
+// Pulling the the stripe public key and client secret key
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-// variable created using stripe public key
+// Variable created using stripe public key
 var stripe = Stripe(stripePublicKey);
 // Instance of Stripe element
 var elements = stripe.elements();
-// styling based around the instance
+// Styling based around the instance
 var style = {
     base: {
         color: '#000',
@@ -37,7 +37,7 @@ card.mount('#card-element');
 // Everytime it changes, it will check for any errors
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
-    // if any errors, it will be displayed in the card errors div
+    // If any errors, it will be displayed in the card errors div
     if (event.error) {
         var html = `
             <span class="icon" role="alert">
@@ -55,21 +55,21 @@ card.addEventListener('change', function (event) {
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
-    // prevent default form action which is to post
+    // Prevent default form action which is to post
     ev.preventDefault();
-    // disabling the card element and submitted button to prevent multiple submissions
+    // Disabling the card element and submitted button to prevent multiple submissions
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
 
-    // to activate the fade out of the form when the checkout button is activated
+    // To activate the fade out of the form when the checkout button is activated
     $('#payment-form').fadeToggle(100);
     $('#overlay-processing').fadeToggle(100);
 
-    // checking if the save info box was  
+    // Checking if the save info box was  
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} that Django generates in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    // object created to past the view and to pass  the client secret for the payment intent
+    // Object created to past the view and to pass  the client secret for the payment intent
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
@@ -78,7 +78,7 @@ form.addEventListener('submit', function (ev) {
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function() {
-        // confirming the card payment method, providing the card to stripe and then execute the results
+        // Confirming the card payment method, providing the card to stripe and then execute the results
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -110,7 +110,7 @@ form.addEventListener('submit', function (ev) {
                 }
             },
         }).then(function (result) {
-            // if there is an error, an error message would appear
+            // If there is an error, an error message would appear
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
@@ -120,22 +120,22 @@ form.addEventListener('submit', function (ev) {
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
 
-                // to activate the fade out of the form when the checkout button is activated
+                // To activate the fade out of the form when the checkout button is activated
                 $('#payment-form').fadeToggle(100);
                 $('#overlay-processing').fadeToggle(100);
 
-                // renable to the card and submit button if there was an issue so it can be fixed
+                // Renable to the card and submit button if there was an issue so it can be fixed
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
-                // if succeeded, we will submit the form. 
+                // If succeeded, we will submit the form. 
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
                 }
             }
         });
     }).fail(function () {
-        // just reload the page, the error will be in django messages
+        // Just reload the page, the error will be in django messages
         location.reload();
     })
 });

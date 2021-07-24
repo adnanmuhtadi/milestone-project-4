@@ -52,9 +52,10 @@ INSTALLED_APPS = [
     'basket',
     'checkout',
     'profiles',
-    
+
     # Other
-    # crispy forms for bootstrap5 was assisted from (https://github.com/django-crispy-forms/crispy-bootstrap5)
+    # Crispy forms for bootstrap5 was assisted
+    # From (https://github.com/django-crispy-forms/crispy-bootstrap5)
     'crispy_forms',
     'crispy_bootstrap5',
 ]
@@ -86,13 +87,14 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                # Allows alluth and django to access the HTTP request object in our templates
+                # Allows alluth and django to access the HTTP
+                # Request object in our templates
                 'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # to call the media folder in media for when the product has no image
+                # To call the media folder in media for when the product has no image
                 'django.template.context_processors.media',
-                # allows the context processor available to the entire application
+                # Allows the context processor available to the entire application
                 'basket.contexts.basket_contents',
             ],
             'builtins': [
@@ -103,7 +105,7 @@ TEMPLATES = [
     },
 ]
 
-# store messages in the session
+# Store messages in the session
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
@@ -118,14 +120,14 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# account authentication method is what tells allauth that we want to allow
-# authentication using either usernames or emails.
+# Account authentication method is what tells allauth that we want to allow
+# Authentication using either usernames or emails.
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-# email settings
+# Email settings
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-# username length of a min of 4 characters
+# Username length of a min of 4 characters
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -136,12 +138,18 @@ WSGI_APPLICATION = 'clout_mafia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# Connecting to sequel light
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

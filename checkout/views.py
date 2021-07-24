@@ -13,20 +13,20 @@ from basket.contexts import basket_contents
 import stripe
 import json
 
-# checking that the user has selected the save info box on checkout
+# Checking that the user has selected the save info box on checkout
 @require_POST
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         # Stepping up stripe with the secret ID
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        # modifying the metadata
+        # Modifying the metadata
         stripe.PaymentIntent.modify(pid, metadata={
             'basket': json.dumps(request.session.get('basket', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
-        # returning a HTTPResponse responding if the status is ok
+        # Returning a HTTPResponse responding if the status is ok
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Your payment cannot currently be \
@@ -34,14 +34,14 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 def checkout(request):
-    # setting up stripe payment intent
+    # Setting up stripe payment intent
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     """
-    gets the basket from the session and checks if it is empty or not,
+    Gets the basket from the session and checks if it is empty or not,
     if there is nothing in the basket, it will direct the user to the products page
     """
-    # handler to post the user details, first the check if the method is post
+    # Handler to post the user details, first the check if the method is post
     if request.method == 'POST':
         basket = request.session.get('basket', {})
         print(basket)
@@ -57,7 +57,7 @@ def checkout(request):
             'county_state': request.POST['county_state'],
             'country': request.POST['country'],
         }
-        # creating an instance of the form
+        # Creating an instance of the form
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -108,7 +108,7 @@ def checkout(request):
                 request, "There's nothing in the your basket at the moment")
             return redirect(reverse('products'))
 
-        # setting up the secret key on stripe and payment intent giving it the amount and currency
+        # Setting up the secret key on stripe and payment intent giving it the amount and currency
         current_basket = basket_contents(request)
         total = current_basket['grand_price']
         stripe_total = round(total * 100)
@@ -118,7 +118,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # if the user is authenticated, their profile information would be retrieved.
+        # If the user is authenticated, their profile information would be retrieved.
         # and have the input fields prefilled.
         if request.user.is_authenticated:
             try:
@@ -135,18 +135,18 @@ def checkout(request):
                     'country': profile.default_country,
                 })
                 
-                # empty form will be provided if the user is not authenticated.
+                # Empty form will be provided if the user is not authenticated.
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
 
-    # alert if the public key hasnt been set
+    # Alert if the public key hasnt been set
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Has it been forgotten to be set in the local environment?')
 
-    # instance of the order form which would empty
+    # Instance of the order form which would empty
     # creating the template and the creating the context containing the order form
 
     template = 'checkout/checkout.html'
@@ -163,9 +163,9 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
-    # retrieving the shopping basket
+    # Retrieving the shopping basket
     save_info = request.session.get('save_info')
-    # using the order number to get the order created which will be sent back to the template
+    # Using the order number to get the order created which will be sent back to the template
     order = get_object_or_404(Order, order_number=order_number)
     
     # If statement to make sure the user is authenticated
@@ -176,7 +176,8 @@ def checkout_success(request, order_number):
         order.user_profile = profile
         order.save()
 
-        # If the save info check box is checked, it will put the info as it will match with the profile data model
+        # If the save info check box is checked, it will put
+        # the info as it will match with the profile data model
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -193,20 +194,20 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
     
-    # success message letting the user know the order number
+    # Success message letting the user know the order number
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation email \
         will be sent to {order.email}.')
 
-    # deleting the user shopping basket from the session
+    # Deleting the user shopping basket from the session
     if 'basket' in request.session:
         del request.session['basket']
 
-    # set the template and the context
+    # Set the template and the context
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
     }
 
-    # render the template
+    # Render the template
     return render(request, template, context)

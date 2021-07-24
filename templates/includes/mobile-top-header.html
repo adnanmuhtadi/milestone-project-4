@@ -1,6 +1,6 @@
 <ul>
     <li class="list-inline-item mt-1">
-        <!-- mobile search placeholder -->
+        <!-- Mobile search placeholder -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -20,7 +20,7 @@
                             </span>
                         </button>
                     </div>
-                    <!-- placeholder for the search text box -->
+                    <!-- Placeholder for the search text box -->
                     <input class="search-box form-control border" type="text" name="q" placeholder="Search the site">
                 </div>
             </form>
@@ -28,7 +28,7 @@
     </li>
 
     <li class="list-inline-item">
-        <!-- navigation for mobile view -->
+        <!-- Navigation for mobile view -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
@@ -40,7 +40,7 @@
         <div class="dropdown-menu border-1 w-100 p-3 rounded-0 my-0" aria-labelledby="user-menu">
             <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-a input-group">
-                    <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
+                    <!-- Input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
                     <div class="input-group text-end">
                         <!-- If the user has an account and is classified as a super user display the following -->
                         {% if request.user.is_authenticated %}

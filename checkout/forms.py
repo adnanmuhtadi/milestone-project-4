@@ -17,7 +17,7 @@ class OrderForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            # dictionary of placeholders which will show up in the form
+            # Dictionary of placeholders which will show up in the form
             'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
@@ -38,9 +38,9 @@ class OrderForm(forms.ModelForm):
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
-                # setting the placeholder attributes to their values in the dictionary above
+                # Setting the placeholder attributes to their values in the dictionary above
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             # CSS class which is used in base.css
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            # removing the form field labels
+            # Removing the form field labels
             self.fields[field].label = False

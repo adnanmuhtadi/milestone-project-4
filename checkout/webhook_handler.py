@@ -11,9 +11,11 @@ import json
 import time
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    """
+    Handle Stripe webhooks
+    """
 
-    # to assign the request as an attribute of the class, so we can access any attribute of the request coming from stripe
+    # To assign the request as an attribute of the class, so we can access any attribute of the request coming from stripe
     def __init__(self, request):
         self.request = request
 
@@ -22,16 +24,16 @@ class StripeWH_Handler:
         Sends an email confirmation to the user
         """
         customer_email = order.email
-        # render_to_string method takes the two files and puts them in a string 
+        # Render_to_string method takes the two files and puts them in a string 
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
-            # adding it to the context
+            # Adding it to the context
             {'order': order})
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
         
-        # mail function to send the email
+        # Mail function to send the email
         send_mail(
             subject,
             body,
@@ -54,7 +56,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         print(intent)
-        # getting the payment intent id, the basket, and the uses Save Info from the metadata 
+        # Getting the payment intent id, the basket, and the uses Save Info from the metadata 
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -86,7 +88,7 @@ class StripeWH_Handler:
                 profile.default_country = shipping_details.address.country
                 profile.save()
 
-        # checking if the order already exists and making and adding a delay
+        # Checking if the order already exists and making and adding a delay
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -105,7 +107,7 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                # if the order has been found, the variable name 'order_exists' would be set to true and it would break out of the loop
+                # If the order has been found, the variable name 'order_exists' would be set to true and it would break out of the loop
                 order_exists = True
                 break
             except Order.DoesNotExist:

@@ -5,7 +5,7 @@ from .models import OrderLineItem
 
 
 @receiver(post_save, sender=OrderLineItem)
-# sender of the signal, instance of the model that sent it,
+# Sender of the signal, instance of the model that sent it,
 # boolen sent by django to confirm if this is a new instance or being updated
 def update_on_save(sender, instance, created, **kwargs):
     """

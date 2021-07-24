@@ -19,7 +19,7 @@
                 <!-- Product title to be displayed in mobile view and hidden in the desktop view -->
                 <h3 class="mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
                 {% if product.image %}
-                <!-- getting the main image for the product -->
+                <!-- Getting the main image for the product -->
                 <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top img-fluid mb-3" id="ProductImg" src="{{ product.image.url }}"
                         alt="{{ product.name }}">
@@ -29,7 +29,7 @@
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
-                <!-- small image placeholder where when clicked, it will be displayed on the main image placeholder -->
+                <!-- Small image placeholder where when clicked, it will be displayed on the main image placeholder -->
                 <div class="small-image-row row">
                     {% if product.image %}
                     <div class="small-image-col col-3">
@@ -83,7 +83,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-            <!-- all product detail information -->
+            <!-- All product detail information -->
             <div class="product-details-container mb-5 mt-md-2 text-lg-start text-md-start text-center">
                 <h3 class="mb-1 d-none d-sm-block">{{ product.name }}</h3>
                 <p class="mb-3 text-muted">Product Code: {{ product.sku }}</p>
@@ -151,7 +151,7 @@
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-3"
                                 value="Add to Basket">
                         </div>
-                        <!-- will redirect the user to the same page once they have clicked on the 'Add to Basket' button -->
+                        <!-- Redirect the user to the same page once they have clicked on the 'Add to Basket' button -->
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </div>
