@@ -272,6 +272,11 @@ display: inline-block;
   font-weight: 200;
   font-size: 15px;
 }
+
+/* -------------------------------- Terms and condidtions/Returns/Privacy */
+.test-title {
+  text-transform: capitalize;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

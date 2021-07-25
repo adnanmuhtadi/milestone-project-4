@@ -26,11 +26,116 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-8 mx-auto">
-                {{ testimonials }}
+            <div class="col-12 mx-auto">
+                <div class="sort-select-wrapper my-auto offset-lg-9 offset-md-8 offset-4">
+                    <select id="sort-selector"
+                        class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
+                        <option value="reset" {% if sorting_testimonials == 'None_None' %}selected{% endif %}>Sort by...
+                        </option>
+                        <option value="rrating_asc" 
+                        {% if sorting_testimonials == 'rrating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                        <option value="rrating_desc" 
+                        {% if sorting_testimonials == 'rrating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                        <option value="rdate_asc" 
+                        {% if sorting_testimonials == 'rdate_asc' %}selected{% endif %}>Date (New to Old)</option>
+                        <option value="rdate_desc" 
+                        {% if sorting_testimonials == 'rdate_desc' %}selected{% endif %}>Date (Old to New)</option>
+                        <option value="uprofile_asc" 
+                        {% if sorting_testimonials == 'uprofile_asc' %}selected{% endif %}>User (A-Z)</option>
+                        <option value="uprofile_desc"
+                        {% if sorting_testimonials == 'uprofile_desc' %}selected{% endif %}>User (Z-A)</option>
+                        <option value="rtitle_asc" 
+                        {% if sorting_testimonials == 'rtitle_asc' %}selected{% endif %}>Title (A-Z)</option>
+                        <option value="rtitle_desc"
+                        {% if sorting_testimonials == 'rtitle_desc' %}selected{% endif %}>Title (Z-A)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="product-container col-10 offset-1">
+                        <div class="row mt-1 mb-2"></div>
+                            {% for testimonial in testimonials %}
+                            <div class="card mt-3">
+                                <div class="row g-0">
+                                    <div class="card-header text-center border col-md-4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                {{ testimonial.uprofile }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                {% if testimonial.rrating %}
+                                                    <i class="fas fa-star mr-1"></i>{{ testimonial.rrating }} / 5
+                                                {% else %}
+                                                    <small class="text-muted">No Rating</small>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="card-text"><small class="text-muted">
+                                                    Reviewed on: {{ testimonial.rdate }}
+                                                </small></p>
+                                            </div>
+                                        </div>
+                                        {% if request.user == testimonial.user %}
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="card-text"><small class="text-muted">
+                                                    <a class="text-danger" href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
+                                                </small></p>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title test-title">{{ testimonial.rtitle }}</h5>
+                                            <p class="card-text">{{ testimonial.rmessage }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}        
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>                            
     </div>
 </div>
 
+{% endblock %}
+
+{% block afterloadjs %}
+    <script type="text/javascript">
+        /* once capturing the change event from the source selector
+    two variables set, one for the selector and the other for a new url for the object 
+    which takes the window location */
+        $('#sort-selector').change(function () {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            /* get the value from the selector box and the breaking them out 
+            into sort and direction*/
+            var selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                /* change the get parameters to the method calls */
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                /* change the current location to the updated URL  */
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}

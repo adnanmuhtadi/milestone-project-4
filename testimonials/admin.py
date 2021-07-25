@@ -4,12 +4,12 @@ from .models import Testimonial
 # Register your models here.
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = (
-        'user_profile',
-        'user_test_title',
-        'review_date',
-        'rating',
+        'user',
+        'rtitle',
+        'rdate',
+        'rrating',
     )
 
-    ordering = ('review_date',)
+    ordering = ('-rdate',)
 
 admin.site.register(Testimonial, TestimonialAdmin)

@@ -37,7 +37,9 @@ def add_to_basket(request, item_id):
         if item_id in list(basket.keys()):
             # Condition: has the same size, increase quantity
             if size in basket[item_id]['items_by_size'].keys():
-                basket[item_id]['items_by_size'][size] += quantity
+                basket[item_id]['items_by_size'][size] = quantity
+                messages.error(
+                request, f'{product.name} is already in the basket')
             else:
                 # Same item, different size, add it as a new item.
                 basket[item_id]['items_by_size'][size] = quantity
