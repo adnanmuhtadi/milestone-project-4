@@ -1,0 +1,24 @@
+[
+    {
+        "pk": 1,
+        "model": "testimonials.Testimonial",
+        "fields": {
+            "user_profile": "1",
+            "review_date": "2021-01-01 22:00",
+            "user_test_title": "amazing",
+            "user_message": "testing",
+            "rating": "3.0"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "testimonials.Testimonial",
+        "fields": {
+            "user_profile": "1",
+            "review_date": "2021-03-03 15:00",
+            "user_test_title": "incredible",
+            "user_message": "testing2",
+            "rating": "5.0"
+        }
+    }
+]

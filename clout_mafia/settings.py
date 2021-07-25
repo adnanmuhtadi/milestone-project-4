@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'basket',
     'checkout',
     'profiles',
+    'testimonials',
 
     # Other
     # Crispy forms for bootstrap5 was assisted
