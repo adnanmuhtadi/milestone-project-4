@@ -277,6 +277,10 @@ display: inline-block;
 .test-title {
   text-transform: capitalize;
 }
+
+.test-message {
+  font-style: italic;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -338,11 +342,11 @@ display: inline-block;
 
 @media (max-width: 768px) {
   .message-container {
-    top: 100px;
+    top: 112px;
   }
 
   .justify-checkout-buttons {
-  text-align: right;
+    text-align: right;
   }
 }
 
@@ -367,6 +371,10 @@ display: inline-block;
 
   .mobile-sm-nav{
     font-size: small;
+  }
+
+  .message-container {
+    top: 87px;
   }
 }
 

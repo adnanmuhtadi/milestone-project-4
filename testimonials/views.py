@@ -39,12 +39,6 @@ def all_testimonials(request):
 
     return render(request, 'testimonials/testimonials.html', context)
 
-def delete_testimonial(request, testimonial_id):
-    """ Delete a testimonial from the app """
-    testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
-    testimonial.delete()
-    messages.success(request, 'The testimonial has been deleted!')
-    return redirect(reverse('testimonials'))
 
 def add_testimonial(request):
     """ Add a testimonial to the app """
@@ -70,3 +64,37 @@ def add_testimonial(request):
     }
 
     return render(request, template, context)
+
+
+def edit_testimonial(request, testimonial_id):
+    """ Edit a product in the store """
+    testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, instance=testimonial)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated the testimonial!')
+            return redirect(reverse('testimonials'))
+        else:
+            messages.error(request, 'Failed to update the testimonial. Please ensure the form is valid.')
+    else:
+        form = TestimonialForm(instance=testimonial)
+        messages.info(request, f'You are editting the testimonial for {testimonial.rtitle}! ')
+
+    template = 'testimonials/edit_testimonial.html'
+    context = {
+        'form': form,
+        'testimonial': testimonial,
+    }
+
+    return render(request, template, context)
+
+
+def delete_testimonial(request, testimonial_id):
+    """ Delete a testimonial from the app """
+    testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
+    testimonial.delete()
+    messages.success(request, 'The testimonial has been deleted!')
+    return redirect(reverse('testimonials'))
+
+
