@@ -20,10 +20,10 @@ def all_products(request):
     sort = None
     direction = None
 
-    # Checking if category request.GET exists
+    # Checking if request.GET exists
     if request.GET:
         if 'sort' in request.GET:
-            # Allowing sort to also equals sortkey
+            # Allowing sort to equals sortkey
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':

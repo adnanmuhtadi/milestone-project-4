@@ -5,11 +5,14 @@ from .models import Testimonial
 class TestimonialForm(forms.ModelForm):
 
     class Meta:
+        # To define the model and it will include ALL the fields.
         model = Testimonial
         fields = ('rtitle', 'rmessage', 'rrating')
 
+    # To override the init method
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Having the testimonials data all show up
         testimonials = Testimonial.objects.all()
 
         placeholders = {
@@ -18,6 +21,7 @@ class TestimonialForm(forms.ModelForm):
             'rrating': 'Rating',
         }
 
+        # Only displaying the placeholder fields
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder

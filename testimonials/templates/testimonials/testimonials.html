@@ -28,6 +28,7 @@
         <div class="row">
             <div class="col-12 mx-auto">
                 <div class="sort-select-wrapper my-auto offset-lg-9 offset-md-8 offset-4">
+                    <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
                     <select id="sort-selector"
                         class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
                         <option value="reset" {% if sorting_testimonials == 'None_None' %}selected{% endif %}>Sort by...
@@ -53,6 +54,7 @@
                 <div class="row">
                     <div class="product-container col-10 offset-1">
                         <div class="row mt-1 mb-2"></div>
+                        <!-- Loop to go through the testimonials in a side ways card view -->
                             {% for testimonial in testimonials %}
                             <div class="card mt-3">
                                 <div class="row g-0">
@@ -64,6 +66,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
+                                                <!-- Stars from font awesome which would be associated with the rating user provided -->
                                                 {% if testimonial.rrating == 5 %}
                                                     <i class="fas fa-star mr-1"></i>
                                                     <i class="fas fa-star mr-1"></i>
@@ -96,6 +99,7 @@
                                                 </small></p>
                                             </div>
                                         </div>
+                                        <!-- The user has the power to edit/delete their own testimonials -->
                                         {% if request.user == testimonial.user %}
                                         <div class="row">
                                             <div class="col-12">
@@ -105,6 +109,7 @@
                                                 </small></p>
                                             </div>
                                         </div>
+                                        <!-- The super user has the power to edit/delete all testimonials -->
                                         {% elif request.user.is_superuser %}
                                         <div class="row">
                                             <div class="col-12">
@@ -126,6 +131,11 @@
                                 </div>
                             </div>
                             {% endfor %}        
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-md-5 offset-4 my-3">
+                                <a class="btn btn-black rounded-0" href="{% url 'add_testimonial' %}">Write a Testimonial</a>
+                            </div>
                         </div>
                     </div>
                 </div>
