@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load basket_tools %}
+
 
 {% block page_header %}
 <div class="container header-container">
@@ -20,156 +20,41 @@
             <h2 class="custom-font">About Us</h2>
             <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
-        <div class="row mx-auto">
-            <!-- If something is in the basket, the table of contents will display it here -->
-            {% if basket_products %}
-            <!-- Only will be displayed for small screen devices -->
-            <div class="d-block d-md-none">
-                <div class="row text-center">
-                    <div class="col">
-                        {% include "basket/basket-total.html" %}
-                    </div>
-                </div>
-                <!-- Will create a new row for each product that is added to the basket -->
-                {% for item in basket_products %}
-                <div class="row text-center">
-                    <div class="col-12 col-sm-6 mb-2">
-                        <!-- Including the product image -->
-                        {% include "basket/product-image.html" %}
-                    </div>
-                    <div class="col-12 col-sm-6 mb-2">
-                        <!-- Including the details of the product -->
-                        {% include "basket/product-info.html" %}
-                    </div>
-                    <div class="col-12 col-sm-6 mb-2">
-                        <!-- Including the size of the product (shoe) -->
-                        {% include "basket/product-size.html" %}
-                    </div>
-                    <!-- Price and remove button placeholder -->
-                    <div class="col-12 col-sm-6 order-sm-last">
-                        <p class="my-0">£ {{ item.product.price | calc_subtotal:item.quantity }}</p>
-                        <a class="remove-item text-danger float-right"
-                            id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <!-- line to separate each item -->
-                        <hr>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="col-8 col-lg-8 ">
-                <!-- Table headers for the basket -->
-                <div class="table-responsive rounded d-none d-md-block">
-                    <table class="table table-sm table-borderless">
-                        <thead class="text-black">
-                            <tr>
-                                <th scope="col">Product Info</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <!-- For each item in the basket, it will create a new row for it -->
-                        {% for item in basket_products %}
-                        <tr>
-                            <td class="p-3 w-25">
-                                {% include "basket/product-image.html" %}
-                            </td>
-                            <td class="py-3">
-                                {% include "basket/product-info.html" %}
-                            </td>
-                            <td class="py-3 w-25">
-                                {% include "basket/product-size.html" %}
-                            </td>
-                            <td class="py-3 checkout_price">
-                                <p class="my-0">£ {{ item.product.price }}</p>
-                                <a class="remove-item text-danger float-right"
-                                    id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                                    <!-- This is for the quantity field so they can increase o rdecrease when when they want
-                                    as well update the bag once the quantity has been confirmed by the user, i have hidden 
-                                    this field as it is not required in my project but required for posting towards the end -->
-                                    <td class="py-3 w-25 d-none">
-                                        <form class="form update-form" method="POST" action="">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
-                                    </td>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                {% else %}
-                <!-- Message if the bag is empty and a link to go back to all products with a 
-                    message and a button to go back shopping-->
-                <p class="lead mt-5">No items have been added to the Basket.</p>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg my-5">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Carry on Shopping</span>
-                </a>
-                {% endif %}
-            </div>
-            <!-- Basket total and buttons side button -->
-            {% if basket_products %}
-            <div
-                class="basket-summary offset-lg-7 col-lg-3 col-6 offset-md-7 col-md-4 justify-content-end position-fixed text-end d-none d-md-block">
-                {% include "basket/basket-total.html" %}
-            </div>
-            {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="h3 custom-font mb-4">Our Mission</div>
+            <p>Our Mission is to advertise and sell exclusive sneakers to all members of the public. 
+                The unique market for individuals who have a taste in fashion. Owning one of a kind, limited edition,
+                rare pair of sneakers will turn heads and having other individuals admiring your footwear. Giving users 
+                the different options of sneakers and sizes as well as being able to search for them to 
+                select from depending on availability.</p>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-12">
+            <div class="h3 d-flex justify-content-end custom-font my-4">Our History</div>
+            <p>Started following the trend for the new Jordans whenever they came out and having an addiction 
+                to Nike footwear, I found myself owning shoes that have no been worn. After being asked multiple 
+                times where have I purchased the pair of sneakers from, I was told they don't sell them anymore.
+                3 years later, I have been buying unique footwear and setting up an e-commerce site to allow 
+                other individuals to enjoy the unique style of the sneakers.
+            </p>
+        </div>
+    </div>
+        <div class="row mx-auto">
+            <div class="col-12 offset-lg-6 col-lg-6">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>
     {% endblock %}
-    {{ block.super }}
     {% block afterloadjs %}
 
-    <script type="text/javascript">
-        // Remove the token and item from the dictionary and reload on click
-        $('.remove-item').click(function(e) {
-            var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('remove_')[1];
-            var size = $(this).data('product_size');
-            var url = `/basket/remove/${itemId}/`;
-            var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
-
-            $.post(url, data)
-            .done(function() {
-                location.reload();
-            });
-        })
-    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key={{ gmaps_api }}&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
 
     {% endblock %}

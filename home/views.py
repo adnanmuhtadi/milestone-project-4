@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 
 # Create your views here.
 
@@ -39,5 +40,11 @@ def about(request):
     """ 
     A view to return the about page 
     """
+    gmaps_api = settings.GMAPS_API
 
-    return render(request, 'home/about.html')
+    template = 'home/about.html'
+    context = {
+        'gmaps_api': gmaps_api,
+    }
+
+    return render(request, template, context)
