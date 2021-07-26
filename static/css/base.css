@@ -165,11 +165,12 @@ a.category-badge>span.badge:hover {
 
 .message-container {
   position: fixed;
-  top: 130px;
+  top: 160px;
   right: 5px;
   overflow: auto;
   max-height: 665px;
   overflow-x: hidden;
+  opacity: 1;
   z-index: 99999999999;
 }
 
@@ -351,17 +352,28 @@ display: inline-block;
 
 @media (max-width: 768px) {
   .message-container {
-    top: 112px;
+    top: 137px;
   }
 
   .justify-checkout-buttons {
     text-align: right;
   }
+  .nav-link {
+    padding: 0;
+  }
 }
 
 @media (max-width: 425px) {
   .nav-link {
-    padding: 7px;
+    padding: 0;
+  }
+
+  product-detail-name {
+    margin-top: 400px;
+  }
+
+  .message-container {
+    top: 136px;
   }
 
   .justify-checkout-buttons {
@@ -383,7 +395,7 @@ display: inline-block;
   }
 
   .message-container {
-    top: 87px;
+    top: 113px;
   }
 }
 

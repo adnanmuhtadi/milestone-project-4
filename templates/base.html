@@ -55,6 +55,39 @@
 <body>
 
     <header class="container-fluid fixed-top">
+        <div id="topnav" class="row bg-light pt-lg-1 d-lg-flex">
+            <!-- Free delivery banner in top nav bar -->
+            <div id="delivery-banner" class="col-12 col-lg-6">
+                <div class="text-center text-lg-start custom-font text-uppercase">
+                    <p class="my-auto py-0 nav-link text-danger">Free delivery on orders over
+                        £{{ free_delivery_limit }}</p>
+                </div>
+            </div>
+
+            <!-- This block of code is for the contact and about us navigation links
+        that will only appear on larger screen sizes -->
+            <div class="col-6 text-end d-none d-lg-block">
+
+                <!-- Testimonial Navbar -->
+                <li class="list-inline-item">
+                    <a href="{% url 'testimonials' %}" class="nav-link black-text custom-font 
+            text-uppercase py-0 px-2">Testimonials</a>
+                </li>
+
+                <!-- About us Navbar -->
+                <li class="list-inline-item">
+                    <a href="{% url 'about' %}" class="nav-link black-text custom-font 
+            text-uppercase py-0 px-2">About Us</a>
+                </li>
+                <!-- Contact us Navbar -->
+                <li class="list-inline-item">
+                    <a href="" class="nav-link black-text custom-font 
+                text-uppercase py-0 px-2">Contact Us</a>
+                </li>
+
+            </div>
+        </div>
+
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <!-- linking 'home' url which was defined in urls.py-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
