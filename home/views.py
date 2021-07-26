@@ -33,3 +33,11 @@ def terms(request):
     """
 
     return render(request, 'home/terms.html')
+
+
+def about(request):
+    """ 
+    A view to return the about page 
+    """
+
+    return render(request, 'home/about.html')

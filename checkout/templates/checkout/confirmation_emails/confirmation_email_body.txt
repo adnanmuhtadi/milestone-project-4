@@ -5,11 +5,11 @@ This is a confirmation of your order at Boutique Ado. Your order information is 
 Order Number: {{ order.order_number }}
 Order Date: {{ order.purchase_date }}
 
-Order Total: ${{ order.order_total }}
-Delivery: ${{ order.delivery_cost }}
-Grand Total: ${{ order.grand_price }}
+Order Total: £ {{ order.order_total }}
+Delivery: £ {{ order.delivery_cost }}
+Grand Total: £ {{ order.grand_price }}
 
-Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+Your order will be shipped to {{ order.address_line1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
 We've got your phone number on file as {{ order.phone_number }}.
 
@@ -19,4 +19,4 @@ Thank you for your order!
 
 Sincerely,
 
-Boutique Ado
+Clout Mafia
