@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    <!-- additional meta data placeholder -->
+    <!-- Additional meta data placeholder -->
     {% block other_meta %}
     {% endblock %}
 
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun&display=swap">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
-    {% endblock %} <!-- additional css placeholder -->
+    {% endblock %} <!-- Additional css placeholder -->
 
     {% block other_css %}
     {% endblock %}
@@ -44,7 +44,7 @@
 
     {% endblock %}
 
-    <!-- additional js placeholder -->
+    <!-- Additional js placeholder -->
     {% block other_js %}
     {% endblock %}
 
@@ -91,7 +91,7 @@
         </div>
 
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-            <!-- linking 'home' url which was defined in urls.py-->
+            <!-- Linking 'home' url which was defined in urls.py-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
                 <a href="{% url 'home' %}" class="title nav-link main-logo-link custom-font">Clout Mafia</a>
             </div>
@@ -99,7 +99,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-search input-group w-100">
-                        <!-- input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
+                        <!-- Input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
                         <div class="search-box input-group-append">
                             <button class="form-control btn btn-black border" type="submit">
                                 <span class="icon">
@@ -107,7 +107,7 @@
                                 </span>
                             </button>
                         </div>
-                        <!-- input field for the search bar -->
+                        <!-- Input field for the search bar -->
                         <input class="search-box form-control border" type="text" name="search_q"
                             placeholder="Search the site">
                     </div>
@@ -174,7 +174,7 @@
         </div>
     </header>
 
-    <!-- message container for the toasts -->
+    <!-- Message container for the toasts -->
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
@@ -201,34 +201,34 @@
         {% endblock %}
     </main>
 
-    <!-- footer placeholder -->
+    <!-- Footer placeholder -->
     <footer class="text-muted mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-auto">
-                    <a href="{% url 'refunds' %}">Return & Refunds</a>
+                    <a href="{% url 'refunds' %}" class="text-decoration-none text-black">Return & Refunds</a>
                 </div>
                 <div class="col-12 col-md-auto">
-                    <a href="{% url 'privacy' %}">Privacy</a>
+                    <a href="{% url 'privacy' %}" class="text-decoration-none text-black">Privacy</a>
                 </div>
                 <div class="col-12 col-md-auto">
-                    <a href="{% url 'terms' %}">T & C's</a>
+                    <a href="{% url 'terms' %}" class="text-decoration-none text-black">T & C's</a>
                 </div>
                 <div class="col-12 col-md-auto">
-                    <a href="{% url 'testimonials' %}">Testimonials</a>
+                    <a href="{% url 'testimonials' %}" class="text-decoration-none text-black">Testimonials</a>
                 </div>
                 <div class="col-12 col-md-auto">
-                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'about' %}" class="text-decoration-none text-black">About</a>
                 </div>
                 <div class="col-12 col-md-auto">
-                    <a href="{% url 'contact' %}">Contact Us</a>
+                    <a href="{% url 'contact' %}" class="text-decoration-none text-black">Contact Us</a>
                 </div>
                 <div class="col text-md-end">
                     <span class="icon">
-                        <a href="https://www.instagram.com/_cloutmafia_/"><i class="fab fa-instagram-square"></i></a>
+                        <a href="https://www.instagram.com/_cloutmafia_/" class="text-decoration-none text-black"><i class="fab fa-instagram-square"></i></a>
                     </span>
                     <span class="icon">
-                        <a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.facebook.com" class="text-decoration-none text-black"><i class="fab fa-facebook-square"></i></a>
                     </span>
                 </div>
             </div>

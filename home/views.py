@@ -1,7 +1,13 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.contrib import messages
+# This is for the secret keys in the settings
 from django.conf import settings
+# Django imports to help with sending emails
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from testimonials.models import Testimonial
+from profiles.models import UserProfile
 
 # Create your views here.
 
@@ -63,3 +69,49 @@ def contact(request):
     """
 
     return render(request, 'home/contact.html')
+
+
+def send_email(request):
+    """
+    Send the site admin an email using the contact form
+    """
+    # If request method is post, then it will get all of the
+    # contact form info and store them in the vars
+    if request.method == 'POST':
+        cuser = request.user
+        cfullname = request.POST['cfullname']
+        cemail = request.POST['cemail']
+        csubject = request.POST['csubject']
+        cmessage = request.POST['cmessage']
+
+        # Body var is using the render to string method and
+        # passing the values to the contact email body text file
+        # to the format i have specified
+        body = render_to_string(
+            'home/cemails/cemail_body.txt',
+            {'username': cuser, 'fullname': cfullname,
+             'message': cmessage, 'user_email': cemail,
+             'subject': csubject})
+
+        # Django send mail method, structure has to be
+        # subject, message, from email and to email
+        send_mail(
+            f'This is the related {csubject}',
+            body,
+            cemail,
+            [settings.DEFAULT_FROM_EMAIL],
+        )
+
+        
+        # Message informing user using toasts that the message
+        # has sent and redirecting them to the home page
+        messages.success(
+            request, 'Your message has been sent to the site admin')
+        return redirect(reverse('home'))
+    else:
+        # Message informing user using toasts that the message
+        # failed to send to the admin and redirecting them back
+        # to the contact form
+        messages.error(
+            request, 'Failed to send message to admin')
+        return redirect(reverse('contact'))

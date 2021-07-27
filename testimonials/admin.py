@@ -7,8 +7,8 @@ class TestimonialAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'rtitle',
-        'rdate',
         'rrating',
+        'rdate',
     )
 
     # Ordering them in reverse in order of date

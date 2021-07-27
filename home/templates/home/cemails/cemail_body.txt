@@ -1,0 +1,15 @@
+Dear Clout Mafia
+
+You have been contacted by: {{ fullname }}
+
+The following has been asked about: {{ subject }}
+
+This is what has been asked:
+
+{{ message }}
+
+Please get back to them on: {{ user_email }}
+
+Sincerely,
+
+{{ fullname }}
