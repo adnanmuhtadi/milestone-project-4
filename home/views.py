@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.conf import settings
+
+from testimonials.models import Testimonial
 
 # Create your views here.
 
@@ -8,9 +10,14 @@ def index(request):
     """ 
     A view to return the index page
     """
+    # Taking the information from the testimonial app and then reversing the order of display
+    testimonials = Testimonial.objects.all().order_by('-rdate')
 
-    return render(request, 'home/index.html')
+    context = {
+        'testimonials': testimonials,
+    }
 
+    return render(request, 'home/index.html', context)
 
 def refunds(request):
     """

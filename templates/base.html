@@ -49,6 +49,8 @@
     {% endblock %}
 
     <title>Clout Mafia {% block other_title %}{% endblock %}</title>
+    <!--This is for the favicon-->
+    <link rel="shortcut icon" type="image/png" href="{{ MEDIA_URL }}fav.png" />
 
 </head>
 
@@ -218,13 +220,15 @@
                 <div class="col-12 col-md-auto">
                     <a href="{% url 'about' %}">About</a>
                 </div>
-                <div class="col-auto mr-auto col-12 col-md-auto">Contact Us</div>
-                <div class="col-12 col-end">
+                <div class="col-12 col-md-auto">
+                    <a href="">Contact Us</a>
+                </div>
+                <div class="col text-md-end">
                     <span class="icon">
-                        <i class="fab fa-instagram-square"></i>
+                        <a href="https://www.instagram.com/_cloutmafia_/"><i class="fab fa-instagram-square"></i></a>
                     </span>
                     <span class="icon">
-                        <i class="fab fa-facebook-square"></i>
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
                     </span>
                 </div>
             </div>

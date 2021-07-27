@@ -12,163 +12,115 @@
 {% endblock %}
 
 {% block content %}
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<!-- Carousel for the homepage -->
+<div class="row">
+<div id="myCarousel" class="col-12 carousel carousel-dark slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
         <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
         <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
         <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
+        <div class="carousel-item" data-bs-interval="10000">
+            <!-- Image taken from https://unsplash.com/photos/1WZYDo7IKzA -->
             <img class="first-slide"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                alt="First slide">
+                src="{{ MEDIA_URL }}bg1.jpeg"
+                alt="High-Tops">
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h1>Example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'products' %}?category=high_tops" 
+                        role="button">View More High-Tops</a></p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item" data-bs-interval="20000">
+        <!-- Buttons for the carousel -->
+        <div class="carousel-item active" data-bs-interval="20000">
             <img class="second-slide"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                alt="Second slide">
+                src="{{ MEDIA_URL }}bg2.png"
+                alt="All Products">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'products' %}" role="button">View All Products</a></p>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
+            <!-- Image taken from https://unsplash.com/photos/1b3qwzTxnEE -->
             <img class="third-slide"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                alt="Third slide">
+                src="{{ MEDIA_URL }}bg3.jpeg"
+                alt="Flip Flops">
             <div class="container">
                 <div class="carousel-caption text-right">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'products' %}?category=slip_ons" role="button">View All Slip-Ons</a></p>
                 </div>
             </div>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    <!-- Next and previous buttons added to the carousel -->
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-front text-black">One of a kind sneakers have just arrived!</h1>
-            <div class="my-5">
-                <h4>
-                    <a href="" class="show-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
-                </h4>
-            </div>
-        </div>
-    </div>
 </div>
-
 <div class="container">
-
-    <h1 class="title">What is Clout Mafia?</h1>
+    <!-- Introduction to the site -->
+    <h1 class="title text-center">What is Clout Mafia?</h1>
     <row>
-        <div class="col-12 col-md-7">
+        <div class="col-12 text-center mb-5">
             <p>Clout Mafia is the sneaker fashion shop where the next generation come to discover unique footware.
                 With a community flashing and trending their sneakers more inclusive, diverse and less wasteful. This is
                 what transforming fashion looks like.</p>
         </div>
     </row>
-    <h1>Testimonals</h1>
-    <div class="row">
-        <div class="col-12 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
+    <!-- Testimonials placeholder where it will display the newest one first and only display the newest 3 Testimonials -->
+    <h1 class="title text-center my-4">Testimonals</h1>
+    <div class="row mb-5">
+        {% for testimonial in testimonials|slice:":3" %}
+        <div class="col-12 col-md- col-sm-4 mb-3">
+            <div class="card">
+                <div class="card-header">
+                    {{ testimonial.user }}
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <h5 class="card-title">{{ testimonial.rtitle }}</h5>
+                    <h6 class="card-text mb-2 fst-italic text-muted">"{{ testimonial.rmessage }}"</h6>
+                    <p class="card-text text-end small">
+                        {% if testimonial.rrating == 5 %}
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
+                        {% elif testimonial.rrating == 4 %}
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
+                        {% elif testimonial.rrating == 3 %}
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
+                        {% elif testimonial.rrating == 2 %}
+                            <i class="fas fa-star mr-1"></i>
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
+                        {% elif testimonial.rrating == 1 %}
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text text-end small">{{ testimonial.rdate }}</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h1>Categories</h1>
-    <div class="row">
-        <div class="col-12 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-4 col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

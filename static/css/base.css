@@ -361,6 +361,7 @@ display: inline-block;
   .nav-link {
     padding: 0;
   }
+  
 }
 
 @media (max-width: 425px) {
@@ -421,3 +422,4 @@ display: inline-block;
     font-size: small;
   }
 }
+
