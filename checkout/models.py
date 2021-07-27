@@ -70,7 +70,6 @@ class Order(models.Model):
         If it has not already been set.
         """
         # If the order does not have an order number, it will create one and then save
-        print("Signal SAVING")
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)

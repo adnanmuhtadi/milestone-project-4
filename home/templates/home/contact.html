@@ -23,7 +23,57 @@
     </div>
     <div class="row">
         <div class="col-12">
+            <form method="post" action="">
+                {% csrf_token %}
+                {% if request.user.is_authenticated %}
+                <!-- Username placeholder-->
+                <div class="col-12 col-md-8 offset-md-2 mb-3">
+                    <input type="text" class="form-control rounded-0" id="contactus-username" name="contactus-username" placeholder="Full Name"
+                        value="{% if request.user.is_authenticated %}{{ user }}{% endif %}" required>
+                </div>
+                {% endif %}
+                <!-- Full name placeholder -->
+                <div class="col-12 col-md-8 offset-md-2 mb-3">
+                    <input type="text" class="form-control rounded-0" id="contactus-fullname" name="contactus-fullname" placeholder="Full Name"
+                        value="{% if request.user.is_authenticated %}{{ user.first_name }} {{ user.last_name }}{% endif %}" required>
+                </div>
 
+                <!-- Email address placeholder -->
+                <div class="col-12 col-md-8 offset-md-2 mb-3">
+                    <input type="email" class="form-control rounded-0" id="contactus-email" name="contactus-email" placeholder="Email Address"
+                        value="{% if request.user.is_authenticated %}{{ user.email }}{% endif %}" required>
+                </div>
+                <!-- Phone number placeholder -->
+                <div class="col-12 col-md-8 offset-md-2 mb-3">
+                    <input type="number" class="form-control rounded-0" id="contactus-phone" name="contactus-phone" placeholder="Phone Number"
+                        value="{% if request.user.is_authenticated %}{{ user.phone_number }}{% endif %}">
+                </div>
+                <!-- Subject placeholder -->
+                <div class="col-12 col-md-8 offset-md-2 mb-3">
+                    <select class="form-select rounded-0" name="contactus_subject" id="contactus_subject" required>
+                        <option selected>Subject/Topic</option>
+                        <option value="deliveries">Deliveries</option>
+                        <option value="returns">Returns</option>
+                        <option value="payment">Payment</option>
+                        <option value="privacy">Privacy</option>
+                        <option value="product">Product</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <!-- Message placeholder -->
+                <div class="col-12 col-md-8 offset-md-2 mb-3">
+                    <textarea class="form-control rounded-0" id="contactus-message" name="contactus-message" placeholder="Message" rows="5"
+                        required></textarea>
+                </div>
+                <!-- Form buttons -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="{% url 'home' %}" class="btn btn-dark custom-bg rounded-0 px-4 px-lg-5">Back</a>
+                        <button type="reset" class="btn btn-outline-dark rounded-0 px-4 px-lg-5">Clear</button>
+                        <button type="submit" class="btn btn-dark custom-bg rounded-0 px-4 px-lg-5">Send</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

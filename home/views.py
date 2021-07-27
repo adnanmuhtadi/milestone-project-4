@@ -55,3 +55,11 @@ def about(request):
     }
 
     return render(request, template, context)
+
+
+def contact(request):
+    """
+    A view to show the contact page
+    """
+
+    return render(request, 'home/contact.html')
