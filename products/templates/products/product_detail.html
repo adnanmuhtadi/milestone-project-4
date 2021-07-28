@@ -18,6 +18,9 @@
             <div class="small-container single-product mb-3">
                 <!-- Product title to be displayed in mobile view and hidden in the desktop view -->
                 <h3 class="mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
+                {% if product.has_sold %}
+                <h3 class="text-danger text-center text-uppercase d-block d-md-none"><strong>sold</strong></h3>
+                {% endif %}
                 {% if product.image %}
                 <!-- Getting the main image for the product -->
                 <a href="{{ product.image.url }}" target="_blank">
@@ -85,7 +88,9 @@
         <div class="col-12 col-md-6 col-lg-4 mt-lg-4 mt-md-2">
             <!-- All product detail information -->
             <div class="product-details-container mb-5 mt-md-2 text-lg-start text-md-start text-center">
-                <h3 class="product-detail-name mb-1 d-none d-sm-block">{{ product.name }}</h3>
+                <h3 class="product-detail-name mb-1 d-none d-sm-block">{{ product.name }}{% if product.has_sold %}
+                    <h3 class="text-danger text-uppercase"><strong>sold</strong></h3>
+                {% endif %}</h3>
                 <p class="mb-3 text-muted">Product Code: {{ product.sku }}</p>
                 <p class="lead mb-3 font-weight-bold">£ {{ product.price }}</p>
                 <p class="mr-1">Colour: {{ product.colour }}</p>
@@ -131,10 +136,11 @@
                                     max="1" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             </div>
                         </div>
-
                         {% if request.user.is_superuser %}
+                        {% if not product.has_sold %}
                             <small class="col-12 mx-auto">
                                 <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                {% endif %}
                                 <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                             </small>
                         {% endif %}
@@ -148,8 +154,10 @@
                                 </span>
                                 <span class="text-uppercase col-6">Carry on Shopping</span>
                             </a>
+                            {% if not product.has_sold %}
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-3 col-12 col-md-8 "
                                 value="Add to Basket">
+                            {% endif %}
                         </div>
                         <!-- Redirect the user to the same page once they have clicked on the 'Add to Basket' button -->
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
