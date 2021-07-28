@@ -20,7 +20,7 @@ def add_to_basket(request, item_id):
     Add a quantity of the specified product to the shopping basket 
     """
 
-    # Get the quantity from the the and url to redirect the user to
+    # Get the quantity from the basket and url to redirect the user to previous page
     product = get_object_or_404(Product, pk=item_id)
     size = None
     if 'product_size' in request.POST:

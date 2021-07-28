@@ -35,6 +35,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     colour = models.CharField(max_length=254, null=True, blank=False)
     has_sizes = models.BooleanField(default=True, null=True, blank=True)
+    has_sold = models.BooleanField(default=False, null=True, blank=True)
     size = models.DecimalField(
         max_digits=6, decimal_places=0, null=True, blank=False)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

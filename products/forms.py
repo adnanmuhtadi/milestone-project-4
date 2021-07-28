@@ -8,7 +8,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         # To define the model and it will include ALL the fields.
         model = Product
-        exclude = ('has_sizes',)
+        exclude = ('has_sizes','has_sold',)
 
     # Allowing the widget to be available for all 4 image inputs
     image = forms.ImageField(label='Image 1', required=False, widget=CustomClearableFileInput)

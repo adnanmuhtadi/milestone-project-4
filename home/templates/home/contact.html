@@ -23,43 +23,9 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form method="post" action="{% url 'send' %}">
+            <form method="POST" action="{% url 'send' %}" class="form mb-2">
                 {% csrf_token %}
-                {% if request.user.is_authenticated %}
-                <!-- Username placeholder-->
-                <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <input type="text" class="form-control rounded-0" id="cusername" name="cusername" placeholder="Full Name"
-                        value="{% if request.user.is_authenticated %}{{ user }}{% endif %}" required>
-                </div>
-                {% endif %}
-                <!-- Full name placeholder -->
-                <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <input type="text" class="form-control rounded-0" id="cfullname" name="cfullname" placeholder="Full Name"
-                        value="{% if request.user.is_authenticated %}{{ user.first_name }} {{ user.last_name }}{% endif %}" required>
-                </div>
-
-                <!-- Email address placeholder -->
-                <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <input type="email" class="form-control rounded-0" id="cemail" name="cemail" placeholder="Email Address"
-                        value="{% if request.user.is_authenticated %}{{ user.email }}{% endif %}" required>
-                </div>
-                <!-- Subject placeholder -->
-                <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <select class="form-select rounded-0" name="csubject" id="csubject" required>
-                        <option selected>Subject/Topic</option>
-                        <option value="deliveries">Deliveries</option>
-                        <option value="returns">Returns</option>
-                        <option value="payment">Payment</option>
-                        <option value="privacy">Privacy</option>
-                        <option value="product">Product</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <!-- Message placeholder -->
-                <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <textarea class="form-control rounded-0" id="cmessage" name="cmessage" placeholder="Message" rows="5"
-                        required></textarea>
-                </div>
+                {{ form | crispy }}
                 <!-- Form buttons -->
                 <div class="row">
                     <div class="col-12 text-center">
