@@ -8,7 +8,7 @@ class ContactUs(models.Model):
     class Meta:
         verbose_name_plural = 'Contact Us'
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    cuser = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     csubject = models.CharField(max_length=254)
     cmessage = models.TextField()
     cdate = models.DateField(auto_now_add=True)
@@ -16,4 +16,3 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return self.csubject
-        

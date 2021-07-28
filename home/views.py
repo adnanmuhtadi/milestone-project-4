@@ -9,6 +9,7 @@ from django.template.loader import render_to_string
 from testimonials.models import Testimonial
 from profiles.models import UserProfile
 from .forms import ContactForm
+from .models import ContactUs
 
 # Create your views here.
 
@@ -70,29 +71,74 @@ def contact(request):
     """
 
     return render(request, 'home/contact.html')
-
+    
 
 def send_email(request):
     """
     Send the site admin an email using the contact form
     """
-    # To check if the request method is post, and then to get all the filed elements
-    # in the contact form and store them in the variables
+    # If request method is post, then it will get all of the
+    # contact form info and store them in the vars
     if request.method == 'POST':
+        cuser = request.user
+        cfullname = request.POST['cfullname']
+        cemail = request.POST['cemail']
+        csubject = request.POST['csubject']
+        cmessage = request.POST['cmessage']
+
+        # Body var is using the render to string method and
+        # passing the values to the contact email body text file
+        # to the format i have specified
+        body = render_to_string(
+            'home/cemails/cemail_body.txt',
+            {'username': cuser, 'fullname': cfullname,
+             'message': cmessage, 'user_email': cemail,
+             'subject': csubject})
+
+        # Django send mail method, structure has to be
+        # subject, message, from email and to email
+        send_mail(
+            f'This is the related {csubject}',
+            body,
+            cemail,
+            [settings.DEFAULT_FROM_EMAIL],
+        )
+
+
+        # Message informing user using toasts that the message
+        # has sent and redirecting them to the home page
+        messages.success(
+            request, 'Your message has been sent to the site admin')
+
+
         form = ContactForm(request.POST)
+        print("form above")
         # checking if the form is a valid
         if form.is_valid():
-            data = form.save(commit=False)
-            data.user = request.user
-            data.save()
+            print(form)
+            print("form valid")
+            ContactUs = form.save(commit=False)
+            ContactUs.cuser = request.user
+            ContactUs.save()            
 
             messages.success(request, f'Thank you for taking your time to write a review \
             Your testimonial has been add!')
             # On success, redirect the user to the testimonials home page
-            return redirect(reverse('home'))
+
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            print("form invalid")
+            print(form.errors)
+            messages.error(request, 'It has not been posted to the db')
+            
+        return redirect(reverse('home'))
     else:
+        # Message informing user using toasts that the message
+        # failed to send to the admin and redirecting them back
+        # to the contact form
+        messages.error(
+            request, 'Failed to send message to admin')
+        return redirect(reverse('contact'))
+
         form = ContactForm()
 
     template = 'home/contact.html'
