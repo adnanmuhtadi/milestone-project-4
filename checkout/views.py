@@ -70,12 +70,15 @@ def checkout(request):
                 try:
                     # Getting product id, if product hasn't got sizes, then it will save the order_line_item
                     product = Product.objects.get(id=item_id)
+                    # When product has been sold, it would change the status to true
+                    product.has_sold = True
+                    product.save()
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
-                            product_size=product.size
+                            product_size=product.size,
                         )
                         order_line_item.save()
                     else:
@@ -94,7 +97,7 @@ def checkout(request):
                         "Please contact us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
+                    return redirect(reverse('view_basket'))
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
