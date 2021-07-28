@@ -10,7 +10,8 @@ class Testimonial(models.Model):
     rdate = models.DateTimeField(auto_now_add=True)
     rtitle = models.CharField(max_length=254)
     rmessage = models.TextField()
-    rrating = models.DecimalField(max_digits=1, decimal_places=0, null=True, blank=True)
+    rrating = models.DecimalField(
+        max_digits=1, decimal_places=0, null=True, blank=True)
 
     # String to return the review titles
     def __str__(self):

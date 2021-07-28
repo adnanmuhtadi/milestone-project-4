@@ -90,12 +90,15 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 # Allows alluth and django to access the HTTP
                 # Request object in our templates
-                'django.template.context_processors.request',  # required by allauth
+                # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # To call the media folder in media for when the product has no image
+                # To call the media folder in
+                # media for when the product has no image
                 'django.template.context_processors.media',
-                # Allows the context processor available to the entire application
+                # Allows the context processor
+                # available to the entire application
                 'basket.contexts.basket_contents',
             ],
             'builtins': [

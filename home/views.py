@@ -104,12 +104,10 @@ def send_email(request):
             [settings.DEFAULT_FROM_EMAIL],
         )
 
-
         # Message informing user using toasts that the message
         # has sent and redirecting them to the home page
         messages.success(
             request, 'Your message has been sent to the site admin')
-
 
         form = ContactForm(request.POST)
         print("form above")
@@ -119,7 +117,7 @@ def send_email(request):
             print("form valid")
             ContactUs = form.save(commit=False)
             ContactUs.cuser = request.user
-            ContactUs.save()            
+            ContactUs.save()
 
             messages.success(request, f'Thank you for taking your time to write a review \
             Your testimonial has been add!')

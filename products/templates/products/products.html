@@ -84,19 +84,18 @@
                             <div class="card-body pb-0">
                                 <p class="mb-1 text-center">{{ product.name }}</p>
                                 {% if product.has_sold %}
-                                    <p>sold</p>
+                                    <h3 class="text-danger text-center text-uppercase"><strong>sold</strong></h3>
                                 {% endif %}
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
                                         <p class=" mb-0 text-center text-muted">Size: {{ product.size }}</p>
-                                        <p class="lead mb-0 font-weight-bold text-center">£{{ product.price }}
+                                        <p class="lead mb-0 font-weight-bold text-center">£ {{ product.price }}
                                         </p>
                                         <div class="row">
                                             <div class="col-12 text-center">
-                                            {% if product.has_sold %}
-                                            {% else %}
+                                            {% if not product.has_sold %}
                                                 {% if request.user.is_superuser %}
                                                 <p class="mt-2">
                                                     <a href="{% url 'edit_product' product.id %}">Edit</a> |

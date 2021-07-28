@@ -13,6 +13,7 @@ from basket.contexts import basket_contents
 import stripe
 import json
 
+
 # Checking that the user has selected the save info box on checkout
 @require_POST
 def cache_checkout_data(request):
@@ -33,13 +34,15 @@ def cache_checkout_data(request):
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
+
 def checkout(request):
     # Setting up stripe payment intent
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     """
     Gets the basket from the session and checks if it is empty or not,
-    if there is nothing in the basket, it will direct the user to the products page
+    if there is nothing in the basket, it will direct
+    the user to the products page
     """
     # Handler to post the user details, first the check if the method is post
     if request.method == 'POST':
@@ -68,9 +71,11 @@ def checkout(request):
             # Taken from my basket context.py and altered for the checkout app
             for item_id, item_data in basket.items():
                 try:
-                    # Getting product id, if product hasn't got sizes, then it will save the order_line_item
+                    # Getting product id, if product hasn't got sizes, then it
+                    # will save the order_line_item
                     product = Product.objects.get(id=item_id)
-                    # When product has been sold, it would change the status to true
+                    # When product has been sold, it would change the
+                    # status to true
                     product.has_sold = True
                     product.save()
                     if isinstance(item_data, int):
@@ -82,7 +87,8 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        # If the product id has got sizes, then it will print the following line items.
+                        # If the product id has got sizes, then it will
+                        # print the following line items.
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
@@ -93,7 +99,8 @@ def checkout(request):
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag wasn't \
+                            found in our database."
                         "Please contact us for assistance!")
                     )
                     order.delete()
@@ -111,7 +118,8 @@ def checkout(request):
                 request, "There's nothing in the basket at the moment")
             return redirect(reverse('products'))
 
-        # Setting up the secret key on stripe and payment intent giving it the amount and currency
+        # Setting up the secret key on stripe and payment
+        # intent giving it the amount and currency
         current_basket = basket_contents(request)
         total = current_basket['grand_price']
         stripe_total = round(total * 100)
@@ -121,8 +129,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # If the user is authenticated, their profile information would be retrieved.
-        # and have the input fields prefilled.
+        # If the user is authenticated, their profile information
+        # would be retrieved. and have the input fields prefilled.
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -149,8 +157,8 @@ def checkout(request):
         messages.warning(request, 'Stripe public key is missing. \
             Has it been forgotten to be set in the local environment?')
 
-    # Instance of the order form which would empty
-    # creating the template and the creating the context containing the order form
+    # Instance of the order form which would empty creating the
+    # template & the creating the context containing the order form
 
     template = 'checkout/checkout.html'
     context = {
@@ -168,7 +176,8 @@ def checkout_success(request, order_number):
     """
     # Retrieving the shopping basket
     save_info = request.session.get('save_info')
-    # Using the order number to get the order created which will be sent back to the template
+    # Using the order number to get the order created which
+    # will be sent back to the template
     order = get_object_or_404(Order, order_number=order_number)
     
     # If statement to make sure the user is authenticated
@@ -192,11 +201,12 @@ def checkout_success(request, order_number):
                 'default_country': order.country,
             }
 
-            # Using the profile data, an instance will be created, and if the user form is valid, update user preferences.
+            # Using the profile data, an instance will be created,
+            # and if the user form is valid, update user preferences.
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-    
+
     # Success message letting the user know the order number
     messages.success(request, f'Your order has been successfully processed! \
         Your order number is {order_number}. A confirmation email \

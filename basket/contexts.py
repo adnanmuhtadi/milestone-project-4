@@ -20,7 +20,7 @@ def basket_contents(request):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
             item_count += item_data
-            # Add a dictionary to the list of basket items 
+            # Add a dictionary to the list of basket items
             # containing the Item, quantity and product
             basket_products.append({
                 'item_id': item_id,
@@ -39,8 +39,9 @@ def basket_contents(request):
                     'quantity': quantity,
                     'product': product,
                     'size': size,
-                }) 
-    # They will receive free delivery if they spend more than the amount specified in the settings.py
+                })
+    # They will receive free delivery if they spend more than the amount
+    # specified in the settings.py
     if total < settings.FREE_DELIVERY_LIMIT:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_message = settings.FREE_DELIVERY_LIMIT - total

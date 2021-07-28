@@ -18,10 +18,11 @@ class OrderAdmin(admin.ModelAdmin):
                        'grand_price', 'original_basket', 'stripe_pid')
 
     # Specify the order which is should be displayed in the admin interface
-    fields = ('order_number', 'user_profile', 'full_name', 'email', 'phone_number',
-              'address_line1', 'address_line2', 'town_or_city', 'county_state',
-              'postcode', 'country', 'purchase_date', 'delivery_cost', 'order_total',
-              'grand_price', 'original_basket', 'stripe_pid')
+    fields = ('order_number', 'user_profile', 'full_name', 'email',
+              'phone_number', 'address_line1', 'address_line2', 'town_or_city',
+              'county_state', 'postcode', 'country', 'purchase_date',
+              'delivery_cost', 'order_total', 'grand_price', 'original_basket',
+              'stripe_pid')
 
     # To restrict the column that show up in the order list
     list_display = ('order_number', 'purchase_date', 'full_name',

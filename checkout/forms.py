@@ -28,8 +28,8 @@ class OrderForm(forms.ModelForm):
             'county_state': 'County or State',
         }
 
-        # Set the full name with the autofocus attribute so the cursor would begin in
-        # that area of the form when the page is loaded
+        # Set the full name with the autofocus attribute so the cursor
+        # would begin in that area of the form when the page is loaded
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'country':
@@ -38,7 +38,8 @@ class OrderForm(forms.ModelForm):
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
-                # Setting the placeholder attributes to their values in the dictionary above
+                # Setting the placeholder attributes to their values
+                # in the dictionary above
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             # CSS class which is used in base.css
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'

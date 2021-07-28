@@ -9,7 +9,7 @@ from .forms import ProductForm
 
 
 def all_products(request):
-    """ 
+    """
     A view to show all the products, including the sorting and searching,
     Context is added to send things back to the template
     """
@@ -27,7 +27,8 @@ def all_products(request):
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
-                # Rename sortkey to lower_name in the event user sorting by name
+                # Rename sortkey to lower_name in the
+                # Event user sorting by name
                 sortkey == 'lower_name'
                 # Annotate the list of products with the new field
                 products = products.annotate(lower_name=Lower('name'))
@@ -46,21 +47,24 @@ def all_products(request):
         if 'category' in request.GET:
             # Take the list of results and split in the ','
             categories = request.GET['category'].split(',')
-            # Using that list, it will filter the products based on the name of the categories
+            # Using that list, it will filter the products
+            # Based on the name of the categories
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         # Checking if request.GET exists and using the search_q parameters
-        # if search_q is in request.GET then call it query
+        # If search_q is in request.GET then call it query
         if 'search_q' in request.GET:
             query = request.GET['search_q']
-            # Error message appear if query is blank, and then redirects them to products view
+            # Error message appear if query is blank, and then
+            # redirects them to products view
             if not query:
                 messages.error(
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            # Setting a variable to Q object where it is searching content using the name or description
+            # Setting a variable to Q object where it is searching
+            # Content using the name or description
             search_results = Q(name__icontains=query) | Q(
                 description__icontains=query)
             # Pass the results through the filter method
@@ -80,8 +84,8 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ 
-    A view to show a specific product by take the parameter Product ID, 
-    Context is added to send things back to the template
+    A view to show a specific product by take the parameter
+    Product ID, context is added to send things back to the template
     """
 
     product = get_object_or_404(Product, pk=product_id)
@@ -93,15 +97,16 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
-# @login required will make django check if the user is already logged in or not.
-# if not, it will redirect the user to the login page
+# @login required will make django check if the user is
+# Already logged in or not. If not, it will redirect the user to the login page
 @login_required
 def add_product(request):
-    """ 
+    """
     Add a product to the store, it will render an empty instance of our form,
     a new template, and will include context which includes the product form
     """
-    # If not superuser, a message would be displayed and become redirected to the the home page
+    # If not superuser, a message would be displayed and become
+    # Redirected to the the home page
     if not request.user.is_superuser:
        messages.error(request, 'Sorry, only store owners can do that.')
        return redirect(reverse('home'))
@@ -111,7 +116,8 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, f'{product.name} has been successfully added!')
+            messages.success(request, f'{product.name} has been \
+                successfully added!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to add the product.\
@@ -133,22 +139,26 @@ def edit_product(request, product_id):
     """
     Edit a product in store
     """
-    # If not superuser, a message would be displayed and become redirected to the the home page
+    # If not superuser, a message would be displayed and become
+    # Redirected to the the home page
     if not request.user.is_superuser:
        messages.error(request, 'Sorry, only store owners can do that.')
        return redirect(reverse('home'))
 
     # Prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
-    # Checking if the request method is post, telling the instance to post new information of that instance of the product.
+    # Checking if the request method is post, telling the instance to
+    # Post new information of that instance of the product.
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, f'{product.name} has now been successfully updated!')
+            messages.success(request, f'{product.name} has now been \
+                successfully updated!')
             return redirect(reverse('product_detail', args=[product_id]))
         else:
-            messages.error(request, f'Failed to update {product.name}. Please ensure the form is valid and try again')
+            messages.error(request, f'Failed to update {product.name}. Please \
+            ensure the form is valid and try again')
     else:
     # Creating the instance of the product form
         form = ProductForm(instance=product)
@@ -169,7 +179,8 @@ def delete_product(request, product_id):
     """
     Delete a product from store
     """
-    # If not superuser, a message would be displayed and become redirected to the the home page
+    # If not superuser, a message would be displayed and become
+    # Redirected to the the home page
     if not request.user.is_superuser:
        messages.error(request, 'Sorry, only store owners can do that.')
        return redirect(reverse('home'))

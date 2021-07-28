@@ -49,7 +49,7 @@ def all_testimonials(request):
 @login_required
 def add_testimonial(request):
     """ 
-    Add a testimonial to the app 
+    Add a testimonial to the app
     """
 
     # Checking if the request method is post
@@ -61,12 +61,14 @@ def add_testimonial(request):
             data.user = request.user
             data.save()
 
-            messages.success(request, f'Thank you for taking your time to write a review \
+            messages.success(request, f'Thank you for taking \
+                your time to write a review \
             Your testimonial has been add!')
             # On success, redirect the user to the testimonials home page
             return redirect(reverse('testimonials'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please \
+                ensure the form is valid.')
     else:
         form = TestimonialForm()
 
@@ -81,23 +83,26 @@ def add_testimonial(request):
 @login_required
 def edit_testimonial(request, testimonial_id):
     """ 
-    Edit a product in the store 
+    Edit a product in the store
     """
     # Prefilling the form using the product_object_or_404
     testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
     if request.method == 'POST':
-        # Checking if the request method is post, telling the instance to post new information of that instance of the testimonial.
+        # Checking if the request method is post, telling the instance to
+        # post new information of that instance of the testimonial.
         form = TestimonialForm(request.POST, instance=testimonial)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated the testimonial!')
             return redirect(reverse('testimonials'))
         else:
-            messages.error(request, 'Failed to update the testimonial. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update the testimonial. \
+                Please ensure the form is valid.')
     else:
         # Creating the instance of the testimonial form
         form = TestimonialForm(instance=testimonial)
-        messages.info(request, f'You are editting the testimonial for {testimonial.rtitle}! ')
+        messages.info(request, f'You are editting the testimonial \
+            for {testimonial.rtitle}! ')
 
     # Informing it which template to use.
     template = 'testimonials/edit_testimonial.html'
@@ -112,7 +117,7 @@ def edit_testimonial(request, testimonial_id):
 @login_required
 def delete_testimonial(request, testimonial_id):
     """ 
-    Delete a testimonial from the app 
+    Delete a testimonial from the app
     """
     # Prefilling the form using the product_object_or_404
     testimonial = get_object_or_404(Testimonial, pk=testimonial_id)

@@ -10,12 +10,14 @@ from profiles.models import UserProfile
 import json
 import time
 
+
 class StripeWH_Handler:
     """
     Handle Stripe webhooks
     """
 
-    # To assign the request as an attribute of the class, so we can access any attribute of the request coming from stripe
+    # To assign the request as an attribute of the class, so we
+    # can access any attribute of the request coming from stripe
     def __init__(self, request):
         self.request = request
 
@@ -24,7 +26,8 @@ class StripeWH_Handler:
         Sends an email confirmation to the user
         """
         customer_email = order.email
-        # Render_to_string method takes the two files and puts them in a string 
+        # Render_to_string method takes the two files and puts
+        # them in a string
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             # Adding it to the context
@@ -43,7 +46,8 @@ class StripeWH_Handler:
 
     def handle_event(self, event):
         """
-        Takes the event stripe is sending us and returns a https response confirming it has been recieved
+        Takes the event stripe is sending us and returns a https
+        response confirming it has been recieved
         """
         return HttpResponse(
             content=f'Unmanaged by Webhook received: {event["type"]}',
@@ -51,12 +55,13 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """
-        Handles the payment intent succeeded webhook from Stripe as this would be sent each time a 
-        user makes a payment
+        Handles the payment intent succeeded webhook from Stripe
+        as this would be sent each time a user makes a payment
         """
         intent = event.data.object
         print(intent)
-        # Getting the payment intent id, the basket, and the uses Save Info from the metadata 
+        # Getting the payment intent id, the basket, and the
+        # uses Save Info from the metadata
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -66,18 +71,21 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_price = round(intent.charges.data[0].amount / 100, 2)
 
-        # Clean data in the shipping details to ensure the data is in the same form
+        # Clean data in the shipping details to ensure
+        # the data is in the same form
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
 
-        # Handling the different checkout views for the user profiles for when the checkout view fails
+        # Handling the different checkout views for the
+        # user profiles for when the checkout view fails
         profile = None
-        # Getting the username from intent.metadata, and so the user would be consider as not AnonymousUser
+        # Getting the username from intent.metadata, and
+        # so the user would be consider as not AnonymousUser
         username = intent.metadata.username
         if username != 'AnonymousUser':
             if save_info:
-                # Getting user details as they are not anonymouse 
+                # Getting user details as they are not anonymouse
                 profile = UserProfile.objects.get(user__username=username)
                 profile.default_phone_number = shipping_details.phone
                 profile.default_address_line1 = shipping_details.address.line1
@@ -107,7 +115,8 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                # If the order has been found, the variable name 'order_exists' would be set to true and it would break out of the loop
+                # If the order has been found, the variable name 'order_exists'
+                # would be set to true and it would break out of the loop
                 order_exists = True
                 break
             except Order.DoesNotExist:
@@ -117,7 +126,8 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | Success!: The order has already been verified from our database',
+                content=f'Webhook received: {event["type"]} | Success!: \
+                    The order has already been verified from our database',
                 status=200)
         else:
             order = None
@@ -138,9 +148,11 @@ class StripeWH_Handler:
                 )
 
             # Taken from my basket context.py and altered for the checkout app,
-            # However, the data is being load from the JSON Version in the payment intent instead off from the session
+            # However, the data is being load from the JSON Version in the
+            # payment intent instead off from the session
                 for item_id, item_data in json.loads(basket).items():
-                    # Getting product id, if product hasn't got sizes, then it will save the order_line_item
+                    # Getting product id, if product hasn't got sizes, then
+                    # it will save the order_line_item
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
@@ -151,7 +163,8 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        # If the product id has got sizes, then it will print the following line items.
+                        # If the product id has got sizes, then it will
+                        # print the following line items.
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
