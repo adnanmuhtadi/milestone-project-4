@@ -18,7 +18,8 @@ def index(request):
     """ 
     A view to return the index page
     """
-    # Taking the information from the testimonial app and then reversing the order of display
+    # Taking the information from the testimonial app and then reversing
+    # the order of display
     testimonials = Testimonial.objects.all().order_by('-rdate')
 
     context = {
@@ -26,6 +27,7 @@ def index(request):
     }
 
     return render(request, 'home/index.html', context)
+
 
 def refunds(request):
     """
@@ -37,7 +39,7 @@ def refunds(request):
 
 def privacy(request):
     """ 
-    A view to return the privacy page 
+    A view to return the privacy page
     """
 
     return render(request, 'home/privacy.html')
@@ -45,7 +47,7 @@ def privacy(request):
 
 def terms(request):
     """ 
-    A view to return the terms and conditions page 
+    A view to return the terms and conditions page
     """
 
     return render(request, 'home/terms.html')
@@ -71,7 +73,7 @@ def contact(request):
     """
 
     return render(request, 'home/contact.html')
-    
+
 
 def send_email(request):
     """
@@ -90,7 +92,7 @@ def send_email(request):
         # passing the values to the contact email body text file
         # to the format i have specified
         body = render_to_string(
-            'home/cemails/cemail_body.txt',
+            'home/emails/email_body.txt',
             {'username': user, 'fullname': fullname,
              'message': message, 'user_email': email,
              'subject': subject})

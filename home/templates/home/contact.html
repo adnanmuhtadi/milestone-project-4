@@ -30,13 +30,13 @@
                 {% endif %}
                 <!-- Full name placeholder -->
                 <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <input type="text" class="form-control rounded-0" id="cfullname" name="cfullname" placeholder="Full Name"
+                    <input type="text" class="form-control rounded-0" id="fullname" name="fullname" placeholder="Full Name"
                         value="{% if request.user.is_authenticated %}{{ user.first_name }} {{ user.last_name }}{% endif %}" required>
                 </div>
 
                 <!-- Email address placeholder -->
                 <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <input type="email" class="form-control rounded-0" id="cemail" name="cemail" placeholder="Email Address"
+                    <input type="email" class="form-control rounded-0" id="email" name="email" placeholder="Email Address"
                         value="{% if request.user.is_authenticated %}{{ user.email }}{% endif %}" required>
                 </div>
                 <!-- Phone number placeholder -->
