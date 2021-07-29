@@ -278,7 +278,9 @@ The features that will be utilised in this project will be as follows:
 
 ## Testing
 
-...
+Testing was taken place during my build of the site. I was utilising Visual Studio Code 'Live Preview' along with GitPod using localhost to visually see what my website looks like with every change that was being made. I also used Chrome Dev Tools to assist with changes when the code was not working as planned. Within the Chrome Dev Tools, I was also using the responsive views to see the development for the responsive sizes. To test the JS, I would use Chrome Dev Tools and choosing 'Console' to make sure everything was running smoothly.
+
+In this section, I would be testing the User Stories taken from the User Experience Section (UX), testing the functionality and usability, testing the responsive views as well as browser testing.
 
 ### Validation
 
@@ -321,11 +323,12 @@ or use this template
 
 #### Browser and Responsive Testing
 
-
+All tests that have been mentioned in the link above was tested on the following browsers: Chrome, Edge and Firefox. All features and functions worked as expected, including the addition of UX designs (except for the known issues mentioned below). The site got tested on different size devices that consisted of a laptop 13 inches, a tablet and a mobile phone.
 
 ### Known Issues
 
-- 
+- Within the Home page, when going to mobile view, it does not shrink the sizes of the images within the carousel.
+- When deleting a product, it will also delete it from the order history when i user purchases it.
 
 ## Deployment
 
@@ -341,15 +344,36 @@ or use this template
 
 ### Content
 
-
+-   Content was taken from a pre-created instagram page [Clout-Mafia](https://www.instagram.com/_cloutmafia_/)
+-   Terms and Conditions - [Template made by Termly](https://app.termly.io/) - Template Generator
+-   Privacy - [Template made by Termly](https://app.termly.io/) - Template Generator
+-   Returns and Refunds - [Template made by Termsfeed](https://app.termsfeed.com/) - Template Generator
 
 ### Code
 
-
+- Site Code
+    - A majority of the code was taken from the [CodeInstitute - Boutique Ado Project](https://learn.codeinstitute.net/ci_program/diplomainsoftwaredevelopment) as it touches most of what was required to build this project.
+- Bootsrap CheatSheet v5
+    - [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/) - Using premade bootstrap classes enabled me also allowed me to reduce the amount of CSS required
+- Home Page
+    - [Carousel](https://getbootstrap.com/docs/5.0/components/carousel/)
+- Google Maps
+    - [Google Maps Location](https://developers.google.com/maps/documentation/javascript/adding-a-google-map#maps_add_map-html) - Used in the 'About' page
+- Product Detail
+    - [Multiple-Image](https://www.youtube.com/watch?v=ENyk_W-Eleo) - Each product has multiple images and can be displayed in the space of the big image
 
 ### Media
 
-
+-   Carousel
+    - [Image 2](https://unsplash.com/photos/1b3qwzTxnEE) - Flip Flops
+    - [Image 3](https://unsplash.com/photos/1WZYDo7IKzA) - High Tops
+-   About Page
+    - [Team Image](https://unsplash.com/photos/xLUwi3yDNb0) - A picture of the 'Team'
+-   Product
+    - [No Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ANo_image_available.svg&psig=AOvVaw1awmSiJ6ifYkoItaDU7HlQ&ust=1627564591918000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPiF6eXshfICFQAAAAAdAAAAABAD) - Image to be used when a product is added without an image
 
 ### Acknowledgements
 
+I want to thank my mentor Aaron Sinnott who guided me in the right direction and for his support. This project has allowed me to experience the powers of Python, Django and much more. It has enabled the developer/me to understand and appreciate the extensive strength of apps and how they all interlock. It has made me aware that doing this project, I have only scratched the surface when coding in Python.
+
+I also want to thank the Code Institute tutorials especially the Boutique Ado project for helping me to build and achieve this project. I would like to thank Code Institute Tutors, who guided me in the right direction when I struggled in understanding the small issues I faced during the pro. The project was developed for a couple of friends who buy and sell sneakers as they wanted an online shop.
