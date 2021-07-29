@@ -13,7 +13,6 @@ class TestimonialForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Having the testimonials data all show up
-        testimonials = Testimonial.objects.all()
 
         placeholders = {
             'rtitle': 'Testimonial Title',
