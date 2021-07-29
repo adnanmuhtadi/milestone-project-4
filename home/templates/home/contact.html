@@ -24,7 +24,7 @@
                 {% if request.user.is_authenticated %}
                 <!-- Username placeholder-->
                 <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <input type="text" class="form-control rounded-0" id="cusername" name="cusername" placeholder="Full Name"
+                    <input type="text" class="form-control rounded-0" id="username" name="username" placeholder="Full Name"
                         value="{% if request.user.is_authenticated %}{{ user }}{% endif %}" required>
                 </div>
                 {% endif %}
@@ -46,7 +46,7 @@
                 </div>
                 <!-- Subject placeholder -->
                 <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <select class="form-select rounded-0" name="csubject" id="csubject" required>
+                    <select class="form-select rounded-0" name="subject" id="subject" required>
                         <option selected>Subject/Topic</option>
                         <option value="deliveries">Deliveries</option>
                         <option value="returns">Returns</option>
@@ -58,7 +58,7 @@
                 </div>
                 <!-- Message placeholder -->
                 <div class="col-12 col-md-8 offset-md-2 mb-3">
-                    <textarea class="form-control rounded-0" id="cmessage" name="cmessage" placeholder="Message" rows="5"
+                    <textarea class="form-control rounded-0" id="message" name="message" placeholder="Message" rows="5"
                         required></textarea>
                 </div>
                 <!-- Form buttons -->

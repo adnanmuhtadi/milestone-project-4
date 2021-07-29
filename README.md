@@ -52,9 +52,8 @@ The intended type of users which this website is targeted for are individuals wh
 1. As a user, I want to be able to see the products that have already been sold, so I can see the other types of products I have missed out on and what this company has already sold
 1. As a site owner, I want to be able to add a product, so I can a new pair of sneakers to my store
 1. As a site owner, I want to be able to edit, update a product in my store, so I can amend the name, price, description, image and any other product details
-1. As a site owner, I want to be able to mark a product as sold when a product has been purchased, so I can ensure it will not be purchased again
 1. As a site owner, I want to be able to delete a product, so I can remove the product from my store.
-1. As a site owner, I want to be able to see a list of subjects that get used when contacting the site admin, so I can see what user are mostly asking
+1. As a site owner, I want to be able to see a list of emails that get sent within the Django admin page, so I can see what users are mostly asking 
 
 ### Design
 -   #### Colour Scheme
@@ -313,9 +312,9 @@ or use this template
 
 ### Further Testing
 
-#### User Stories Testing from User Experience (UX) Section - [View Results](#)
+#### User Stories Testing from User Experience (UX) Section - [View Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/testing-md-docs/user-testing-ux.md)
 
-
+When carrying out the User Story Testing, I placed myself as the user being provided instructions on how to complete the user stories. The intended type of users which this website is targeted for are individuals who have a unique appreciation for footwear. I displayed screenshots with the results of each finding to provide evidence of the stories being achieved successfully.
 
 #### Functionality and Usability Testing - [View Results](#)
 

@@ -6,15 +6,15 @@ from .models import ContactUs
 class ContactUsAdmin(admin.ModelAdmin):
     # How they would be displayed in the django admin
     list_display = (
-        'cuser',
-        'csubject',
-        'cmessage',
-        'cdate',
-        'ctime',
+        'user',
+        'subject',
+        'message',
+        'date',
+        'time',
     )
 
     # Ordering them in reverse in order of date
-    ordering = ('-cdate', '-ctime',)
+    ordering = ('-date', '-time',)
 
 
 admin.site.register(ContactUs, ContactUsAdmin)

@@ -80,25 +80,25 @@ def send_email(request):
     # If request method is post, then it will get all of the
     # contact form info and store them in the vars
     if request.method == 'POST':
-        cuser = request.user
+        user = request.user
         cfullname = request.POST['cfullname']
         cemail = request.POST['cemail']
-        csubject = request.POST['csubject']
-        cmessage = request.POST['cmessage']
+        subject = request.POST['subject']
+        message = request.POST['message']
 
         # Body var is using the render to string method and
         # passing the values to the contact email body text file
         # to the format i have specified
         body = render_to_string(
             'home/cemails/cemail_body.txt',
-            {'username': cuser, 'fullname': cfullname,
-             'message': cmessage, 'user_email': cemail,
-             'subject': csubject})
+            {'username': user, 'fullname': cfullname,
+             'message': message, 'user_email': cemail,
+             'subject': subject})
 
         # Django send mail method, structure has to be
         # subject, message, from email and to email
         send_mail(
-            f'This is the related {csubject}',
+            f'This is the related {subject}',
             body,
             cemail,
             [settings.DEFAULT_FROM_EMAIL],
@@ -116,7 +116,7 @@ def send_email(request):
             print(form)
             print("form valid")
             ContactUs = form.save(commit=False)
-            ContactUs.cuser = request.user
+            ContactUs.user = request.user
             ContactUs.save()
 
             messages.success(request, f'Thank you for taking your time to write a review \
