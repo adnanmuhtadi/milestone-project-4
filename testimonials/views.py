@@ -5,10 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from .forms import TestimonialForm
 
-# Create your views here.
 
 def all_testimonials(request):
-    """ 
+    """
     A view to return all the testimonials made by users
     """
 
@@ -22,10 +21,10 @@ def all_testimonials(request):
             # Allowing sort to equals sortkey
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'rtitle':
-                sortkey = 'lower_rtitle'
+            if sortkey == 'title':
+                sortkey = 'lower_title'
                 # Annotate the list of products with the new field
-                testimonials = testimonials.annotate(lower_rtitle=Lower('rtitle'))
+                testimonials = testimonials.annotate(lower_title=Lower('title'))
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -34,7 +33,6 @@ def all_testimonials(request):
                     sortkey = f'-{sortkey}'
             # To sort the testimonials
             testimonials = testimonials.order_by(sortkey)
-            
 
     sorting_testimonials = f'{sort}_{direction}'
 
@@ -48,7 +46,7 @@ def all_testimonials(request):
 
 @login_required
 def add_testimonial(request):
-    """ 
+    """
     Add a testimonial to the app
     """
 
@@ -61,7 +59,7 @@ def add_testimonial(request):
             data.user = request.user
             data.save()
 
-            messages.success(request, f'Thank you for taking \
+            messages.success(request, 'Thank you for taking \
                 your time to write a review \
             Your testimonial has been add!')
             # On success, redirect the user to the testimonials home page
@@ -82,7 +80,7 @@ def add_testimonial(request):
 
 @login_required
 def edit_testimonial(request, testimonial_id):
-    """ 
+    """
     Edit a product in the store
     """
     # Prefilling the form using the product_object_or_404
@@ -102,7 +100,7 @@ def edit_testimonial(request, testimonial_id):
         # Creating the instance of the testimonial form
         form = TestimonialForm(instance=testimonial)
         messages.info(request, f'You are editting the testimonial \
-            for {testimonial.rtitle}! ')
+            for {testimonial.title}! ')
 
     # Informing it which template to use.
     template = 'testimonials/edit_testimonial.html'
@@ -116,7 +114,7 @@ def edit_testimonial(request, testimonial_id):
 
 @login_required
 def delete_testimonial(request, testimonial_id):
-    """ 
+    """
     Delete a testimonial from the app
     """
     # Prefilling the form using the product_object_or_404
@@ -124,5 +122,3 @@ def delete_testimonial(request, testimonial_id):
     testimonial.delete()
     messages.success(request, 'The testimonial has been deleted!')
     return redirect(reverse('testimonials'))
-
-

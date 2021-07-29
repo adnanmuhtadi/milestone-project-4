@@ -7,7 +7,7 @@ class TestimonialForm(forms.ModelForm):
     class Meta:
         # To define the model and it will include ALL the fields.
         model = Testimonial
-        fields = ('rtitle', 'rmessage', 'rrating')
+        fields = ('title', 'message', 'rating')
 
     # To override the init method
     def __init__(self, *args, **kwargs):
@@ -16,9 +16,9 @@ class TestimonialForm(forms.ModelForm):
         testimonials = Testimonial.objects.all()
 
         placeholders = {
-            'rtitle': 'Testimonial Title',
-            'rmessage': 'Type testimonial message here',
-            'rrating': 'Rating',
+            'title': 'Testimonial Title',
+            'message': 'Type testimonial message here',
+            'rating': 'Rating',
         }
 
         # Only displaying the placeholder fields

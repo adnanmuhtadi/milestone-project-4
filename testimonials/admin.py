@@ -7,13 +7,14 @@ class TestimonialAdmin(admin.ModelAdmin):
     # How they would be displayed in the django admin
     list_display = (
         'user',
-        'rtitle',
-        'rrating',
-        'rdate',
+        'title',
+        'rating',
+        'date',
+        'time',
     )
 
     # Ordering them in reverse in order of date
-    ordering = ('-rdate',)
+    ordering = ('-date', '-time')
 
 
 admin.site.register(Testimonial, TestimonialAdmin)

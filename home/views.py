@@ -18,7 +18,7 @@ def index(request):
     """
     # Taking the information from the testimonial app and then reversing
     # the order of display
-    testimonials = Testimonial.objects.all().order_by('-rdate')
+    testimonials = Testimonial.objects.all().order_by('-date')
 
     context = {
         'testimonials': testimonials,

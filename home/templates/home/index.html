@@ -87,36 +87,36 @@
                     {{ testimonial.user }}
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ testimonial.rtitle }}</h5>
-                    <h6 class="card-text mb-2 fst-italic text-muted">"{{ testimonial.rmessage }}"</h6>
+                    <h5 class="card-title">{{ testimonial.title }}</h5>
+                    <h6 class="card-text mb-2 fst-italic text-muted">"{{ testimonial.message }}"</h6>
                     <p class="card-text text-end small">
-                        {% if testimonial.rrating == 5 %}
+                        {% if testimonial.rating == 5 %}
                             <i class="fas fa-star mr-1"></i>
                             <i class="fas fa-star mr-1"></i>
                             <i class="fas fa-star mr-1"></i>
                             <i class="fas fa-star mr-1"></i>
-                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
-                        {% elif testimonial.rrating == 4 %}
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rating }} / 5
+                        {% elif testimonial.rating == 4 %}
                             <i class="fas fa-star mr-1"></i>
                             <i class="fas fa-star mr-1"></i>
                             <i class="fas fa-star mr-1"></i>
-                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
-                        {% elif testimonial.rrating == 3 %}
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rating }} / 5
+                        {% elif testimonial.rating == 3 %}
                             <i class="fas fa-star mr-1"></i>
                             <i class="fas fa-star mr-1"></i>
-                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
-                        {% elif testimonial.rrating == 2 %}
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rating }} / 5
+                        {% elif testimonial.rating == 2 %}
                             <i class="fas fa-star mr-1"></i>
-                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
-                        {% elif testimonial.rrating == 1 %}
-                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rrating }} / 5
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rating }} / 5
+                        {% elif testimonial.rating == 1 %}
+                            <i class="fas fa-star mr-1"></i>  {{ testimonial.rating }} / 5
                         {% else %}
                             <small class="text-muted">No Rating</small>
                         {% endif %}
                     </p>
                 </div>
                 <div class="card-footer">
-                    <p class="card-text text-end small">{{ testimonial.rdate }}</p>
+                    <p class="card-text text-end small">{{ testimonial.date }}</p>
                 </div>
             </div>
         </div>

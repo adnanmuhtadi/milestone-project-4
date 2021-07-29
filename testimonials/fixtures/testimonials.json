@@ -4,10 +4,10 @@
         "model": "testimonials.Testimonial",
         "fields": {
             "user": "1",
-            "rdate": "2021-01-01 22:00",
-            "rtitle": "amazing",
-            "rmessage": "testing",
-            "rrating": "3.0"
+            "date": "2021-01-01 22:00",
+            "title": "amazing",
+            "message": "testing",
+            "rating": "3.0"
         }
     },
     {
@@ -15,10 +15,10 @@
         "model": "testimonials.Testimonial",
         "fields": {
             "user": "1",
-            "rdate": "2021-03-03 15:00",
-            "rtitle": "incredible",
-            "rmessage": "testing2",
-            "rrating": "5.0"
+            "date": "2021-03-03 15:00",
+            "title": "incredible",
+            "message": "testing2",
+            "rating": "5.0"
         }
     },
     {
@@ -26,10 +26,10 @@
         "model": "testimonials.Testimonial",
         "fields": {
             "user": "2",
-            "rdate": "2020-01-03 22:00",
-            "rtitle": "fantastic",
-            "rmessage": "testing456",
-            "rrating": "4.0"
+            "date": "2020-01-03 22:00",
+            "title": "fantastic",
+            "message": "testing456",
+            "rating": "4.0"
         }
     }
 ]
