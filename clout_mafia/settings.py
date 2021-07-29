@@ -26,12 +26,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = getenv('SECRET_KEY')
+if 'SECRET_KEY' in os.environ:
+    SECRET_KEY = os.getenv("SECRET_KEY")
+else:
+    SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if 'DEVELOPMENT' in os.environ:
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com', 'localhost']
+if 'HEROKU_HOSTNAME' in os.environ:
+    ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com']
+else:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -207,11 +216,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # To calculations for the delivery
 FREE_DELIVERY_LIMIT = 200
 STANDARD_DELIVERY_PERCENTAGE = 10
-
 STRIPE_CURRENCY = 'gbp'
-STRIPE_PUBLIC_KEY = getenv("STRIPE_PUBLIC_KEY")
-STRIPE_SECRET_KEY = getenv("STRIPE_SECRET_KEY")
-STRIPE_WH_SECRET = getenv("STRIPE_WH_SECRET")
-DEFAULT_FROM_EMAIL = 'info@cloutmafia.com'
 
-GMAPS_API = getenv("GMAPS_API")
+if 'STRIPE_PUBLIC_KEY' in os.environ:
+    STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", '')
+else:
+    STRIPE_PUBLIC_KEY = getenv("STRIPE_PUBLIC_KEY")
+
+if 'STRIPE_SECRET_KEY' in os.environ:
+    STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", '')
+else:
+    STRIPE_SECRET_KEY = getenv("STRIPE_SECRET_KEY")
+
+if 'STRIPE_WH_SECRET' in os.environ:
+    STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", '')
+else:
+    STRIPE_WH_SECRET = getenv("STRIPE_WH_SECRET")
+
+if 'GMAPS_API' in os.environ:
+    GMAPS_API = os.getenv("GMAPS_API", '')
+else:
+    GMAPS_API = getenv("GMAPS_API")
+
+DEFAULT_FROM_EMAIL = 'info@cloutmafia.com'
