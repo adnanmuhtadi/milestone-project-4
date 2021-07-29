@@ -2,11 +2,13 @@
 
 [View project here](#)
 
-This eCommerce site is based on advertising and selling exclusive sneakers. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different options of sneakers and sizes as well as being able to search for them to select from depending on availability.
+This eCommerce site is based on advertising and selling exclusive sneakers. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different options of sneakers and sizes as well as being able to search for them to select from depending on availability. 
+
+As the business is a startup, products sold will still be advertised but marked sold disabling and removing the opportunity to be repurchased. The reason for this approach is to build the hype for the user client tell and to showcase what users have missed out on. 
 
 This site would be utilizing Python and Django which was taught from the Code Institute. I will also be using various technologies such as HTML5, CSS3, JQuery and Bootstrap. This project will be responsive and accessible to different size browsers and devices.
 
-<h2 align="center"><img src="#"></h2>
+<h2 align="center"><img src="https://clout-mafia-ms4.herokuapp.com/"></h2>
 
 ## User Experience (UX)
 
@@ -47,6 +49,7 @@ The intended type of users which this website is targeted for are individuals wh
 1. As a user, I want to be able to easily enter my payment details, so I can easily purchase my items
 1. As a user, I want to be able to view an order confirmation after I have purchased my items, so I can verify my purchase order.
 1. As a user, I want to be able to post a testimonial, so I can express my opinion of the service/website.
+1. As a user, I want to be able to see the products that have already been sold, so I can see the other types of products I have missed out on and what this company has already sold
 1. As a site owner, I want to be able to add a product, so I can a new pair of sneakers to my store
 1. As a site owner, I want to be able to edit, update a product in my store, so I can amend the name, price, description, image and any other product details
 1. As a site owner, I want to be able to mark a product as sold when a product has been purchased, so I can ensure it will not be purchased again
@@ -138,6 +141,21 @@ The features that will be utilised in this project will be as follows:
 -   Carousel will rotate and will take the user to different parts of the shop depending on the carousel and button
 -   Testimonials are fetched from the database and display the newest three
 
+#### Registration Page
+
+-   Email validation if the emails do not match and if the email has already been used
+-   Password validation error appears if the passwords don't match
+
+#### Login Page
+
+-   Validation if either the email and/or password is wrong
+
+#### Profile Page
+
+-   To see the history of the user previous orders
+-   To be able to revisit the order confirmation of a previous order once clicked on.
+-   To view and update the current delivery details
+
 #### Products Page
 
 -   Displayed multiple products on the page with images as well as product details
@@ -147,17 +165,46 @@ The features that will be utilised in this project will be as follows:
 -   Search criteria looks searches within the title and description of each product
 -   Site admin has the power to edit and delete products from that page if desires. 
 -   Can sort items via multiple options.
+-   Once the product has been purchased and is confirmed in a checkout order summary, that specific product would have the 'Buy Now' button removed and would have the product marked sold. The reason behind that is due to the early stages of the business as it is trying to build up the hype for the users. It is to display what users have missed out on while informing at the same time the kind history of designs that has come to store.
 
 #### Shopping Bag Page
 
 -   Displays the products and their details that have been selected in one view
 -   Option to delete the product from the basket
--   Confirmation appears once an product has been removed from the basket
+-   Confirmation appears once a product has been removed from the basket
 -   Price updates when the basket has been altered
 -   Overall summary prices are stuck on the side view so it is always visible
 
+#### Checkout Page
 
+-   Order summary available at checkout page
+-   Option to save user details to the profile if they have an account
+-   Stripe validation if card entered is wrong
+-   Option to adjust the shopping basket before proceeding to payment
 
+#### Checkout Success Page
+
+-   Email confirmation when the order has been completed
+-   Order number generated and is displayed
+-   Basket clears once the order has been completed
+-   Product marked as sold once checked out
+
+#### Testimonial Page (Add/View/Delete/)
+
+-   To add a title, a message and a rating out of 5
+-   To view and sort the testimonials once posted with the ability to sort via different methods
+-   Testimonial owners can Edit/Delete their posts
+-   Site admins can Edit/Delete any testimonial that has been posted
+-   Each testimonial post are added to the database
+
+#### About Page
+
+-   Google Maps Api connected to the site to identify where the 'Business' is based
+
+#### Checkout Success Page
+
+-   Once a user contacts the site admin, the site admin would receive an email
+-   Once a user contact the site admin, The email would be saved to the database for the capabilities for furth analytics
 
 ### Features Left to Implement
 
@@ -179,7 +226,11 @@ The features that will be utilised in this project will be as follows:
 -   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
     - Python was used as the backend language to access and parse data.
 
-### Databases, Frameworks, Libraries, Programs and Templates Used
+### APIs, Databases, Frameworks, Libraries, Programs and Templates Used
+
+#### APIs
+1. [Google Places:](https://developers.google.com/maps/documentation/places/web-service/overview
+    - Google Places were used to use google maps in my ‘About’ page to show the address of the business
 
 #### Databases
 1. [DB Diagram](https://dbdiagram.io/)
@@ -203,15 +254,15 @@ The features that will be utilised in this project will be as follows:
 
 #### Programs
 1. [Google Chrome:](https://www.google.co.uk/intl/en_uk/chrome/)
-    - Default browser used to visually display the build process as well as utilising Chrome Dev Tools to assist where needed.
+    - Default browser is used to visually display the build process as well as utilising Chrome Dev Tools to assist where needed.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the code of the project after being pushed from GitPod.
 1. [Visual Studio Code](https://code.visualstudio.com/)
-    - Code editing software was used to replace GitPod as the free license expired due to over 50 hours useage. 
+    - Code editing software was used to replace GitPod as the free license expired due to over 50 hours of usage. 
 1. [GitHub Desktop:](https://desktop.github.com/)
     - A tool that allows you to interact with GitHub from the desktop
 1. [Grammerly:](https://app.grammarly.com/)
-    - Online tool which assists with the English grammar.
+    - Online tool which assists with English grammar.
 1. [Balsamiq:](https://balsamiq.com/)
     - Balsamiq was used to create the [wireframes](#) during the design process.
 1. [Stripe:](https://stripe.com/gb)
@@ -224,12 +275,6 @@ The features that will be utilised in this project will be as follows:
 #### Other
 1. [Django Secret Key Generator:](https://miniwebtool.com/django-secret-key-generator/)
     - The Django Secret Key Generator is used to generate a new SECRET_KEY that you can put in your settings.py module.
-1. [Tempmail:](https://temp-mail.org/en/)
-    - A free email service that allows to receive email at a temporary address that self-destructed after a certain time elapses
-1. [JSON Formatter:](https://jsonformatter.org/)
-    - A formatter which cleans JSON code to a more readable format
-1. [Python Tutor:](http://pythontutor.com/)
-    - A platform which helps a user to visualize python code.
 
 ## Testing
 
