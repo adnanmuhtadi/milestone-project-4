@@ -2,7 +2,7 @@
 
 [View project here](#)
 
-This eCommerce site is based on advertising and selling exclusive sneakers. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different option of sneakers and sizes as well as being able to search for them to select from depending on availability.
+This eCommerce site is based on advertising and selling exclusive sneakers. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different options of sneakers and sizes as well as being able to search for them to select from depending on availability.
 
 This site would be utilizing Python and Django which was taught from the Code Institute. I will also be using various technologies such as HTML5, CSS3, JQuery and Bootstrap. This project will be responsive and accessible to different size browsers and devices.
 
@@ -24,7 +24,7 @@ Having an additional option to post a testimonial about the service/website to s
 
 ### My Objectives
 
-To create a site that would allow a user to register and have a profile on the site. For the user to be able to search for a product and select it to find out more details about it. Within the details page for the user, to be able to select the size that they want and add it to their bag. Having the user then go to checkout and purchase their order.
+To create a site that would allow a user to register and have a profile on the site. For the user to be able to search for a product and select it to find out more details about it. Either on the products page or the product detail page, the user would be able to add the product to the shopping basket. Then having the user then go to checkout and purchase their order.
 
 The site would have a CRUD software architectural style (Create, Read, Update and Delete) for basic operations of persistent storage with the products being added by the admin user. Validation would be included in the site when it comes to adding products, user details and user card details. When a user sends an email to the site admin, to have the subject automatically post to the database for analysing. 
 
@@ -58,15 +58,16 @@ The intended type of users which this website is targeted for are individuals wh
     -   The colour scheme I will be working with is mainly black and white to keep it simple and easy on the eyes. The concept is to make the images of the sneakers be the focus of the site.
 
 -   #### Typography
-    -   I have chosen to use [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Sarabun](https://fonts.google.com/specimen/Sarabun) 
-font as the main fonts throughout the website with Sans Serif as the emergency font in the case for any reason the font is not being imported into the site correctly. Both [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Sarabun](https://fonts.google.com/specimen/Sarabun) are attractive fonts to use as it easy to clear and easy to read. [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) would be used for all the headers of the site where as [Sarabun](https://fonts.google.com/specimen/Sarabun) would be used for the rest of the content
+    -   I have chosen to use [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Sarabun](https://fonts.google.com/specimen/Sarabun) font as the main fonts throughout the website with Sans Serif as the emergency font in the case for any reason the font is not being imported into the site correctly. Both [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) and [Sarabun](https://fonts.google.com/specimen/Sarabun) are attractive fonts to use as it easy to clear and easy to read. [Barlow Condensed](https://fonts.google.com/specimen/Barlow+Condensed) would be used for all the headers of the site whereas [Sarabun](https://fonts.google.com/specimen/Sarabun) would be used for the rest of the content
 
 -   #### Imagery
-    -   The images that were used as based on the purpose of the site being focused on selling sneakers. All images have been taken personally as I would also be advertising sneakers that have been sold before this project.
+    -   The images that were used as based on the purpose of the site being focused on selling sneakers. All images have been taken personally as I would also be advertising sneakers that have been sold before this project. Other images for this project were taken from [Unsplash](https://unsplash.com/)
 
 *   ### Wireframes
 
     #### Home Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/home-page.pdf)
+
+    - I altered the design during development by not including the categories under the testimonials as it was redundant while having the categories displayed permanently in the footer
 
     #### Register Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/register-page.pdf)
 
@@ -74,9 +75,13 @@ font as the main fonts throughout the website with Sans Serif as the emergency f
 
     #### All Products Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/all-products-page.pdf)
 
+    - I altered the design during development as having 4 items in a row looked better than having 3 items in a row.
+
     #### Product Details Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/product-details-page.pdf)
 
     #### Basket Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/bag-page.pdf)
+
+    - I altered the design during development and not included the quantity due to the fact it's not the purpose of the site.
 
     #### Checkout Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/checkout-page.pdf)
 
@@ -84,11 +89,9 @@ font as the main fonts throughout the website with Sans Serif as the emergency f
 
     #### Superuser Add/Edit Product Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/superuser-add-edit-product.pdf)
 
-    #### Change Username Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/change-username.pdf)
-
-    #### Change Password Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/change-password.pdf)
-
     #### Testimonials Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/testimonials-page.pdf)
+
+    - I altered the design during development as the form meant more meaningful when having ratings and title behind the message
 
     #### Shipping & Returns Page - [View](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/wireframes/shipping-and-returns-page.pdf)
 
@@ -123,11 +126,45 @@ The features that will be utilised in this project will be as follows:
 
 #### Site Features
 
--   
+-   Responsive on devices sized 1024px, 768px, 425px, 375px and 320px.
+-   Navigation bar and footer are pulled from the base file throughout all pages.
+-   Different navigation bar options depend on the type of user who accesses the site.
+-   Offer header is fixed throughout the site and changes depending on screen size
+-   Navigation changes with screen size and different users have different access depending on their access
+-   Footer is displayed across the site with different site pages, (note: Refunds, Privacy, T&C's pages work but only for visual elements and taken from other websites) 
+
+#### Home Page
+
+-   Carousel will rotate and will take the user to different parts of the shop depending on the carousel and button
+-   Testimonials are fetched from the database and display the newest three
+
+#### Products Page
+
+-   Displayed multiple products on the page with images as well as product details
+-   A buy a now button under each product and updating the basket.
+-   Successful message with the product added to the basket appears.
+-   Error message appears when the same time has been added more than once in the basket
+-   Search criteria looks searches within the title and description of each product
+-   Site admin has the power to edit and delete products from that page if desires. 
+-   Can sort items via multiple options.
+
+#### Shopping Bag Page
+
+-   Displays the products and their details that have been selected in one view
+-   Option to delete the product from the basket
+-   Confirmation appears once an product has been removed from the basket
+-   Price updates when the basket has been altered
+-   Overall summary prices are stuck on the side view so it is always visible
+
+
+
 
 ### Features Left to Implement
 
--   
+-   For a button to appear allowing the user to go back to the top of the page.
+-   Continue working with AllAuth, enabling the password reset
+-   To add Pagination, so the user can see up to 20 items per page
+-   A page for the site admin to see the email states instead of logging into Django admin.
 
 ## Technologies Used
 
