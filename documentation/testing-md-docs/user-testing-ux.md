@@ -148,8 +148,9 @@
 <img src="../images/user_story_screenshot/user-story17.png">
 
 - As a site owner, I want to be able to see a list of emails that get sent within the Django admin page, so I can see what users are mostly asking 
-    1. Upon entering the site, the navigation bar will have categories displayed
-
+    1. Upon entering the site, add /admin/ to the URL to make it look like this https://clout-mafia-ms4.herokuapp.com/admin/
+    1. Login with the login permissions, and scroll down on the left hand side to 'Contact Us'
+    1. Once loaded, you will be able to see all the message sent to the site admins
 
 <img src="../images/user_story_screenshot/user-story18.png">
 

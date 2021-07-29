@@ -81,8 +81,8 @@ def send_email(request):
     # contact form info and store them in the vars
     if request.method == 'POST':
         user = request.user
-        cfullname = request.POST['cfullname']
-        cemail = request.POST['cemail']
+        fullname = request.POST['fullname']
+        email = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
 
@@ -91,8 +91,8 @@ def send_email(request):
         # to the format i have specified
         body = render_to_string(
             'home/cemails/cemail_body.txt',
-            {'username': user, 'fullname': cfullname,
-             'message': message, 'user_email': cemail,
+            {'username': user, 'fullname': fullname,
+             'message': message, 'user_email': email,
              'subject': subject})
 
         # Django send mail method, structure has to be
@@ -100,7 +100,7 @@ def send_email(request):
         send_mail(
             f'This is the related {subject}',
             body,
-            cemail,
+            email,
             [settings.DEFAULT_FROM_EMAIL],
         )
 
