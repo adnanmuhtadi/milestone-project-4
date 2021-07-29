@@ -33,11 +33,11 @@
                 {% for field in form %}
                     {% if field.name != 'image' %}
                         {{ field | as_crispy_field }}
-                    {% elif field.name != 'imagetwo' %}
+                    {% elif field.name != 'image_two' %}
                         {{ field | as_crispy_field }}
-                    {% elif field.name != 'imagethree' %}
+                    {% elif field.name != 'image_three' %}
                         {{ field | as_crispy_field }}
-                    {% elif field.name != 'imagefour' %}
+                    {% elif field.name != 'image_four' %}
                         {{ field | as_crispy_field }}
                     {% else %}
                         {{ field }}

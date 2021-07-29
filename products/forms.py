@@ -13,11 +13,11 @@ class ProductForm(forms.ModelForm):
     # Allowing the widget to be available for all 4 image inputs
     image = forms.ImageField(
         label='Image 1', required=False, widget=CustomClearableFileInput)
-    imagetwo = forms.ImageField(
+    image_two = forms.ImageField(
         label='Image 2', required=False, widget=CustomClearableFileInput)
-    imagethree = forms.ImageField(
+    image_three = forms.ImageField(
         label='Image 3', required=False, widget=CustomClearableFileInput)
-    imagefour = forms.ImageField(
+    image_four = forms.ImageField(
         label='Image 4', required=False, widget=CustomClearableFileInput)
 
     # To override the init method
@@ -26,7 +26,7 @@ class ProductForm(forms.ModelForm):
         # Having the categories show up in its readable name
         categories = Category.objects.all()
         # Creating a list of readable names associated with the categories
-        friendly_name = [(c.id, c.get_friendly_name()) for c in categories]      
+        friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
 
         # Updating the category field in the form from the pulled
         # List and instead of seeing the

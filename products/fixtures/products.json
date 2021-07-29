@@ -12,12 +12,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image01.jpg",
             "image": "image01.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image02.jpg",
-            "imagetwo": "image02.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image03.jpg",
-            "imagethree": "image03.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image04.jpg",
-            "imagefour": "image04.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image02.jpg",
+            "image_two": "image02.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image03.jpg",
+            "image_three": "image03.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image04.jpg",
+            "image_four": "image04.jpg"
         }
     },
     {
@@ -33,12 +33,12 @@
             "size": 6,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image05.jpg",
             "image": "image05.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image06.jpg",
-            "imagetwo": "image06.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image07.jpg",
-            "imagethree": "image07.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image08.jpg",
-            "imagefour": "image08.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image06.jpg",
+            "image_two": "image06.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image07.jpg",
+            "image_three": "image07.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image08.jpg",
+            "image_four": "image08.jpg"
         }
     },
     {
@@ -54,12 +54,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image09.jpg",
             "image": "image09.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image10.jpg",
-            "imagetwo": "image10.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image11.jpg",
-            "imagethree": "image11.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image12.jpg",
-            "imagefour": "image12.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image10.jpg",
+            "image_two": "image10.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image11.jpg",
+            "image_three": "image11.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image12.jpg",
+            "image_four": "image12.jpg"
         }
     },
     {
@@ -75,12 +75,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image13.jpg",
             "image": "image13.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image14.jpg",
-            "imagetwo": "image14.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image15.jpg",
-            "imagethree": "image15.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image16.jpg",
-            "imagefour": "image16.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image14.jpg",
+            "image_two": "image14.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image15.jpg",
+            "image_three": "image15.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image16.jpg",
+            "image_four": "image16.jpg"
         }
     },
     {
@@ -96,12 +96,12 @@
             "size": 5,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image17.jpg",
             "image": "image17.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image18.jpg",
-            "imagetwo": "image18.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image19.jpg",
-            "imagethree": "image19.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image20.jpg",
-            "imagefour": "image20.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image18.jpg",
+            "image_two": "image18.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image19.jpg",
+            "image_three": "image19.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image20.jpg",
+            "image_four": "image20.jpg"
         }
     },
     {
@@ -117,12 +117,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image21.jpg",
             "image": "image21.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image22.jpg",
-            "imagetwo": "image22.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image23.jpg",
-            "imagethree": "image23.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image24.jpg",
-            "imagefour": "image24.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image22.jpg",
+            "image_two": "image22.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image23.jpg",
+            "image_three": "image23.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image24.jpg",
+            "image_four": "image24.jpg"
         }
     },
     {
@@ -138,12 +138,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image25.jpg",
             "image": "image25.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image26.jpg",
-            "imagetwo": "image26.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image27.jpg",
-            "imagethree": "image27.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image28.jpg",
-            "imagefour": "image28.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image26.jpg",
+            "image_two": "image26.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image27.jpg",
+            "image_three": "image27.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image28.jpg",
+            "image_four": "image28.jpg"
         }
     },
     {
@@ -159,12 +159,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image29.jpg",
             "image": "image29.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image30.jpg",
-            "imagetwo": "image30.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image31.jpg",
-            "imagethree": "image31.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image32.jpg",
-            "imagefour": "image32.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image30.jpg",
+            "image_two": "image30.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image31.jpg",
+            "image_three": "image31.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image32.jpg",
+            "image_four": "image32.jpg"
         }
     },
     {
@@ -180,12 +180,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image33.jpg",
             "image": "image33.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image34.jpg",
-            "imagetwo": "image34.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image35.jpg",
-            "imagethree": "image35.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image36.jpg",
-            "imagefour": "image36.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image34.jpg",
+            "image_two": "image34.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image35.jpg",
+            "image_three": "image35.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image36.jpg",
+            "image_four": "image36.jpg"
         }
     },
     {
@@ -201,12 +201,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image37.jpg",
             "image": "image37.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image38.jpg",
-            "imagetwo": "image38.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image39.jpg",
-            "imagethree": "image39.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image40.jpg",
-            "imagefour": "image40.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image38.jpg",
+            "image_two": "image38.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image39.jpg",
+            "image_three": "image39.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image40.jpg",
+            "image_four": "image40.jpg"
         }
     },
     {
@@ -222,12 +222,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image41.jpg",
             "image": "image41.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image42.jpg",
-            "imagetwo": "image42.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image43.jpg",
-            "imagethree": "image43.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image44.jpg",
-            "imagefour": "image44.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image42.jpg",
+            "image_two": "image42.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image43.jpg",
+            "image_three": "image43.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image44.jpg",
+            "image_four": "image44.jpg"
         }
     },
     {
@@ -243,12 +243,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image45.jpg",
             "image": "image45.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image46.jpg",
-            "imagetwo": "image46.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image47.jpg",
-            "imagethree": "image47.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image48.jpg",
-            "imagefour": "image48.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image46.jpg",
+            "image_two": "image46.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image47.jpg",
+            "image_three": "image47.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image48.jpg",
+            "image_four": "image48.jpg"
         }
     },
     {
@@ -264,12 +264,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image49.jpg",
             "image": "image49.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image50.jpg",
-            "imagetwo": "image50.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image51.jpg",
-            "imagethree": "image51.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image52.jpg",
-            "imagefour": "image52.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image50.jpg",
+            "image_two": "image50.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image51.jpg",
+            "image_three": "image51.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image52.jpg",
+            "image_four": "image52.jpg"
         }
     },
     {
@@ -285,12 +285,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image53.jpg",
             "image": "image53.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image54.jpg",
-            "imagetwo": "image54.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image55.jpg",
-            "imagethree": "image55.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image56.jpg",
-            "imagefour": "image56.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image54.jpg",
+            "image_two": "image54.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image55.jpg",
+            "image_three": "image55.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image56.jpg",
+            "image_four": "image56.jpg"
         }
     },
     {
@@ -306,12 +306,12 @@
             "size": 5,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image57.jpg",
             "image": "image57.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image58.jpg",
-            "imagetwo": "image58.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image59.jpg",
-            "imagethree": "image59.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image60.jpg",
-            "imagefour": "image60.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image58.jpg",
+            "image_two": "image58.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image59.jpg",
+            "image_three": "image59.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image60.jpg",
+            "image_four": "image60.jpg"
         }
     },
     {
@@ -327,12 +327,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image61.jpg",
             "image": "image61.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image62.jpg",
-            "imagetwo": "image62.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image63.jpg",
-            "imagethree": "image63.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image64.jpg",
-            "imagefour": "image64.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image62.jpg",
+            "image_two": "image62.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image63.jpg",
+            "image_three": "image63.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image64.jpg",
+            "image_four": "image64.jpg"
         }
     },
     {
@@ -348,12 +348,12 @@
             "size": 12,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image65.jpg",
             "image": "image65.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image66.jpg",
-            "imagetwo": "image66.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image67.jpg",
-            "imagethree": "image67.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image68.jpg",
-            "imagefour": "image68.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image66.jpg",
+            "image_two": "image66.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image67.jpg",
+            "image_three": "image67.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image68.jpg",
+            "image_four": "image68.jpg"
         }
     },
     {
@@ -369,12 +369,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image69.jpg",
             "image": "image69.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image70.jpg",
-            "imagetwo": "image70.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image71.jpg",
-            "imagethree": "image71.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image72.jpg",
-            "imagefour": "image72.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image70.jpg",
+            "image_two": "image70.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image71.jpg",
+            "image_three": "image71.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image72.jpg",
+            "image_four": "image72.jpg"
         }
     },
     {
@@ -390,12 +390,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image73.jpg",
             "image": "image73.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image74.jpg",
-            "imagetwo": "image74.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image75.jpg",
-            "imagethree": "image75.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image76.jpg",
-            "imagefour": "image76.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image74.jpg",
+            "image_two": "image74.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image75.jpg",
+            "image_three": "image75.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image76.jpg",
+            "image_four": "image76.jpg"
         }
     },
     {
@@ -411,12 +411,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image77.jpg",
             "image": "image77.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image78.jpg",
-            "imagetwo": "image78.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image79.jpg",
-            "imagethree": "image79.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image80.jpg",
-            "imagefour": "image80.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image78.jpg",
+            "image_two": "image78.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image79.jpg",
+            "image_three": "image79.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image80.jpg",
+            "image_four": "image80.jpg"
         }
     },
     {
@@ -432,12 +432,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image81.jpg",
             "image": "image81.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image82.jpg",
-            "imagetwo": "image82.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image83.jpg",
-            "imagethree": "image83.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image84.jpg",
-            "imagefour": "image84.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image82.jpg",
+            "image_two": "image82.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image83.jpg",
+            "image_three": "image83.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image84.jpg",
+            "image_four": "image84.jpg"
         }
     },
     {
@@ -453,12 +453,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image85.jpg",
             "image": "image85.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image86.jpg",
-            "imagetwo": "image86.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image87.jpg",
-            "imagethree": "image87.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image88.jpg",
-            "imagefour": "image88.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image86.jpg",
+            "image_two": "image86.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image87.jpg",
+            "image_three": "image87.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image88.jpg",
+            "image_four": "image88.jpg"
         }
     },
     {
@@ -474,12 +474,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image89.jpg",
             "image": "image89.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image90.jpg",
-            "imagetwo": "image90.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image91.jpg",
-            "imagethree": "image91.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image92.jpg",
-            "imagefour": "image92.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image90.jpg",
+            "image_two": "image90.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image91.jpg",
+            "image_three": "image91.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image92.jpg",
+            "image_four": "image92.jpg"
         }
     },
     {
@@ -495,12 +495,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image93.jpg",
             "image": "image93.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image94.jpg",
-            "imagetwo": "image94.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image95.jpg",
-            "imagethree": "image95.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image96.jpg",
-            "imagefour": "image96.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image94.jpg",
+            "image_two": "image94.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image95.jpg",
+            "image_three": "image95.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image96.jpg",
+            "image_four": "image96.jpg"
         }
     },
     {
@@ -516,12 +516,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image97.jpg",
             "image": "image97.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image98.jpg",
-            "imagetwo": "image98.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image99.jpg",
-            "imagethree": "image99.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image100.jpg",
-            "imagefour": "image100.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image98.jpg",
+            "image_two": "image98.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image99.jpg",
+            "image_three": "image99.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image100.jpg",
+            "image_four": "image100.jpg"
         }
     },
     {
@@ -537,12 +537,12 @@
             "size": 4,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image101.jpg",
             "image": "image101.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image102.jpg",
-            "imagetwo": "image102.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image103.jpg",
-            "imagethree": "image103.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image104.jpg",
-            "imagefour": "image104.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image102.jpg",
+            "image_two": "image102.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image103.jpg",
+            "image_three": "image103.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image104.jpg",
+            "image_four": "image104.jpg"
         }
     },
     {
@@ -558,12 +558,12 @@
             "size": 6,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image105.jpg",
             "image": "image105.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image106.jpg",
-            "imagetwo": "image106.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image107.jpg",
-            "imagethree": "image107.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image108.jpg",
-            "imagefour": "image108.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image106.jpg",
+            "image_two": "image106.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image107.jpg",
+            "image_three": "image107.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image108.jpg",
+            "image_four": "image108.jpg"
         }
     },
     {
@@ -579,12 +579,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image109.jpg",
             "image": "image109.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image110.jpg",
-            "imagetwo": "image110.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image111.jpg",
-            "imagethree": "image111.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image112.jpg",
-            "imagefour": "image112.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image110.jpg",
+            "image_two": "image110.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image111.jpg",
+            "image_three": "image111.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image112.jpg",
+            "image_four": "image112.jpg"
         }
     },
     {
@@ -600,12 +600,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image113.jpg",
             "image": "image113.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image114.jpg",
-            "imagetwo": "image114.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image115.jpg",
-            "imagethree": "image115.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image116.jpg",
-            "imagefour": "image116.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image114.jpg",
+            "image_two": "image114.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image115.jpg",
+            "image_three": "image115.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image116.jpg",
+            "image_four": "image116.jpg"
         }
     },
     {
@@ -621,12 +621,12 @@
             "size": 4,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image117.jpg",
             "image": "image117.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image118.jpg",
-            "imagetwo": "image118.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image119.jpg",
-            "imagethree": "image119.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image120.jpg",
-            "imagefour": "image120.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image118.jpg",
+            "image_two": "image118.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image119.jpg",
+            "image_three": "image119.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image120.jpg",
+            "image_four": "image120.jpg"
         }
     },
     {
@@ -642,12 +642,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image121.jpg",
             "image": "image121.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image122.jpg",
-            "imagetwo": "image122.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image123.jpg",
-            "imagethree": "image123.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image124.jpg",
-            "imagefour": "image124.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image122.jpg",
+            "image_two": "image122.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image123.jpg",
+            "image_three": "image123.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image124.jpg",
+            "image_four": "image124.jpg"
         }
     },
     {
@@ -663,12 +663,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image125.jpg",
             "image": "image125.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image126.jpg",
-            "imagetwo": "image126.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image127.jpg",
-            "imagethree": "image127.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image128.jpg",
-            "imagefour": "image128.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image126.jpg",
+            "image_two": "image126.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image127.jpg",
+            "image_three": "image127.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image128.jpg",
+            "image_four": "image128.jpg"
         }
     },
     {
@@ -684,12 +684,12 @@
             "size": 9,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image129.jpg",
             "image": "image129.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image130.jpg",
-            "imagetwo": "image130.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image131.jpg",
-            "imagethree": "image131.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image132.jpg",
-            "imagefour": "image132.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image130.jpg",
+            "image_two": "image130.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image131.jpg",
+            "image_three": "image131.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image132.jpg",
+            "image_four": "image132.jpg"
         }
     },
     {
@@ -705,12 +705,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image133.jpg",
             "image": "image133.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image134.jpg",
-            "imagetwo": "image134.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image135.jpg",
-            "imagethree": "image135.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image136.jpg",
-            "imagefour": "image136.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image134.jpg",
+            "image_two": "image134.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image135.jpg",
+            "image_three": "image135.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image136.jpg",
+            "image_four": "image136.jpg"
         }
     },
     {
@@ -726,12 +726,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image137.jpg",
             "image": "image137.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image138.jpg",
-            "imagetwo": "image138.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image139.jpg",
-            "imagethree": "image139.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image140.jpg",
-            "imagefour": "image140.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image138.jpg",
+            "image_two": "image138.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image139.jpg",
+            "image_three": "image139.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image140.jpg",
+            "image_four": "image140.jpg"
         }
     },
     {
@@ -747,12 +747,12 @@
             "size": 8,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image141.jpg",
             "image": "image141.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image142.jpg",
-            "imagetwo": "image142.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image143.jpg",
-            "imagethree": "image143.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image144.jpg",
-            "imagefour": "image144.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image142.jpg",
+            "image_two": "image142.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image143.jpg",
+            "image_three": "image143.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image144.jpg",
+            "image_four": "image144.jpg"
         }
     },
     {
@@ -768,12 +768,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image145.jpg",
             "image": "image145.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image146.jpg",
-            "imagetwo": "image146.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image147.jpg",
-            "imagethree": "image147.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image148.jpg",
-            "imagefour": "image148.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image146.jpg",
+            "image_two": "image146.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image147.jpg",
+            "image_three": "image147.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image148.jpg",
+            "image_four": "image148.jpg"
         }
     },
     {
@@ -789,12 +789,12 @@
             "size": 6,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image149.jpg",
             "image": "image149.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image150.jpg",
-            "imagetwo": "image150.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image151.jpg",
-            "imagethree": "image151.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image152.jpg",
-            "imagefour": "image152.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image150.jpg",
+            "image_two": "image150.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image151.jpg",
+            "image_three": "image151.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image152.jpg",
+            "image_four": "image152.jpg"
         }
     },
     {
@@ -810,12 +810,12 @@
             "size": 7,
             "image_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image153.jpg",
             "image": "image153.jpg",
-            "imagetwo_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image154.jpg",
-            "imagetwo": "image154.jpg",
-            "imagethree_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image155.jpg",
-            "imagethree": "image155.jpg",
-            "imagefour_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image156.jpg",
-            "imagefour": "image156.jpg"
+            "image_two_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image154.jpg",
+            "image_two": "image154.jpg",
+            "image_three_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image155.jpg",
+            "image_three": "image155.jpg",
+            "image_four_url": "https://github.com/adnanmuhtadi/milestone-project-4/blob/main/media/image156.jpg",
+            "image_four": "image156.jpg"
         }
     }
 ]

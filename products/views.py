@@ -83,7 +83,7 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ 
+    """
     A view to show a specific product by take the parameter
     Product ID, context is added to send things back to the template
     """
@@ -108,8 +108,8 @@ def add_product(request):
     # If not superuser, a message would be displayed and become
     # Redirected to the the home page
     if not request.user.is_superuser:
-       messages.error(request, 'Sorry, only store owners can do that.')
-       return redirect(reverse('home'))
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     # To ensure we capture the image, then we are checking if the form is valid
     if request.method == 'POST':
@@ -124,7 +124,7 @@ def add_product(request):
             Please ensure the form is valid and try again.')
     else:
         form = ProductForm()
-        
+
     # Adding context for the product admin
     template = 'products/add_product.html'
     context = {
@@ -142,8 +142,8 @@ def edit_product(request, product_id):
     # If not superuser, a message would be displayed and become
     # Redirected to the the home page
     if not request.user.is_superuser:
-       messages.error(request, 'Sorry, only store owners can do that.')
-       return redirect(reverse('home'))
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     # Prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
@@ -160,7 +160,7 @@ def edit_product(request, product_id):
             messages.error(request, f'Failed to update {product.name}. Please \
             ensure the form is valid and try again')
     else:
-    # Creating the instance of the product form
+        # Creating the instance of the product form
         form = ProductForm(instance=product)
         messages.info(request, f'You are now editing {product.name}')
 
@@ -182,9 +182,9 @@ def delete_product(request, product_id):
     # If not superuser, a message would be displayed and become
     # Redirected to the the home page
     if not request.user.is_superuser:
-       messages.error(request, 'Sorry, only store owners can do that.')
-       return redirect(reverse('home'))
-       
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     # Prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
     product.delete()

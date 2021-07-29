@@ -12,9 +12,9 @@ class ProductAdmin(admin.ModelAdmin):
         'colour',
         'size',
         'image',
-        'imagetwo',
-        'imagethree',
-        'imagefour',
+        'image_two',
+        'image_three',
+        'image_four',
     )
 
 # Ordering the products by the sku name
