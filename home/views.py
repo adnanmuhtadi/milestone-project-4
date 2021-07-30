@@ -109,7 +109,7 @@ def send_email(request):
             print(form)
             print("form valid")
             ContactUs = form.save(commit=False)
-            ContactUs.user = request.user
+            ContactUs.contact_user = request.user
             ContactUs.save()
 
             messages.success(request, 'Thank you for reaching out, your email \
