@@ -315,9 +315,9 @@ Everything passed apart from one warning sign which is as expected as JSHint is 
 
 When carrying out the User Story Testing, I placed myself as the user being provided instructions on how to complete the user stories. The intended type of users which this website is targeted for are individuals who have a unique appreciation for footwear. I displayed screenshots with the results of each finding to provide evidence of the stories being achieved successfully.
 
-#### Functionality and Usability Testing - [View Results](#)
+#### Functionality and Usability Testing - [View Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/testing-md-docs/features-function-testing.md)
 
-
+Testing all my functions and features within the site and ensuring that it is usable across different browsers and devices. I structured the results out in a table with each section defining the feature/function, a description of what I am testing as well as if it passes or fails.
 
 #### Browser and Responsive Testing
 
