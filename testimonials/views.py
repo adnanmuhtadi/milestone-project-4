@@ -11,7 +11,7 @@ def all_testimonials(request):
     A view to return all the testimonials made by users
     """
 
-    testimonials = Testimonial.objects.all()
+    testimonials = Testimonial.objects.all().order_by('-date', '-time')
     sort = None
     direction = None
 
@@ -100,7 +100,7 @@ def edit_testimonial(request, testimonial_id):
         # Creating the instance of the testimonial form
         form = TestimonialForm(instance=testimonial)
         messages.info(request, f'You are editting the testimonial \
-            for {testimonial.title}! ')
+            for {testimonial.rtitle}! ')
 
     # Informing it which template to use.
     template = 'testimonials/edit_testimonial.html'

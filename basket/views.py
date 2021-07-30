@@ -7,7 +7,7 @@ from products.models import Product
 
 
 def view_basket(request):
-    """ 
+    """
     A view that loads the basket contents page
     """
 

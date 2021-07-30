@@ -145,7 +145,7 @@ def checkout(request):
                     'postcode': profile.default_postcode,
                     'country': profile.default_country,
                 })
-                
+
                 # Empty form will be provided if the user is not authenticated.
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
@@ -179,7 +179,7 @@ def checkout_success(request, order_number):
     # Using the order number to get the order created which
     # will be sent back to the template
     order = get_object_or_404(Order, order_number=order_number)
-    
+
     # If statement to make sure the user is authenticated
     if request.user.is_authenticated:
         # Retrieving the user profile
@@ -207,10 +207,10 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    # Success message letting the user know the order number
-    messages.success(request, f'Your order has been successfully processed! \
-        Your order number is {order_number}. A confirmation email \
-        will be sent to {order.email}.')
+            # Success message letting the user know the order number
+            messages.success(request, f'Your order has been successfully processed! \
+                Your order number is {order_number}. A confirmation email \
+                will be sent to {order.email}.')
 
     # Deleting the user shopping basket from the session
     if 'basket' in request.session:

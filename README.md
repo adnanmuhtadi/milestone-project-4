@@ -283,16 +283,9 @@ In this section, I would be testing the User Stories taken from the User Experie
 
 ### Validation
 
-
-On code completion, I ensured my code was validated with no snytax errors. I used [W3C Markup Validator](https://validator.w3.org/) for HTML5, [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) for CSS3 to ensure my code is W3C Compliant. I used [JSHint](https://jshint.com/) to helps to detect errors and potential problems in your JavaScript code. I also used [PEP8 Online](http://pep8online.com/) to validate my python scripts
+On code completion, I ensured my code was validated with no syntax errors. I used [W3C Markup Validator](https://validator.w3.org/) for HTML5, [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) for CSS3 to ensure my code is W3C Compliant. I used [JSHint](https://jshint.com/) to help detect errors and potential problems in your JavaScript code. I also used [PEP8 Online](http://pep8online.com/) to validate my python scripts
 
 #### Results
-
-Page | Initial Errors | Resolved Errors | Error Notes
------------- | ------------- | ------------- | -------------
-index.html| [Initial Errors](#) | [Resolved Errors](#) | ...
-
-or use this template
 
 #### HTML - [W3C Markup Validator](https://validator.w3.org/)
 
@@ -300,7 +293,8 @@ or use this template
 
 #### CSS - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](#)
 
-- 
+- No corrections where required on all CSS documents.
+- (Attaching one document as they where all the same)
 
 #### JS - [JSHint](https://jshint.com/) - [Results](#)
 
@@ -308,7 +302,8 @@ or use this template
 
 #### Python - [PEP8 Online](http://pep8online.com/) - [Results](#)
 
-- 
+- The tests run from multiple areas, the [GitPod](https://gitpod.io/) problem console and PEP8 online
+- Only needing to fix the line too long error and the files which where created by Django which where not used.
 
 ### Further Testing
 
@@ -326,8 +321,9 @@ All tests that have been mentioned in the link above was tested on the following
 
 ### Known Issues
 
-- Within the Home page, when going to mobile view, it does not shrink the sizes of the images within the carousel.
-- When deleting a product, it will also delete it from the order history when i user purchases it.
+- When the user only selects one product in the laptop screen size, visits the basket, the price summary overlaps the footer. It works fine when there are multiple items in the basket.
+- When a user has no delivery details saved in the profile and then proceeds to make an order. When inputting the details of the user and UNCHECKING the 'Save Info' button, it will still save the information in their profile
+- When deleting a product, it will also delete it from the order history when I user purchases it.
 
 ## Deployment
 
@@ -344,9 +340,9 @@ All tests that have been mentioned in the link above was tested on the following
 ### Content
 
 -   Content was taken from a pre-created instagram page [Clout-Mafia](https://www.instagram.com/_cloutmafia_/)
--   Terms and Conditions - [Template made by Termly](https://app.termly.io/) - Template Generator
--   Privacy - [Template made by Termly](https://app.termly.io/) - Template Generator
--   Returns and Refunds - [Template made by Termsfeed](https://app.termsfeed.com/) - Template Generator
+-   Terms and Conditions - [Template made by Termly](https://app.termly.io/) - Template Generator. Creates the content and styling for the page and so it would not be aligned with the design of my site
+-   Privacy - [Template made by Termly](https://app.termly.io/) - Template Generator. Creates the content and styling for the page and so it would not be aligned with the design of my site
+-   Returns and Refunds - [Template made by Termsfeed](https://app.termsfeed.com/) - Template Generator. Creates the content and styling for the page and so it would not be aligned with the design of my site
 
 ### Code
 

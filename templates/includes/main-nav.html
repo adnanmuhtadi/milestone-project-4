@@ -2,7 +2,7 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link text-black mx-5 d-inline-block" href="#"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-start" href="#"
                 id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
@@ -17,7 +17,7 @@
 
         <li class="nav-item dropdown">
             <!-- Drop down menu for 'Sneakers' category -->
-            <a class="font-weight-bold nav-link text-black mx-5 d-inline-block" href="#" id="sneakers-link"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-start" href="#" id="sneakers-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sneakers
             </a>
@@ -30,12 +30,12 @@
 
         <li class="nav-item dropdown">
             <!-- Drop down menu for 'slip ons' category -->
-            <a class="font-weight-bold nav-link text-black mx-5 d-inline-block" href="#" id="slip-on-link"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-start" href="#" id="slip-on-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Slip-ons
             </a>
             <div class="dropdown-menu border-2 mt-2 text-center" aria-labelledby="slip-on-link">
-                <a href="{% url 'products' %}?category=sneakers&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?category=slip_ons&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=slip_ons&sort=size&direction=asc" class="dropdown-item">By Size</a>
                 <a href="{% url 'products' %}?category=slip_ons" class="dropdown-item">All Slip Ons</a>
             </div>
@@ -43,7 +43,7 @@
 
         <li class="nav-item dropdown">
             <!-- Drop down menu for 'high tops' category -->
-            <a class="font-weight-bold nav-link text-black mx-5 d-inline-block" href="#" id="high-tops-link"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-start" href="#" id="high-tops-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 High Tops
             </a>

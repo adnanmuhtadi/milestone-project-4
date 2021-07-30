@@ -69,7 +69,6 @@ class Order(models.Model):
         self.grand_price = self.order_total + self.delivery_cost
         self.save()
 
-
     def save(self, *args, **kwargs):
         """
         Will override the original save method to set the order number,

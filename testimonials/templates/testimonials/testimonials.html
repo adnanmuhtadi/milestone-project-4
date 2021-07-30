@@ -27,6 +27,10 @@
 
         <div class="row">
             <div class="col-12 mx-auto">
+                <!-- Write a testimonial button -->
+                <div class="col-6 offset-md-5 offset-4 my-3">
+                    <a class="btn btn-black rounded-0" href="{% url 'add_testimonial' %}">Write a Testimonial</a>
+                </div>
                 <div class="sort-select-wrapper my-auto offset-lg-9 offset-md-8 offset-4">
                     <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
                     <select id="sort-selector"
@@ -41,10 +45,6 @@
                         {% if sorting_testimonials == 'date_asc' %}selected{% endif %}>Date (New to Old)</option>
                         <option value="date_desc" 
                         {% if sorting_testimonials == 'date_desc' %}selected{% endif %}>Date (Old to New)</option>
-                        <option value="uprofile_asc" 
-                        {% if sorting_testimonials == 'uprofile_asc' %}selected{% endif %}>User (A-Z)</option>
-                        <option value="uprofile_desc"
-                        {% if sorting_testimonials == 'uprofile_desc' %}selected{% endif %}>User (Z-A)</option>
                         <option value="title_asc" 
                         {% if sorting_testimonials == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
                         <option value="title_desc"
@@ -61,7 +61,7 @@
                                     <div class="card-header text-center border col-md-4">
                                         <div class="row">
                                             <div class="col-12">
-                                                {{ user }}
+                                                {{ testimonial.user }}
                                             </div>
                                         </div>
                                         <div class="row">
@@ -95,7 +95,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <p class="card-text"><small class="text-muted">
-                                                    Reviewed on: {{ testimonial.date }}
+                                                    Posted on: {{ testimonial.date }}
                                                 </small></p>
                                             </div>
                                         </div>

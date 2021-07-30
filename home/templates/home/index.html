@@ -23,12 +23,12 @@
     <div class="carousel-inner">
         <div class="carousel-item" data-bs-interval="10000">
             <!-- Image taken from https://unsplash.com/photos/1WZYDo7IKzA -->
-            <img class="first-slide"
+            <img class="first-slide d-block w-100"
                 src="{{ MEDIA_URL }}bg1.jpeg"
                 alt="High-Tops">
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <p><a class="btn btn-lg btn-primary" href="{% url 'products' %}?category=high_tops" 
+                    <p><a class="btn btn-lg btn-primary btn-carousel" href="{% url 'products' %}?category=high_tops" 
                         role="button">View More High-Tops</a></p>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 alt="All Products">
             <div class="container">
                 <div class="carousel-caption">
-                    <p><a class="btn btn-lg btn-primary" href="{% url 'products' %}" role="button">View All Products</a></p>
+                    <p><a class="btn btn-lg btn-primary btn-carousel" href="{% url 'products' %}" role="button">View All Products</a></p>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 alt="Flip Flops">
             <div class="container">
                 <div class="carousel-caption text-right">
-                    <p><a class="btn btn-lg btn-primary" href="{% url 'products' %}?category=slip_ons" role="button">View All Slip-Ons</a></p>
+                    <p><a class="btn btn-lg btn-primary btn-carousel" href="{% url 'products' %}?category=slip_ons" role="button">View All Slip-Ons</a></p>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <p class="card-text text-end small">{{ testimonial.date }}</p>
+                    <p class="card-text text-end small">Posted on: {{ testimonial.date }}</p>
                 </div>
             </div>
         </div>
