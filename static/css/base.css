@@ -1,11 +1,6 @@
+/* ------------------------------- Site Wise */
 html {
   height: 100%;
-}
-
-.title,
-.custom-font {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
 }
 
 body {
@@ -20,11 +15,30 @@ main {
   flex: 1 0 auto;
 }
 
-.vr {
-  border-right-style: inset;
-  border-left-style: outset;
+.text-black {
+  color: #000 !important;
 }
 
+.border-black {
+  border: 1px solid black !important;
+}
+
+.custom-font {
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: -1;
+}
+
+/* Navigation bar and icons */
 .topnav,
 #topnav {
   background-color: #ffffff;
@@ -32,30 +46,9 @@ main {
   text-align: center;
 }
 
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
-
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 32rem;
-  background-color: #777;
-}
-
-.carousel-item>img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 32rem;
+.main-logo-link {
+  width: fit-content;
+  font-size: 30px;
 }
 
 /* Footer */
@@ -69,144 +62,59 @@ footer {
   width: 100%;
 }
 
-/* from Bulma */
-.icon {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
+/* Headers and titles */
+.title,
 .custom-font {
-  text-transform: uppercase;
-  color: #000000;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
 }
 
-.main-logo-link {
-  width: fit-content;
-  font-size: 30px;
+/* ------------------------------- Home Page */
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
 }
 
-.shop-now-button {
-  background: black;
-  color: white;
-  min-width: 260px;
+/* The caption and button within the carousel */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
 }
 
-.btn-black {
-  background: black;
-  color: white;
+/* Height for the carousel */
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
 }
 
-.btn-outline-black {
-  background: white;
-  color: black !important;
-  /* use important to override link colors for <a> elements */
-  border: 1px solid black;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-  background: #222;
-  color: white;
-}
-
-.text-black {
-  color: #000 !important;
-}
-
-.border-black {
-  border: 1px solid black !important;
-}
-
-.overlay {
-  height: 100%;
-  width: 100%;
+/* Carousel image */
+.carousel-item>img {
+  position: absolute;
   top: 0;
   left: 0;
-  position: fixed;
-  background-color: #ffffff;
-  z-index: -1;
+  min-width: 100%;
+  height: 32rem;
 }
 
-a.category-badge>span.badge:hover {
-  background: #212529 !important;
-  color: #fff !important;
+/* ------------------------------- Product Page */
+/* Horizontal lining the product  */
+.vr {
+  border-right-style: inset;
+  border-left-style: outset;
 }
 
-.remove-item{
+.remove-item {
   cursor: pointer;
 }
 
-/* Image Widget for the add and edit template */
-.btn-file {
-  position: relative;
-  overflow: hidden;
+/* -------------------------------- About */
+
+/* Google Maps api */
+#map {
+  height: 400px;
+  width: 100%;
 }
 
-.custom-checkbox .custom-control-label::before {
-  border-radius: 0;
-  border-color: #dc3545;
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-  background-color: #dc3545;
-  border-color: #dc3545;
-  border-radius: 0;
-}
-
-
-/* ------------------------------- bootstrap toasts */
-
-.message-container {
-  position: fixed;
-  top: 160px;
-  right: 5px;
-  overflow: auto;
-  max-height: 665px;
-  overflow-x: hidden;
-  opacity: 1;
-  z-index: 99999999999;
-}
-
-.custom-toast {
-  overflow: visible;
-}
-
-.toast-capper {
-  height: 2px;
-}
-
-.bag-notification-wrapper {
-  height: 100px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.checkout_price {
-  width: 80px;
-}
-
-.toast-success {
-  border: 5px ridge #28a745;
-}
-
-.toast-warning {
-  border: 5px ridge #ffc107;
-}
-
-.toast-info {
-  border: 5px ridge #17a2b8;
-}
-
-.toast-error {
-  border: 5px ridge #dc3545;
-}
 /* -------------------------------- AllAuth Styling */
 
 .allauth-form-inner-content p {
@@ -261,37 +169,115 @@ display: inline-block;
 	color: #17a2b8; /* text-info */
 }
 
-/* -------------------------------- Terms and condidtions/Returns/Privacy */
-.extra-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 300;
-  font-size: 30px;
+/* from Bulma */
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
-.extra-body {
-  font-family: 'Sarabun', sans-serif;
-  font-weight: 200;
-  font-size: 15px;
+/* -------------------------------- Checkout Pages */
+
+.shop-now-button {
+  background: black;
+  color: white;
+  min-width: 260px;
 }
 
-/* -------------------------------- Terms and condidtions/Returns/Privacy */
-.test-title {
-  text-transform: capitalize;
+.btn-black {
+  background: black;
+  color: white;
 }
 
-.test-message {
-  font-style: italic;
+/* override link colors for <a> elements */
+.btn-outline-black {
+  background: white;
+  color: black !important;
+  border: 1px solid black;
 }
 
-/* Set the size of the div element that contains the map */
-#map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 100%;
-  /* The width is the width of the web page */
+/* button formatting */
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+  background: #222;
+  color: white;
 }
 
-/* -------------------------------- Media Queries */
+a.category-badge>span.badge:hover {
+  background: #212529 !important;
+  color: #fff !important;
+}
+
+/* Image Widget for the add and edit template */
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0;
+  border-color: #dc3545;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 0;
+}
+
+/* ------------------------------- Bootstrap toasts */
+.message-container {
+  position: fixed;
+  top: 160px;
+  right: 5px;
+  overflow: auto;
+  max-height: 665px;
+  overflow-x: hidden;
+  opacity: 1;
+  z-index: 99999999999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
+}
+
+.bag-notification-wrapper {
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.checkout_price {
+  width: 80px;
+}
+
+.toast-success {
+  border: 5px ridge #28a745;
+}
+
+.toast-warning {
+  border: 5px ridge #ffc107;
+}
+
+.toast-info {
+  border: 5px ridge #17a2b8;
+}
+
+.toast-error {
+  border: 5px ridge #dc3545;
+}
+
+/* -------------------------------- Media Queries (min-width: 1200px) */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -312,6 +298,7 @@ display: inline-block;
   }
 }
 
+/* -------------------------------- Media Queries (min-width: 992px) and (max-width: 1025px ) */
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) and (max-width: 1025px ){
   .fixed-top-desktop-only {
@@ -335,15 +322,18 @@ display: inline-block;
     font-size: small;
   }
 
-  /* Declare heights because of positioning of img element */
+  /* Height for the carousel */
   .carousel-item {
     height: 25rem;
   }
 
+  /* Carousel image */
   .carousel-item>img {
     height: 25rem;
   }
 }
+
+/* -------------------------------- Media Queries (max-width: 991px) */
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
   .header-container {
@@ -359,7 +349,9 @@ display: inline-block;
   }
 }
 
+/* -------------------------------- Media Queries (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Toasts */
   .message-container {
     top: 137px;
   }
@@ -371,24 +363,26 @@ display: inline-block;
     padding: 0;
   }
 
-  /* Since positioning the image, we need to help out the caption */
+  /* The caption and button within the carousel */
   .carousel-caption {
     bottom: 3rem;
     z-index: 10;
   }
 
-  /* Declare heights because of positioning of img element */
+  /* Height for the carousel */
   .carousel-item {
     height: 25rem;
   }
 
+  /* Carousel image */
   .carousel-item>img {
     height: 25rem;
   }
-  
 }
 
+/* -------------------------------- Media Queries (max-width: 425px) */
 @media (max-width: 425px) {
+  /* Navigation bar */
   .nav-link {
     padding: 0;
   }
@@ -397,6 +391,7 @@ display: inline-block;
     margin-top: 400px;
   }
 
+  /* Toasts */
   .message-container {
     top: 136px;
   }
@@ -409,22 +404,24 @@ display: inline-block;
     font-size: large;
   }
 
-  /* Since positioning the image, we need to help out the caption */
+  /* The caption and button within the carousel */
   .carousel-caption {
     bottom: .5rem;
     z-index: 10;
   }
 
-  /* Declare heights because of positioning of img element */
+  /* Height for the carousel */
   .carousel-item {
     height: 15rem;
   }
 
+  /* Carousel image */
   .carousel-item>img {
     width: 100%;
     height: 15rem;
   }
 
+  /* Carousel button size */
   .btn-carousel{
     padding: .25rem .5rem;
     font-size: .875rem;
@@ -432,7 +429,9 @@ display: inline-block;
   }
 }
 
+/* -------------------------------- Media Queries (max-width: 375px) */
 @media (max-width: 375px) {
+  /* Navigation bar */
   .nav-link {
     padding: 0px;
   }
@@ -441,12 +440,15 @@ display: inline-block;
     font-size: small;
   }
 
+  /* Toasts */
   .message-container {
     top: 113px;
   }
 }
 
+/* -------------------------------- Media Queries (max-width: 320px) */
 @media (max-width: 320px) {
+  /* Navigation bar */
   .nav-link {
     padding: 0px;
   }
@@ -455,11 +457,13 @@ display: inline-block;
     font-size: small;
   }
 
+  /* Toasts */
   .toast {
     margin-left: auto;
     width: 75%;
   }
 
+  /* Checkout */
   .checkout-container{
     --bs-gutter-x: 5px;
   }

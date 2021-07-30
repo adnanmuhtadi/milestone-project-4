@@ -118,7 +118,7 @@ Database Structure - [View Tables](https://github.com/adnanmuhtadi/milestone-pro
 
 The database was designed using an online tool called [DB Diagram](https://dbdiagram.io/). The tables where mapped depending on the field requirements.
 
-Database Design - [Mapping](#)
+Database Design - [Mapping](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/database/database-relationship-table.pdf)
 
 ## Features
 
@@ -289,21 +289,25 @@ On code completion, I ensured my code was validated with no syntax errors. I use
 
 #### HTML - [W3C Markup Validator](https://validator.w3.org/)
 
-- 
+- On most HTML files, the errors that were displayed were due to having the Django library included in it.
+- Layout structure, due to the fact I was including the base files which has the doctypes.
+- To resolve the errors, I stripped the base file and added the other files in between the code which effectively resolved more of the common errors, to ensure the code itself would pass the validator.
 
-#### CSS - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](#)
 
-- No corrections where required on all CSS documents.
-- (Attaching one document as they where all the same)
+#### CSS - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/validation/w3c-css-validator-results.pdf)
 
-#### JS - [JSHint](https://jshint.com/) - [Results](#)
+- No corrections were required on all CSS documents.
+- (Attaching one document as they were all the same)
 
-- 
+#### JS - [JSHint](https://jshint.com/) - [Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/validation/jshint-validator-success.png)
 
-#### Python - [PEP8 Online](http://pep8online.com/) - [Results](#)
+- Helps to detect errors and potential problems in your JavaScript code.
+Everything passed apart from one warning sign which is as expected as JSHint is using an old version of ES
+
+#### Python - [PEP8 Online](http://pep8online.com/) - [Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/validation/pep8-example.png)
 
 - The tests run from multiple areas, the [GitPod](https://gitpod.io/) problem console and PEP8 online
-- Only needing to fix the line too long error and the files which where created by Django which where not used.
+- Only needing to fix the "line too long" error and the files which were created by Django when creating apps that were not used.
 
 ### Further Testing
 
