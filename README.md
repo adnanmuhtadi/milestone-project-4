@@ -329,6 +329,7 @@ All tests that have been mentioned in the link above was tested on the following
 - When a user has no delivery details saved in the profile and then proceeds to make an order. When inputting the details of the user and UNCHECKING the 'Save Info' button, it will still save the information in their profile
 - When deleting a product, it will also delete it from the order history when I user purchases it.
 - In testimonials, the user can either put a -number or a number more than 5 when creating a new testimonial, however, it will still be displayed as no ratings on the testimonial main page
+- When sending an email from the front end, it is sending as expected, as well it is posting to the DB as expected however the name of the user is not being pushed to Django admin with the contact details.
 
 ## Deployment
 

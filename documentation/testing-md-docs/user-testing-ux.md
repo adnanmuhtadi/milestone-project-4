@@ -48,6 +48,8 @@
     1. Upon entering the site, the navigation bar will have an option 'My Account'
     1. When clicking on it, a drop-down would appear.
     1. Once you click on 'Register', a new page would appear where you can fill out your details
+    1. Once the details have been filled out, an email would be sent to the email provided.
+    1. Click on the link from the email to verify the account.
 
 <img src="../images/user_story_screenshot/user-story7.png">
 

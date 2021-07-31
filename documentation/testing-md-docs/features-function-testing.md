@@ -77,7 +77,7 @@ Feature/Function | Description | Pass | Fail
 Delivery Information | Delivery details stored without needing to insert it again | :heavy_check_mark: |
 Update Information | Saves the new information when and if the information is updated | :heavy_check_mark: |
 Order history displayed | Orders saved under your profile will be displayed with the information breakdown of previous orders | :heavy_check_mark: |
-Order number | When the order number of a previous order, your order summary will be appear | :heavy_check_mark: |
+Order number | When the order number of a previous order, your order summary will appear | :heavy_check_mark: |
 
 ## Testimonial
 Feature/Function | Description | Pass | Fail
@@ -132,12 +132,18 @@ Superuser Permissions | Edit/Delete option would be available for the product bu
 ## Add Product Details 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-
+Add Product Menu | Only available for superusers | :heavy_check_mark: |
+Category | Categories that are already in the database appear in the dropdown | :heavy_check_mark: |
+Mandatory fields | Mandatory fields would have (*) associated to them and won't allow you to save the product unless filled | :heavy_check_mark: |
+Image Fields | If an image is not attached to the product, a default "no image" image would be associated to the product to take its place | :heavy_check_mark: |
+Field types | Field type restrictions associated with the appropriate fields meaning I can enter text a decimal field | :heavy_check_mark: |
 
 ## Edit Product Details 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-
+Product Details | All details for the product auto-filled in the text boxes they are associated in | :heavy_check_mark: |
+Amendment of Details | When details are updated, it updates the database as well as the product view | :heavy_check_mark: |
+Amendment of images | If the remove button is selected for the image that it is associated with, when saving the amendment, the picture is removed as expected | :heavy_check_mark: |
 
 ## Basket 
 Feature/Function | Description | Pass | Fail
