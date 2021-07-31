@@ -81,7 +81,7 @@ def send_email(request):
     # and store them in the variables
     if request.method == 'POST':
         user = request.user
-        fullname = request.POST['fullname']
+        contact_fullname = request.POST['contact_fullname']
         email = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
@@ -90,7 +90,7 @@ def send_email(request):
         # passing the values to the email body text file
         body = render_to_string(
             'home/emails/email_body.txt',
-            {'username': user, 'fullname': fullname,
+            {'username': user, 'fullname': contact_fullname,
              'message': message, 'user_email': email,
              'subject': subject})
 
