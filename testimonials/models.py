@@ -12,7 +12,7 @@ class Testimonial(models.Model):
     title = models.CharField(max_length=254)
     message = models.TextField()
     rating = models.IntegerField(
-        null=True, blank=True, default=0)
+        null=True, blank=True)
 
     # String to return the review titles
     def __str__(self):

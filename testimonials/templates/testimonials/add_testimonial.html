@@ -44,3 +44,12 @@
 
 </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#id_rating").attr({"max" : 5, "min" : 1});
+    });
+</script>
+{% endblock %}

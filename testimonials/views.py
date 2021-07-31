@@ -100,7 +100,7 @@ def edit_testimonial(request, testimonial_id):
         # Creating the instance of the testimonial form
         form = TestimonialForm(instance=testimonial)
         messages.info(request, f'You are editting the testimonial \
-            for {testimonial.rtitle}! ')
+            for {testimonial.title}! ')
 
     # Informing it which template to use.
     template = 'testimonials/edit_testimonial.html'

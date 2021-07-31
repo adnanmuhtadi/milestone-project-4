@@ -32,7 +32,7 @@ Carousel | Images to rotate with a button associated with different types of pro
 Testimonials | Displayed the newest 3 testimonials left by users | :heavy_check_mark: | 
 Responsive design | Design of the page changes depending on the screen size | :heavy_check_mark: | 
 
-## Registration Page
+## Registration
 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
@@ -45,7 +45,7 @@ Password | The password would need to have more than 8 characters | :heavy_check
 Confirm Password | Password would need to match the password field | :heavy_check_mark: | 
 Email verification | An email to be sent to the email provided with a verification link that the user would need to click on to be fully verified | :heavy_check_mark: | 
 
-## Login Page
+## Login
 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
@@ -54,7 +54,7 @@ Username/email | If the username or email inserted is wrong, an error message wo
 Password | If the password inserted is wrong, an error message would apepar | :heavy_check_mark: |
 Sign up | If the user does not have a login, the option to sign up is available and redirects the user to the sign up page | :heavy_check_mark: |
 
-## Logout Page
+## Logout
 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
@@ -66,22 +66,106 @@ Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
 Page load | Pages load as expected | :heavy_check_mark: |
 
-## About Page
+## About
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
 Google API | Google Maps to be displayed on the page with the location configured | :heavy_check_mark: |
 
+## My Profile
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
 ## Testimonial
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-All fields for logged in user | The username and email is automatically populated when trying to contact the site admin | :heavy_check_mark: |
+Display all testimonials | All testimonials displayed from newest to oldest | :heavy_check_mark: |
+Name of User | The name of the user who posted the testimonial would be showing on the testimonial |
+Sorting testimonials | All testimonials displayed from newest to oldest | :heavy_check_mark: |
+Sorting | Sorting would change depending on the user selection on how they would like to have it sorted | :heavy_check_mark: | 
+Rating | If the rating is between 1 - 5, star would be a representative to the number displayed | :heavy_check_mark: | 
+Standard User Amends | The owner of the testimonial would be able to either edit and/or delete the testimonial they have posted | :heavy_check_mark: | 
+Superuser Amends | The super user has the power to edit and/or delete any testimonial made by anyone | :heavy_check_mark: | 
+Superuser Django Admin | When logging into admin, there would be a section where you would be able to see all the testimonials 
 
-<!-- 
+## Add Testimonial
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+Add text in all fields | User can insert text in all fields | :heavy_check_mark: |
+Missing fields | If the subject or message field is missed, an error message would appear | :heavy_check_mark: |
+Rating field | Only add a number up to 5 | | :x:
+
+## Edit Testimonial
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+Retrieve testimonial | Retrieving all the information from the review and displaying it in its appropriate placeholder | :heavy_check_mark: |
+Missing fields | If the subject or message field is missed, an error message would appear | :heavy_check_mark: |
+Add text in all fields | User can insert text in all fields | :heavy_check_mark: |
+Rating field | Only add a number up to 5 | | :x:
+
+## Products
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+Displaying Products | All products displayed in a card format with the details underneath each product | :heavy_check_mark: |
+Number of Products | The number of displayed products available | :heavy_check_mark: |
+Number of search products | When you search "Adidas" in the search bar, the number of products it is returned has updated in the product count | :heavy_check_mark: | 
+Add to Basket | When clicked on, the subtotal of the shoes would be updated in the basket | :heavy_check_mark: |
+Sold Products | When a pair of shoes have been sold, a SOLD sign in red would be under the product name and hiding the 'Add to Basket' button  | :heavy_check_mark: |
+Superuser Permissions | Edit/Delete option would be available for each product but only for superuser accounts | :heavy_check_mark: |
+Product Details | When you click on the image of the product, that would take you to the details of the product | :heavy_check_mark: |
+
+## Product Details 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+Product Details | Have the product details displaying the name, code, price, colour, category, size and description of the product  | :heavy_check_mark: |
+Product Image | An enlarge image displayed on the screen | :heavy_check_mark: |
+Multiple Product Images | Different images available of the product are selectable and would replace the large image with the image clicked on | :heavy_check_mark: |
+Category redirect | When you select on the category, it would relocate you to the chosen category | :heavy_check_mark: |
+Carry On Shopping | When then button carry on shopping is clicked, it would redirect you back to the product page | :heavy_check_mark: |
+Add to basket | When clicked on, the subtotal of the shoes would be updated in the basket | :heavy_check_mark: |
+Superuser Permissions | Edit/Delete option would be available for the product but only for superuser accounts | :heavy_check_mark: |
+
+## Add Product Details 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
+## Edit Product Details 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
+## Basket 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
+## Checkout 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
+## Checkout success 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
 ## Contact Us
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
 All fields for logged in user | The username and email is automatically populated when trying to contact the site admin | :heavy_check_mark: |
-All fields for guest users | The username is replaced with full name is automatically populated when trying to contact the site admin | :heavy_check_mark: | -->
+All fields for guest users | The username is replaced with full name is automatically populated when trying to contact the site admin | :heavy_check_mark: |
+Redirect | Once email has been sent, user would be relocated to the home page | :heavy_check_mark: |
+Django Admin | Once email has been sent, The subject and email would be saved to Django admin | :heavy_check_mark: |
+
+## Toasts 
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
+
+
+## Emails  
+Feature/Function | Description | Pass | Fail
+------------ | ------------- | ------------- | -------------
 
 
 [Return to main README.md](https://github.com/adnanmuhtadi/milestone-project-4)

@@ -1,6 +1,6 @@
 <h1 align="center">Milestone Project 4 - Clout Mafia</h1>
 
-[View project here](#)
+[View project here](https://clout-mafia-ms4.herokuapp.com/)
 
 This eCommerce site is based on advertising and selling exclusive sneakers. The target market audience has a unique market for individuals who have a taste in fashion. Being able to register/login/log out as well as adding/updating/deleting items from the inventory as well as the shopping basket. Giving users the different options of sneakers and sizes as well as being able to search for them to select from depending on availability. 
 
@@ -8,7 +8,7 @@ As the business is a startup, products sold will still be advertised but marked 
 
 This site would be utilizing Python and Django which was taught from the Code Institute. I will also be using various technologies such as HTML5, CSS3, JQuery and Bootstrap. This project will be responsive and accessible to different size browsers and devices.
 
-<h2 align="center"><img src="https://clout-mafia-ms4.herokuapp.com/"></h2>
+<h2 align="center"><img src="documentation/images/responsive-homepage.png">
 
 ## User Experience (UX)
 
@@ -328,12 +328,64 @@ All tests that have been mentioned in the link above was tested on the following
 - When the user only selects one product in the laptop screen size, visits the basket, the price summary overlaps the footer. It works fine when there are multiple items in the basket.
 - When a user has no delivery details saved in the profile and then proceeds to make an order. When inputting the details of the user and UNCHECKING the 'Save Info' button, it will still save the information in their profile
 - When deleting a product, it will also delete it from the order history when I user purchases it.
+- In testimonials, the user can either put a -number or a number more than 5 when creating a new testimonial, however it will still be displayed as no ratings in the testimonial main page
 
 ## Deployment
 
 ### Making a Clone
 
+I had to get the SSH key from the repository which allowed me to clone the repository to my local hard drive. 
+The method which I used to clone the project was via the terminal as well as Github Desktop. I was able to connect my Github repository and clone my files through this method. 
 
+<img src="documentation/images/making-a-clone.png">
+
+#### Step 1 - Method 1 (Steps taken in VSCode)
+1. Open your IDE and open up the Terminal
+1. Inside your terminal type `git clone git@github.com:adnanmuhtadi/milestone-project-4.git`
+    - This would clone what is in GitHub to your computer and so now modification to the files can happen on your local machine
+1. Inside your terminal type `git status
+    - To see what changes have been made
+1. Type `git -a`
+    - To add all the files that you have worked on to the stage
+1. Type `git commit -m "add notes here"`
+    - To add a message to files you are about to push to the servers
+1. Type `git push`
+    - To upload to the remote repository
+
+#### Step 1 - Method 2
+1. Open the repository that needs to be cloned.
+1. On the top-right side of the page, above the files, you will see a button 'Code' with an arrow pointing down.
+1. Once clicked, a drop-down would appear which would give me the option 'Open with GitHub Desktop' 
+(as I had already pre-installed [GitHub Desktop](https://desktop.github.com/) previously).
+1. Once clicked, it would automatically open the application and request where for it to be saved.
+
+#### Step 2 - Create Env.py
+1. Need to install the project requirements from the requirements.txt file.
+    - In the terminal, type in `pip3 install -r requirements.txt`
+1. Create a new file in the dictory called 'env.py'
+    - In the terminal, type in `git touch env.py`
+1. Inside the env.py file you will need to add the following:
+```
+# Python env code to set all defaults
+
+SECRET_KEY=(yoursecretkeyhere)
+STRIPE_PUBLIC_KEY=(yourstripepublickeyhere)
+STRIPE_SECRET_KEY=(youryourstripesecretkeyherekeyhere)
+STRIPE_WH_SECRET=(yourstripewhsecretkeyhere)
+GMAPS_API=(yourgmapsapikeyhere)
+```
+4. Need to make the migrations to the local database
+    - In the terminal, type in `python3 manage.py makemigrations --dry-run` to make sure no errors appear
+    - In the terminal, type in `python3 manage.py makemigrations`,
+    - In the terminal, type in `python3 manage.py migrate --plan` to make sure no errors appear
+    - In the terminal, type in `python3 manage.py migrate`
+5. Need to load the premade fixtures that have been created we would start by loading the categories and then the products
+    - In the terminal, type in `python3 manage.py loaddata categories`
+    - In the terminal, type in `python3 manage.py loaddata products`
+5. To be able to access the back end of the site, you would need to create a super user
+    - In the terminal, type in `python3 manage.py createsuperuser`
+    - Then follow my steps in the terminal
+6. To preview the site, in the terminal, type in `python3 manage.py runserver`
 
 ### Making a Deployment
 
@@ -370,6 +422,8 @@ All tests that have been mentioned in the link above was tested on the following
     - [Team Image](https://unsplash.com/photos/xLUwi3yDNb0) - A picture of the 'Team'
 -   Product
     - [No Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ANo_image_available.svg&psig=AOvVaw1awmSiJ6ifYkoItaDU7HlQ&ust=1627564591918000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPiF6eXshfICFQAAAAAdAAAAABAD) - Image to be used when a product is added without an image
+-   Readme File
+    - [Responsive Image](http://ami.responsivedesign.is/) - Used http://ami.responsivedesign.is/ to product the image.
 
 ### Acknowledgements
 
