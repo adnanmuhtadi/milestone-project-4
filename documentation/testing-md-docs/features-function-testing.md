@@ -74,7 +74,10 @@ Google API | Google Maps to be displayed on the page with the location configure
 ## My Profile
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-
+Delivery Information | Delivery details stored without needing to insert it again | :heavy_check_mark: |
+Update Information | Saves the new information when and if the information is updated | :heavy_check_mark: |
+Order history displayed | Orders saved under your profile will be displayed with the information breakdown of previous orders | :heavy_check_mark: |
+Order number | When the order number of a previous order, your order summary will be appear | :heavy_check_mark: |
 
 ## Testimonial
 Feature/Function | Description | Pass | Fail
@@ -123,6 +126,7 @@ Multiple Product Images | Different images available of the product are selectab
 Category redirect | When you select the category, it would relocate you to the chosen category | :heavy_check_mark: |
 Carry On Shopping | When the button carry on shopping is clicked, it would redirect you back to the product page | :heavy_check_mark: |
 Add to basket | When clicked on, the subtotal of the shoes would be updated in the basket | :heavy_check_mark: |
+Only one of each product | Alert appear when you are adding more than one of the same item | :heavy_check_mark: |
 Superuser Permissions | Edit/Delete option would be available for the product but only for superuser accounts | :heavy_check_mark: |
 
 ## Add Product Details 
@@ -138,17 +142,37 @@ Feature/Function | Description | Pass | Fail
 ## Basket 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-Order summary
+Order summary | A display for the products that have been added to the basket | :heavy_check_mark: |
+Price summary calculations | If the basket is below £200 the delivery fee is added to the price correctly | :heavy_check_mark: |
+Price summary calculations | If the basket is above £200 the total price is calculated correctly | :heavy_check_mark: |
+Remove button | If an item is deleted from the basket, it removes from the basket | :heavy_check_mark: |
+Price summary calculations | Total price updates once an item is removed from the basket | :heavy_check_mark: |
+Carry On Shopping | Redirect the user back to the product page | :heavy_check_mark: |
+Secure Checkout | Directs the user to the checkout page | :heavy_check_mark: |
 
 ## Checkout 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-
+Order Summary | A breakdown of the total price | :heavy_check_mark: |
+Delivery Details | Text fields to enter delivery details | :heavy_check_mark: |
+Country field | A drop-down list for every country in the world | :heavy_check_mark: |
+Personal Details | Saved personal details are pulled into the associated fields | :heavy_check_mark: |
+Validation | Errors messages appear when mandatory fields are not filled | :heavy_check_mark: |
+Saved delivery details to my profile | Once the form is filled out, and the check box is unchecked, it will not save your personal details |  | :x:
+Saved delivery details to my profile | Once the form is filled out, and the check box is checked, it will save your personal details | :heavy_check_mark: |
+Stripe card validation | If card details are put in incorrectly, an error appears | :heavy_check_mark: |
+Adjust Basket | Redirects user back to the basket page | :heavy_check_mark: |
+Complete order | Directs the user to the checkout success page | :heavy_check_mark: |
 
 ## Checkout success 
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-
+Order Info | Unquie number produced for your order number and date of the order | :heavy_check_mark: |
+Order details | Summary of what you have purchased | :heavy_check_mark: |
+Delivery Details | Details of where your order will be sent to | :heavy_check_mark: |
+Webhook Connection | Failover connection applied to the checkout success if in case the application fails | :heavy_check_mark: |
+Back to shop | Redirects user back to the product page | :heavy_check_mark: |
+Back to Homepage | Redirects the user back to the home page | :heavy_check_mark: |
 
 ## Contact Us
 Feature/Function | Description | Pass | Fail
@@ -158,14 +182,13 @@ All fields for guest users | The username is replaced with full name is automati
 Redirect | Once an email has been sent, the user would be relocated to the home page | :heavy_check_mark: |
 Django Admin | Once the email has been sent, The subject and email would be saved to Django admin | :heavy_check_mark: |
 
-## Toasts 
-Feature/Function | Description | Pass | Fail
------------- | ------------- | ------------- | -------------
-
-
 ## Emails  
 Feature/Function | Description | Pass | Fail
 ------------ | ------------- | ------------- | -------------
-
+Registration | An email is sent when you would need to confirm your email address for verification | :heavy_check_mark: |
+Password Reset | An email is sent when you require a password reset | :heavy_check_mark: |
+Contact Form | An email is sent with the message if you are a logged-in user | :heavy_check_mark: |
+Contact Form | An email is sent with the message if you are not a logged-in user | :heavy_check_mark: |
+Checkout confirmation | An email is sent when the order was successful | :heavy_check_mark: |
 
 [Return to main README.md](https://github.com/adnanmuhtadi/milestone-project-4)

@@ -32,7 +32,7 @@ The site would have a CRUD software architectural style (Create, Read, Update an
 
 ### User Stories
 
-The intended type of users which this website is targeted for are individuals who enjoy online shopping and have a unique taste is fashion.
+The intended type of users which this website is targeted for are individuals who enjoy online shopping and have a unique taste in fashion.
 
 1. As a user, I want to be able to view a list of products, so that I can purchase one of them.
 1. As a user, I want to be able to view the details of an individual item, so I can see the price, description, product image and available size.
@@ -110,13 +110,13 @@ The intended type of users which this website is targeted for are individuals wh
     
 #### Database Structure
 
-During the development of my project, I was using sqlite for my database, but then changed over to postgres when it was deployed (Postgres is an addon provided by Heroku).
+During the development of my project, I was using SQLite for my database, but then changed over to Postgres when it was deployed (Postgres is an addon provided by Heroku).
 
 Database Structure - [View Tables](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/database/database_structure.md)
 
 #### Database Mapping
 
-The database was designed using an online tool called [DB Diagram](https://dbdiagram.io/). The tables where mapped depending on the field requirements.
+The database was designed using an online tool called [DB Diagram](https://dbdiagram.io/). The tables were mapped depending on the field requirements.
 
 Database Design - [Mapping](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/database/database-relationship-table.pdf)
 
@@ -198,7 +198,7 @@ The features that will be utilised in this project will be as follows:
 
 #### About Page
 
--   Google Maps Api connected to the site to identify where the 'Business' is based
+-   Google Maps API connected to the site to identify where the 'Business' is based
 
 #### Checkout Success Page
 
@@ -328,7 +328,7 @@ All tests that have been mentioned in the link above was tested on the following
 - When the user only selects one product in the laptop screen size, visits the basket, the price summary overlaps the footer. It works fine when there are multiple items in the basket.
 - When a user has no delivery details saved in the profile and then proceeds to make an order. When inputting the details of the user and UNCHECKING the 'Save Info' button, it will still save the information in their profile
 - When deleting a product, it will also delete it from the order history when I user purchases it.
-- In testimonials, the user can either put a -number or a number more than 5 when creating a new testimonial, however it will still be displayed as no ratings in the testimonial main page
+- In testimonials, the user can either put a -number or a number more than 5 when creating a new testimonial, however, it will still be displayed as no ratings on the testimonial main page
 
 ## Deployment
 
@@ -342,7 +342,7 @@ The method which I used to clone the project was via the terminal as well as Git
 #### Step 1 - Method 1 (Steps taken in VSCode)
 1. Open your IDE and open up the Terminal
 1. Inside your terminal type `git clone git@github.com:adnanmuhtadi/milestone-project-4.git`
-    - This would clone what is in GitHub to your computer and so now modification to the files can happen on your local machine
+    - This would clone what is in GitHub to your computer and so no modification to the files can happen on your local machine
 1. Inside your terminal type `git status
     - To see what changes have been made
 1. Type `git -a`
@@ -362,7 +362,7 @@ The method which I used to clone the project was via the terminal as well as Git
 #### Step 2 - Create Env.py
 1. Need to install the project requirements from the requirements.txt file.
     - In the terminal, type in `pip3 install -r requirements.txt`
-1. Create a new file in the dictory called 'env.py'
+1. Create a new file in the directory called 'env.py'
     - In the terminal, type in `git touch env.py`
 1. Inside the env.py file you will need to add the following:
 ```
@@ -382,20 +382,202 @@ GMAPS_API=(yourgmapsapikeyhere)
 5. Need to load the premade fixtures that have been created we would start by loading the categories and then the products
     - In the terminal, type in `python3 manage.py loaddata categories`
     - In the terminal, type in `python3 manage.py loaddata products`
-5. To be able to access the back end of the site, you would need to create a super user
+5. To be able to access the back end of the site, you would need to create a superuser
     - In the terminal, type in `python3 manage.py createsuperuser`
     - Then follow my steps in the terminal
 6. To preview the site, in the terminal, type in `python3 manage.py runserver`
 
 ### Making a Deployment
 
+- open up Heroku and create a new app giving it a name and choosing your closest region and then create a new app.
+- On the resources tab, search and select “Heroku Postgres”, once selected, ensure “Hobby Dev - Free” is selected and click on “Provision”
+- Going back to your IDE, you would need to install `pip3 install dj_database_url` and `pip3 install psycopg2-binary`, once installed, you would need to freeze the requirements `pip3 freeze > requirements.txt` as this would ensure Heroku install all the apps when it is deployed
+- In the app settings, add “import dj_database_url” and comment out the default configuration. Underneath the commented out database configuration
+    - It needs to be replaced with the following: 
+    ```
+    DATABASES = {
+        ‘default’: dj_database_url.parse('config variable')
+    ```
+Note: this can be found in Heroku app settings and then in Config Vars.
+- Once saved, run the migrations as that would get our databases setup
+    - In the terminal, type in `python3 manage.py makemigrations`
+    - In the terminal, type in `python3 manage.py migrate`
+- Now you would need to upload the fixtures but writing the following commands: 
+    - In the terminal, type in `python3 manage.py loaddata categories`
+    - In the terminal, type in `python3 manage.py loaddata products`
+- create yourself a superuser account to be able to log in 
+    - In the terminal, type in `python3 manage.py createsuperuser`
+- Go back to the app settings, and remove the database code that was written 
+    ```
+    DATABASES = {
+        ‘default’: dj_database_url.parse('config variable')
+    ```
+- Uncomment out the original database settings
+- As the database URL environment variable will be defined in Heroku, we would need to connect to Postgres. 
+    ```
+    if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+    else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+    ```
+- Now we would need to install gunicorn as that would act as our web server and then freeze those requirements again.
+    - In the terminal, type in `pip3 install gunicorn`
+    - In the terminal, type in `pip3 freeze > requirements.txt`
+- Create a new file "Procfile"
+    Add this line to the file "web: gunicorn clout_mafia.wsgi:application"
+    - In the terminal, type in `Heroku login`.
+- Temporarily disable collectstatic by using Heroku config set 
+    - In the terminal, type in `Heroku config:set DISABLE_COLLECTSTATIC=1 --app [heroku app name]` so Heroku doesn't collect static files when deploying
+- In the app settings, add the Heroku app name in the "Allowed_Hosts" as well, as well as localhost
+    - `ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com', 'localhost']`
+- Once done, do a complete git push following the standard steps and then once it is pushed to GitHub, you would need to push to Heroku
+    - In the terminal, type in `git push Heroku main`
+- Then deploy it to Heroku 
+    - In the terminal, type in `Heroku git:remote -a clout-mafia-ms4`
+    - In the terminal, type in `git push Heroku main`
+- In 'Deployment method' click on 'GitHub', Ensuring your GitHub username is visible, either search for your repository or type in exactly how your repository is spelt in GitHub. When it finds your Repository, it will be visible and you would click on 'Connect'
+- Once successfully pushed into GitHub, go back to Heroku and click on 'Enable Automatic Deployment' and then 'Deploy Branch'.
+- Look up Django key generator and then add my config variables in Heroku
+- Once added in Heroku, go back to your app settings and replace the secret key settings with the call to get it from the environment and use an empty string as a default.
+- Change debug to call the variable development in Heroku config.
 
+<h4>AWS deployment</h4>
+
+- Go on `aws.amazon.com` to create an AWS account.
+- Once all the details have been filled out and you have created an account, you would need to go back to `aws.amazon.com` 
+- Under my account, click on 'AWS Management Console'
+- Search for s3 and once selected, create a new bucket that will store the files.
+- Give the bucket a name and choose the location nearest to you
+- Uncheck 'Block all public access' and acknowledge that the bucket would be made public.
+- Once done, click on 'Create bucket'
+- On the properties tab, turn on 'Static website hosting'
+- for the index and error document, file it in with the suggested default values. Then click 'Save'
+- In the permission tab, click on 'CORS configuration' and paste the following values as this will be required access between Heroku and the s3 bucket
+    ```
+    [
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+    ]
+    ```
+- Go to the policy tab and select policy generator so we can create a security policy for this bucket.
+    - The policy type is going to be s3 bucket policy
+    - Allow all principles by using a * 
+    - Action will be, 'Get object'
+    - Add the ARN (Amazon Resource Name)
+    - Click 'Add Statement', then 'Generate Policy'
+    - Copy the policy in the bucket policy editor 
+    - Add a `/*` at the end of the resource key
+    - Click Save
+- Go to `Access Control List` and under the `Public Access` section, and select `List Objects` for everyone
+- In the services menu, open `IAM`
+- Create a group, and give it a name. Keeping clicking next till the group is created
+- Click on policies from the side panel, and then create policy.
+- Go to the JSON tab and then select import managed policy.
+    - Search for `s3` and then choose `full access to s3`
+    - In the JSON file where it says "Resources", after the semicolon, add the ARN. `[enterARN]`,`[enter it again with /*]`
+    - Click on review policy and give it a name and a description and then 'Create Policy'.
+- Click on 'Groups', click on the group that you created. Click on 'Attach Policy', search for your policy that was just created and select it.
+- Click on 'User' to attach to the group from the left-hand side of the menu bar.
+    - Click on 'Add user', give it a name, give them 'Programmatic access'.
+    - Put them in a group we just created which has the policy attached to it.
+    - Click next to the end till you create the user.
+    - Download the CSV as that would give you the user access key and the secret access key which would need to authenticate the Jango app
+
+- Going back to the app, you would need to install the following
+    - In the terminal, type in `pip3 install boto3`
+    - In the terminal, type in `pip3 install django-storages`
+    - In the terminal, type in `pip3 freeze > requirements.txt`
+- Go to the app settings and `Django-storages` to the apps
+- At the bottom of your settings file, add the following 
+    ```
+    if 'USE_AWS' in os.environ:
+        # Bucket Config
+        AWS_STORAGE_BUCKET_NAME = '[appname]'
+        AWS_S3_REGION_NAME = 'us-east-1'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    ```
+- Go back to Heroku and into 'Settings' and select 'Reveal Config Variables'
+    - Add the following variables:
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY
+        - USE_AWS
+    - remove the variable 'Disable_COLLECTSTATIC'
+- Back in the app settings, need the following under the if statement that was just written
+    ```
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    ```
+- Create a new file called 'custom_storages.py' as you would need to import both settings from Django.conf as well as s3boto4 storage class
+    - Add the following code in the file:
+    ```
+    from django.conf import settings
+    from storages.backends.s3boto3 import S3Boto3Storage
+
+
+    # Inherit from django storages giving it all its functionality
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION
+    ```
+- Back in the app settings, at the bottom of the file, type in the following as that point aws to the media file locations:
+    ```
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        # Override static and media URLs in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    ```
+- We then add the cache static files, so under the if statement for AWS, add the following
+    ```
+     # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+    ```
+- Add, Commit and push up to GitHub.
+- Go to s3 (AWS) and create a new folder called media
+-   inside it, click on upload, add files, and then select all the images you want to have uploaded. Then click upload.
+- Open your app and go onto Django admin, click on 'Email Addresses' and check the options for both 'Verified' and 'Primary', then save.
+
+- As we need to add the stripe keys, log into Stripe, click on 'Developers' and then 'API Keys'.
+- Copy the stripe key and go to Heroku and add config variables.
+    - add `STRIPE_PUBLIC_KEY` and for the security key, add another line in Heroku for `STRIPE_SECURITY_KEY`.
+- We now need to create a new webhook endpoint, going back to Stripe, click on 'Webhooks' from the left menu bar.
+    - Click on 'Add endpoint' and add the URL for the Heroku app followed by `checkout/WH/`
+    - Then select receive all events and add endpoint.
+    - Taking the new webhook signing secret, it can be added to the Heroku Config variables as `STRIPE_WH_SECRET`
+- The eCommerce website is now deployed
 
 ## Credits
 
 ### Content
 
--   Content was taken from a pre-created instagram page [Clout-Mafia](https://www.instagram.com/_cloutmafia_/)
+-   Content was taken from a pre-created Instagram page [Clout-Mafia](https://www.instagram.com/_cloutmafia_/)
 -   Terms and Conditions - [Template made by Termly](https://app.termly.io/) - Template Generator. Creates the content and styling for the page and so it would not be aligned with the design of my site
 -   Privacy - [Template made by Termly](https://app.termly.io/) - Template Generator. Creates the content and styling for the page and so it would not be aligned with the design of my site
 -   Returns and Refunds - [Template made by Termsfeed](https://app.termsfeed.com/) - Template Generator. Creates the content and styling for the page and so it would not be aligned with the design of my site
