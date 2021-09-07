@@ -162,6 +162,7 @@
             </div>
         </div>
     </div>
+</div>
     {% endblock %}
 
 
@@ -169,13 +170,7 @@
     <!-- to append this code to anything already in the block-->
     {{ block.super }}
     <script type="text/javascript">
-        $('.btt-link').click(function (e) {
-            window.scrollTo(0, 0)
-        })
-    </script>
-
-    <script type="text/javascript">
-        /* once capturing the change event from the source selector
+    /* once capturing the change event from the source selector
     two variables set, one for the selector and the other for a new url for the object 
     which takes the window location */
         $('#sort-selector').change(function () {

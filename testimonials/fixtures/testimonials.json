@@ -4,10 +4,11 @@
         "model": "testimonials.Testimonial",
         "fields": {
             "user": "1",
-            "date": "2021-01-01 22:00",
+            "date": "2021-01-01",
+            "time": "22:00",
             "title": "amazing",
             "message": "testing",
-            "rating": "3.0"
+            "rating": "3"
         }
     },
     {
@@ -15,10 +16,11 @@
         "model": "testimonials.Testimonial",
         "fields": {
             "user": "1",
-            "date": "2021-03-03 15:00",
+            "date": "2021-03-03",
+            "time": "15:00",
             "title": "incredible",
             "message": "testing2",
-            "rating": "5.0"
+            "rating": "5"
         }
     },
     {
@@ -26,10 +28,11 @@
         "model": "testimonials.Testimonial",
         "fields": {
             "user": "2",
-            "date": "2020-01-03 22:00",
+            "date": "2020-01-03",
+            "time": "22:00",
             "title": "fantastic",
             "message": "testing456",
-            "rating": "4.0"
+            "rating": "4"
         }
     }
 ]
