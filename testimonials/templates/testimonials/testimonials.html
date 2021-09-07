@@ -19,19 +19,21 @@
 <div class="overlay"></div>
 <div class="container mb-2">
     <!-- Title of the page-->
-    <div class="row">
+    <div class="row g-0">
         <div class="col text-center mt-lg-5 mt-md-2">
             <h2 class="custom-font mt-lg-4 mt-md-2">Testimonials</h2>
             <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
 
-        <div class="row">
+        <div class="row g-0">
             <div class="col-12 mx-auto">
                 <!-- Write a testimonial button -->
-                <div class="col-6 offset-md-5 offset-4 my-3">
+                <div class="col-12 text-center my-3">
                     <a class="btn btn-black rounded-0" href="{% url 'add_testimonial' %}">Write a Testimonial</a>
                 </div>
-                <div class="sort-select-wrapper my-auto offset-lg-9 offset-md-8 offset-4">
+            </div>
+            <div class="row">
+                <div class="sort-select-wrapper my-auto col offset-lg-9 offset-md-8 offset-4">
                     <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
                     <select id="sort-selector"
                         class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
@@ -51,6 +53,7 @@
                         {% if sorting_testimonials == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
                     </select>
                 </div>
+            </div>
                 <div class="row">
                     <div class="product-container col-10 offset-1">
                         <div class="row mt-1 mb-2"></div>
@@ -100,20 +103,11 @@
                                             </div>
                                         </div>
                                         <!-- The user has the power to edit/delete their own testimonials -->
-                                        {% if request.user == testimonial.user %}
+                                        {% if user == testimonial.user or admin %}
                                         <div class="row">
                                             <div class="col-12">
-                                                <p class="card-text"><small class="text-muted">
-                                                    <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |
-                                                    <a class="text-danger" href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
-                                                </small></p>
-                                            </div>
-                                        </div>
-                                        <!-- The super user has the power to edit/delete all testimonials -->
-                                        {% elif request.user.is_superuser %}
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <p class="card-text"><small class="text-muted">
+                                                <p class="card-text">
+                                                    <small class="text-muted">
                                                     <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |
                                                     <a class="text-danger" href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
                                                 </small></p>

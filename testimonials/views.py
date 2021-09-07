@@ -36,9 +36,14 @@ def all_testimonials(request):
 
     sorting_testimonials = f'{sort}_{direction}'
 
+    user = request.user
+    admin = request.user.is_superuser
+
     context = {
         'testimonials': testimonials,
         'sorting_testimonials': sorting_testimonials,
+        'user': user,
+        'admin': admin,
     }
 
     return render(request, 'testimonials/testimonials.html', context)
@@ -83,33 +88,43 @@ def edit_testimonial(request, testimonial_id):
     """
     Edit a product in the store
     """
+    # Storing both logged in users and superusers to vars
+    user = request.user
+    admin = request.user.is_superuser
+
     # Prefilling the form using the product_object_or_404
     testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
-    if request.method == 'POST':
-        # Checking if the request method is post, telling the instance to
-        # post new information of that instance of the testimonial.
-        form = TestimonialForm(request.POST, instance=testimonial)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated the testimonial!')
-            return redirect(reverse('testimonials'))
+    # if to check if logged in user is same as the testimonial user
+    # or is the admin user, so they can edit testimonial.
+    if user == testimonial.user or admin:
+        if request.method == 'POST':
+            # Checking if the request method is post, telling the instance to
+            # post new information of that instance of the testimonial.
+            form = TestimonialForm(request.POST, instance=testimonial)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Successfully updated the testimonial!')
+                return redirect(reverse('testimonials'))
+            else:
+                messages.error(request, 'Failed to update the testimonial. \
+                    Please ensure the form is valid.')
         else:
-            messages.error(request, 'Failed to update the testimonial. \
-                Please ensure the form is valid.')
+            # Creating the instance of the testimonial form
+            form = TestimonialForm(instance=testimonial)
+            messages.info(request, f'You are editting the testimonial \
+                for {testimonial.title}! ')
+
+        # Informing it which template to use.
+        template = 'testimonials/edit_testimonial.html'
+        context = {
+            'form': form,
+            'testimonial': testimonial,
+        }
+
+        return render(request, template, context)
     else:
-        # Creating the instance of the testimonial form
-        form = TestimonialForm(instance=testimonial)
-        messages.info(request, f'You are editting the testimonial \
-            for {testimonial.title}! ')
-
-    # Informing it which template to use.
-    template = 'testimonials/edit_testimonial.html'
-    context = {
-        'form': form,
-        'testimonial': testimonial,
-    }
-
-    return render(request, template, context)
+        messages.error(request, 'Access Denied!!!.')
+        return redirect(reverse('testimonials'))
 
 
 @login_required
@@ -117,8 +132,18 @@ def delete_testimonial(request, testimonial_id):
     """
     Delete a testimonial from the app
     """
+    # Storing both logged in users and superusers to vars
+    user = request.user
+    admin = request.user.is_superuser
+
     # Prefilling the form using the product_object_or_404
     testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
-    testimonial.delete()
-    messages.success(request, 'The testimonial has been deleted!')
-    return redirect(reverse('testimonials'))
+    # if to check if logged in user is same as the testimonial user
+    # or is the admin user, so they can edit testimonial.
+    if user == testimonial.user or admin:
+        testimonial.delete()
+        messages.success(request, 'The testimonial has been deleted!')
+        return redirect(reverse('testimonials'))
+    else:
+        messages.error(request, 'Access Denied!!!.')
+        return redirect(reverse('testimonials'))

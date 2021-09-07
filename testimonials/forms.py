@@ -12,13 +12,11 @@ class TestimonialForm(forms.ModelForm):
     # To override the init method
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Having the testimonials data all show up
-        testimonials = Testimonial.objects.all()
-
+        
         placeholders = {
             'title': 'Testimonial Title',
             'message': 'Type testimonial message here',
-            'rating': 'Rating',
+            'rating': 'Rating 1 - 5',
         }
 
         # Only displaying the placeholder fields

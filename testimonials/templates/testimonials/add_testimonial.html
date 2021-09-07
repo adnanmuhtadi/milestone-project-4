@@ -32,7 +32,9 @@
             <!-- To render the form that will be filled out to add a testimonial -->
             <form method="POST" action="{% url 'add_testimonial' %}" class="form mb-2">
                 {% csrf_token %}
-                {{ form | crispy }}
+                {{ form.title|as_crispy_field }}
+                {{ form.message|as_crispy_field }}
+                {{ form.rating|as_crispy_field }}
                 <!-- Buttons to go back to the products page and to add a product -->
                 <div class="text-right">
                     <a class="btn btn-outline-black rounded-0 col-12 col-md-5 mb-3" href="{% url 'testimonials' %}">Back To Testimonials</a>
@@ -45,7 +47,7 @@
 </div>
 {% endblock %}
 
-{% block postloadjs %}
+{% block afterloadjs %}
 {{ block.super }}
 <script type="text/javascript">
     $(document).ready(function () {
