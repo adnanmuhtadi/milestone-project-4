@@ -24,7 +24,6 @@ main {
 }
 
 .custom-font {
-  text-transform: uppercase;
   color: #000000;
 }
 
@@ -36,6 +35,19 @@ main {
   position: fixed;
   background-color: #ffffff;
   z-index: -1;
+}
+
+/* Headers and titles */
+.title,
+.custom-font {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.title{
+  color: #000000;
+  text-shadow: -2px 1px #FF6161;
 }
 
 /* Navigation bar and icons */
@@ -51,6 +63,12 @@ main {
   font-size: 30px;
 }
 
+.nav-item:hover{
+  background-color: #ffffff;
+  font-weight: 700;
+  text-shadow: 1px 1px #FF6161;
+}
+
 /* Footer */
 footer {
   border-top: 1px solid #E0E0E0;
@@ -62,20 +80,13 @@ footer {
   width: 100%;
 }
 
-/* Headers and titles */
-.title,
-.custom-font {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-}
-
 /* ------------------------------- Home Page */
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
 }
 
-/* The caption and button within the carousel */
+/* The button within the carousel */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
@@ -96,6 +107,10 @@ footer {
   height: 32rem;
 }
 
+.card {
+  box-shadow: -3px 3px 3px #FF6161;
+}
+
 /* ------------------------------- Product Page */
 /* Horizontal lining the product  */
 .vr {
@@ -107,7 +122,12 @@ footer {
   cursor: pointer;
 }
 
-/* -------------------------------- About */
+/* ------------------------------- Product Detail Page */
+.product-detail-name {
+  text-shadow: -1px 1px #FF6161;
+}
+
+/* -------------------------------- About Us Page*/
 
 /* Google Maps api */
 #map {
@@ -351,6 +371,11 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 768px) */
 @media (max-width: 768px) {
+  .title-space,
+  .product-area {
+    padding-top: 45px;
+  }
+
   /* Toasts */
   .message-container {
     top: 137px;
@@ -382,6 +407,10 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 425px) */
 @media (max-width: 425px) {
+  .title-space {
+    padding-top: 45px;
+  }
+
   /* Navigation bar */
   .nav-link {
     padding: 0;
@@ -398,6 +427,11 @@ a.category-badge>span.badge:hover {
 
   .justify-checkout-buttons {
     text-align: center;
+  }
+
+  .vr {
+    border-right-style: none;
+    border-left-style: none;
   }
 
   .price-small {
@@ -431,6 +465,10 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 375px) */
 @media (max-width: 375px) {
+  .title-space {
+    padding-top: 35px;
+  }
+
   /* Navigation bar */
   .nav-link {
     padding: 0px;

@@ -12,12 +12,12 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
-    <div class="row mt-lg-5 mt-md-2 mt-sm-5">
+    <div class="row product-area mt-lg-5 mt-md-2 mt-sm-5">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2 mt-lg-4 mt-md-4 mt-sm-3">
             <!-- Product image -->
             <div class="small-container single-product mb-3">
                 <!-- Product title to be displayed in mobile view and hidden in the desktop view -->
-                <h3 class="mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
+                <h3 class="product-detail-name mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
                 {% if product.has_sold %}
                 <h3 class="text-danger text-center text-uppercase d-block d-md-none"><strong>sold</strong></h3>
                 {% endif %}
@@ -88,10 +88,11 @@
         <div class="col-12 col-md-6 col-lg-4 mt-lg-4 mt-md-2">
             <!-- All product detail information -->
             <div class="product-details-container mb-5 mt-md-2 text-lg-start text-md-start text-center">
-                <h3 class="product-detail-name mb-1 d-none d-sm-block">{{ product.name }}{% if product.has_sold %}
-                    <h3 class="text-danger text-uppercase"><strong>sold</strong></h3>
-                {% endif %}</h3>
-                <p class="mb-3 text-muted">Product Code: {{ product.sku }}</p>
+                <h3 class="product-detail-name mb-1 d-none d-sm-block">{{ product.name }}</h3>
+                    <p class="mb-3 text-muted">Product Code: {{ product.sku|upper }}</p>
+                    {% if product.has_sold %}
+                        <h3 class="text-danger text-uppercase"><strong>sold</strong></h3>
+                    {% endif %}
                 <p class="lead mb-3 font-weight-bold">£ {{ product.price }}</p>
                 <p class="mr-1">Colour: {{ product.colour }}</p>
                 {% if product.category %}
