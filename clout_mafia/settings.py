@@ -37,10 +37,7 @@ if 'DEVELOPMENT' in os.environ:
 else:
     DEBUG = True
 
-if 'ALLOWED_HOSTNAME' in os.environ:
-    ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com']
-else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
