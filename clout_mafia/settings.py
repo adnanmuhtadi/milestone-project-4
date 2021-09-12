@@ -32,12 +32,15 @@ else:
     SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if 'DEVELOPMENT' in os.environ:
+if 'DEBUG' in os.environ:
     DEBUG = False
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com', 'localhost', '127.0.0.1']
+if 'ALLOWED_HOSTNAME' in os.environ:
+    ALLOWED_HOSTS = ['clout-mafia-ms4.herokuapp.com']
+else:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -159,6 +162,7 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
