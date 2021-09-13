@@ -52,12 +52,12 @@ main {
 
 /* Navigation bar and icons */
 .top-nav-con {
-  background-color: #BEBEBE;
+  background-color: #e6e6e6;
 }
 
 .topnav,
 #topnav {
-  background-color: #ffffff;
+  background-color: #BEBEBE;
   border-bottom: 1px solid #E0E0E0;
   text-align: center;
 }
@@ -118,7 +118,7 @@ footer {
 }
 
 .card {
-  box-shadow: -7px 8px 20px -5px rgb(255 0 0), 7px -1px 20px -5px rgb(109 247 244)
+  box-shadow: -7px 8px 20px -14px rgb(255 0 0), 7px -1px 20px -15px rgb(109 247 244);
 }
 
 /* ------------------------------- Product Page */
@@ -216,9 +216,10 @@ display: inline-block;
   min-width: 260px;
 }
 
-.btn-black {
-  background: black;
-  color: white;
+.btn-grey {
+  background-color: #BEBEBE;
+  color: #000;
+  border-color: #696969;
 }
 
 /* override link colors for <a> elements */
@@ -232,9 +233,9 @@ display: inline-block;
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
+.btn-grey:hover,
+.btn-grey:active,
+.btn-grey:focus {
   background: #222;
   color: white;
 }
@@ -384,11 +385,7 @@ a.category-badge>span.badge:hover {
   .header-container {
     padding-top: 155px;
   }
-  
-  .title-space,
-  .product-area {
-    padding-top: 45px;
-  }
+
 
   /* Toasts */
   .message-container {
@@ -426,7 +423,7 @@ a.category-badge>span.badge:hover {
   }
 
   .title-space {
-    padding-top: 45px;
+    padding-top: 30px;
   }
 
   /* Navigation bar */
@@ -435,7 +432,7 @@ a.category-badge>span.badge:hover {
   }
 
   .product-detail-name {
-    margin-top: 400px;
+    margin-top: 25px;
   }
 
   /* Toasts */
@@ -488,7 +485,7 @@ a.category-badge>span.badge:hover {
   }
   
   .title-space {
-    padding-top: 35px;
+    padding-top: 25px;
   }
 
   /* Navigation bar */
