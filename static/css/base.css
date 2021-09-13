@@ -51,6 +51,10 @@ main {
 }
 
 /* Navigation bar and icons */
+.top-nav-con {
+  background-color: #BEBEBE;
+}
+
 .topnav,
 #topnav {
   background-color: #ffffff;
@@ -107,8 +111,14 @@ footer {
   height: 32rem;
 }
 
+.btn-carousel {
+  background-color: #BEBEBE;
+  color: #000;
+  border-color: #696969;
+}
+
 .card {
-  box-shadow: -3px 3px 3px #FF6161;
+  box-shadow: -7px 8px 20px -5px rgb(255 0 0), 7px -1px 20px -5px rgb(109 247 244)
 }
 
 /* ------------------------------- Product Page */
@@ -310,7 +320,7 @@ a.category-badge>span.badge:hover {
   }
 
   .header-container {
-    padding-top: 100px;
+    padding-top: 158px;
   }
 
   .container {
@@ -330,7 +340,7 @@ a.category-badge>span.badge:hover {
   }
 
   .header-container {
-    padding-top: 100px;
+    padding-top: 158px;
   }
 
   .basket-summary {
@@ -357,7 +367,7 @@ a.category-badge>span.badge:hover {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
   .header-container {
-    padding-top: 116px;
+    padding-top: 155px;
   }
 
   body {
@@ -371,6 +381,10 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 768px) */
 @media (max-width: 768px) {
+  .header-container {
+    padding-top: 155px;
+  }
+  
   .title-space,
   .product-area {
     padding-top: 45px;
@@ -407,6 +421,10 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 425px) */
 @media (max-width: 425px) {
+  .header-container {
+    padding-top: 147px;
+  }
+
   .title-space {
     padding-top: 45px;
   }
@@ -416,7 +434,7 @@ a.category-badge>span.badge:hover {
     padding: 0;
   }
 
-  product-detail-name {
+  .product-detail-name {
     margin-top: 400px;
   }
 
@@ -465,6 +483,10 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 375px) */
 @media (max-width: 375px) {
+  .header-container {
+    padding-top: 136px;
+  }
+  
   .title-space {
     padding-top: 35px;
   }
@@ -486,6 +508,10 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries (max-width: 320px) */
 @media (max-width: 320px) {
+  .header-container {
+    padding-top: 135px;
+  }
+
   /* Navigation bar */
   .nav-link {
     padding: 0px;

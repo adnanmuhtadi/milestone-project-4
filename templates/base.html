@@ -59,7 +59,7 @@
 <body>
 
     <header class="container-fluid fixed-top">
-        <div id="info-nav" class="row bg-light pt-lg-1 d-lg-flex">
+        <div id="info-nav" class="row pt-lg-1 d-lg-flex top-nav-con">
             <!-- Free delivery banner in top nav bar -->
             <div id="delivery-banner" class="col-12 col-lg-6">
                 <div class="text-center text-lg-start custom-font text-uppercase">
@@ -124,7 +124,11 @@
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
+                                    {% if request.user.is_authenticated %}
+                                        <p class="mb-0">Welcome, <br>{{ request.user }}</p>
+                                    {% else %}
+                                        <p class="mb-0">Account <i class="fas fa-angle-down"></i></p>
+                                    {% endif %}
                             </div>
                         </a>
                         <!-- Drop Down options for the navigation -->
@@ -170,7 +174,7 @@
                 <a class="navbar-brand text-center my-0 
                 title d-block d-lg-none fs-1 fw-bold p-0 navbar-light bg-light" href="{% url 'home' %}">Clout Mafia</a>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 ps-0 py-0">
+            <nav class="navbar navbar-expand-lg navbar-light top-nav-con w-100 ps-0 py-0">
                 <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -210,7 +214,7 @@
 
     <!-- Footer placeholder -->
     <footer class="text-muted mt-5">
-        <div class="container">
+        <div class="footer-container mx-4">
             <div class="row">
                 <div class="col-12 col-md-auto">
                     <a href="{% url 'refunds' %}" class="text-decoration-none text-black">Return & Refunds</a>
