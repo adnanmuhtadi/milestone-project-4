@@ -42,7 +42,10 @@
         </script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
+    <!-- Google Maps -->
     <script src="{% static 'js/maps.js' %}"></script>
+    <!-- My Base JS -->
+    <script src="{% static 'js/base.js' %}"></script>
 
     {% endblock %}
 
@@ -58,12 +61,12 @@
 
 <body>
 
-    <header class="container-fluid fixed-top">
-        <div id="info-nav" class="row pt-lg-1 d-lg-flex top-nav-con">
+    <header class="container-fluid fixed-top main-navigaton">
+        <div class="row pt-lg-1 d-lg-flex top-nav-con">
             <!-- Free delivery banner in top nav bar -->
             <div id="delivery-banner" class="col-12 col-lg-6">
                 <div class="text-center text-lg-start custom-font text-uppercase">
-                    <p class="my-auto py-0 nav-link text-danger">Free delivery on orders over
+                    <p class="my-auto py-0 nav-link text-black">Free delivery on orders over
                         £{{ free_delivery_limit }}</p>
                 </div>
             </div>
@@ -92,10 +95,10 @@
             </div>
         </div>
 
-        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+        <div class="row pt-lg-2 d-none d-lg-flex middle-nav-con">
             <!-- Linking 'home' url which was defined in urls.py-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
-                <a href="{% url 'home' %}" class="title nav-link main-logo-link">Clout Mafia</a>
+                <a href="{% url 'home' %}" class="title nav-link main-logo-link fs-1">Clout Mafia</a>
             </div>
             <!-- Search functionality and the results would appear in the products page-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -125,7 +128,7 @@
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                     {% if request.user.is_authenticated %}
-                                        <p class="mb-0">Welcome, <br>{{ request.user }}</p>
+                                        <p class="mb-0">{{ request.user }} <i class="fas fa-angle-down"></i></p>
                                     {% else %}
                                         <p class="mb-0">Account <i class="fas fa-angle-down"></i></p>
                                     {% endif %}
@@ -169,12 +172,12 @@
             </div>
         </div>
         <!-- Mobile include navbar -->
-        <div class="row topnav">
+        <div class="row bottom-nav-con">
             <!-- Linking 'home' url which was defined in urls.py-->            
                 <a class="navbar-brand text-center my-0 
                 title d-block d-lg-none fs-1 fw-bold p-0 navbar-light bg-light" href="{% url 'home' %}">Clout Mafia</a>
 
-            <nav class="navbar navbar-expand-lg navbar-light top-nav-con w-100 ps-0 py-0">
+            <nav class="navbar navbar-expand-lg navbar-light w-100 ps-0 py-0">
                 <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -247,6 +250,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <a id="scroll-to-top-btn" class="text-center text-black rounded-1">
+        <i class="fas fa-angle-up" aria-hidden="true"></i>
+    </a>
 
     {% block afterloadjs %}
     <script type="text/javascript">

@@ -47,7 +47,7 @@ main {
 
 .title{
   color: #000000;
-  text-shadow: -2px 1px #FF6161;
+  text-shadow: -3px 1px 3px #BEBEBE;
 }
 
 /* Navigation bar and icons */
@@ -55,11 +55,13 @@ main {
   background-color: #e6e6e6;
 }
 
-.topnav,
-#topnav {
-  background-color: #BEBEBE;
-  border-bottom: 1px solid #E0E0E0;
+.middle-nav-con {
+  background-color: #ffffff;
   text-align: center;
+}
+
+.bottom-nav-con {
+  background-color: #BEBEBE;
 }
 
 .main-logo-link {
@@ -128,8 +130,60 @@ footer {
   border-left-style: outset;
 }
 
-.remove-item {
-  cursor: pointer;
+button{
+  background-color: #6df7f4;
+  border-radius: 5px;
+}
+
+.edit-button span {
+  background-color: #6df7f4;
+  display: inline-block;
+  color: #000000;
+  position: relative;
+  transition: 0.5s;
+}
+
+.edit-button span:after {
+  content: '\2B9A';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.edit-button:hover span {
+  padding-right: 20px;
+}
+
+.edit-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.delete-button span {
+  display: inline-block;
+  color: #000000;
+  position: relative;
+  transition: 0.5s;
+}
+
+.delete-button span:after {
+  content: '\1F5D1';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.delete-button:hover span {
+  padding-left: 20px;
+}
+
+.delete-button:hover span:after {
+  opacity: 1;
+  left: 0;
 }
 
 /* ------------------------------- Product Detail Page */
@@ -222,12 +276,72 @@ display: inline-block;
   border-color: #696969;
 }
 
+.cancel-button span {
+  background-color: #6df7f4;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  border-color: #000000;
+  border-radius: 5px;
+  display: inline-block;
+  color: #000000;
+  position: relative;
+  transition: 0.5s;
+}
+
+.cancel-button span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.cancel-button:hover span {
+  padding-right: 20px;
+}
+
+.cancel-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.update-button span {
+  background-color: #6df7f4;
+  border-radius: 5px;
+  display: inline-block;
+  color: #000000;
+  position: relative;
+  transition: 0.5s;
+}
+
+.update-button span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.update-button:hover span {
+  padding-right: 20px;
+}
+
+.update-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 /* override link colors for <a> elements */
-.btn-outline-black {
+/* .btn-outline-black {
   background: white;
   color: black !important;
   border: 1px solid black;
-}
+} */
 
 /* button formatting */
 .shop-now-button:hover,
@@ -308,6 +422,38 @@ a.category-badge>span.badge:hover {
   border: 5px ridge #dc3545;
 }
 
+/* ------------------------------- Scroll to top button */
+/* I used this link https://codepen.io/matthewcain/pen/ZepbeR 
+to help create and then modify the code to suite my needs. */
+#scroll-to-top-btn {
+  background-color: #6df7f4;
+  font-size: 35px;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 65px;
+  right: 5px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  transition: background-color 1s,
+      opacity 1s, visibility 1s;
+}
+
+/* called by the base js file, for when a user
+scroll down a certain amount, the scroll to top button
+will become visible*/
+#scroll-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Adds a pointer when a user hovers over
+the scroll to top button */
+#scroll-to-top-btn:hover {
+  cursor: pointer;
+}
+
 /* -------------------------------- Media Queries (min-width: 1200px) */
 
 /* Slightly larger container on xl screens */
@@ -321,7 +467,7 @@ a.category-badge>span.badge:hover {
   }
 
   .header-container {
-    padding-top: 158px;
+    padding-top: 168px;
   }
 
   .container {
@@ -341,7 +487,7 @@ a.category-badge>span.badge:hover {
   }
 
   .header-container {
-    padding-top: 158px;
+    padding-top: 164px;
   }
 
   .basket-summary {
@@ -368,7 +514,7 @@ a.category-badge>span.badge:hover {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
   .header-container {
-    padding-top: 155px;
+    padding-top: 154px;
   }
 
   body {
@@ -383,7 +529,7 @@ a.category-badge>span.badge:hover {
 /* -------------------------------- Media Queries (max-width: 768px) */
 @media (max-width: 768px) {
   .header-container {
-    padding-top: 155px;
+    padding-top: 154px;
   }
 
 
@@ -419,7 +565,7 @@ a.category-badge>span.badge:hover {
 /* -------------------------------- Media Queries (max-width: 425px) */
 @media (max-width: 425px) {
   .header-container {
-    padding-top: 147px;
+    padding-top: 146px;
   }
 
   .title-space {
@@ -481,7 +627,7 @@ a.category-badge>span.badge:hover {
 /* -------------------------------- Media Queries (max-width: 375px) */
 @media (max-width: 375px) {
   .header-container {
-    padding-top: 136px;
+    padding-top: 135px;
   }
   
   .title-space {
@@ -506,7 +652,7 @@ a.category-badge>span.badge:hover {
 /* -------------------------------- Media Queries (max-width: 320px) */
 @media (max-width: 320px) {
   .header-container {
-    padding-top: 135px;
+    padding-top: 134px;
   }
 
   /* Navigation bar */
