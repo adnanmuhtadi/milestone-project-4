@@ -101,8 +101,8 @@
                                             {% if not product.has_sold %}
                                                 {% if request.user.is_superuser %}
                                                 <p class="mt-2">
-                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                    <button class="delete-button btn-danger"><a href="{% url 'delete_product' product.id %}"><span>Delete</span></a></button> | 
+                                                    <button class="edit-button"><a href="{% url 'edit_product' product.id %}"><span>Edit</span></a></button> 
                                                 </p>
                                                 {% endif %}
                                             {% endif %}
