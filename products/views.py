@@ -69,6 +69,16 @@ def all_products(request):
                 description__icontains=query)
             # Pass the results through the filter method
             products = products.filter(search_results)
+            # Checks the search query length
+            # if zero an error toast message will display
+            if len(products) == 0:
+                messages.error(
+                    request, f'No results found in regards to your search criteria: ({query})')
+            else:
+                # Checks if search query length is not zero 
+                # a success toast message will display
+                messages.success(
+                    request, f'{len(products)}: Results found for ({query})')
 
     sorting_products = f'{sort}_{direction}'
 
