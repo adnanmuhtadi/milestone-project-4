@@ -20,8 +20,8 @@
 <div class="container mb-2">
     <!-- Title of the page-->
     <div class="row g-0">
-        <div class="col text-center mt-lg-2 mt-md-2">
-            <h2 class="title mt-lg-4 mt-md-2">Testimonials</h2>
+        <div class="col-12 text-center mt-lg-2 mt-md-2">
+            <h2 class="title mt-lg-4 mt-md-2 mt-3">Testimonials</h2>
             <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
 
@@ -32,90 +32,87 @@
                     <a class="btn btn-grey rounded-0" href="{% url 'add_testimonial' %}">Write a Testimonial</a>
                 </div>
             </div>
-            
-                <div class="row">
-                    <div class="product-container col-10 offset-1">
-                        <div class="row">
-                            <div class="sort-select-wrapper my-auto col-12 offset-lg-9 offset-md-8 offset-4">
-                                <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
-                                <select id="sort-selector"
-                                    class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
-                                    <option value="reset" {% if sorting_testimonials == 'None_None' %}selected{% endif %}>Sort by...
-                                    </option>
-                                    <option value="rating_asc" 
-                                    {% if sorting_testimonials == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                                    <option value="rating_desc" 
-                                    {% if sorting_testimonials == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                                    <option value="date_asc" 
-                                    {% if sorting_testimonials == 'date_asc' %}selected{% endif %}>Date (New to Old)</option>
-                                    <option value="date_desc" 
-                                    {% if sorting_testimonials == 'date_desc' %}selected{% endif %}>Date (Old to New)</option>
-                                    <option value="title_asc" 
-                                    {% if sorting_testimonials == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
-                                    <option value="title_desc"
-                                    {% if sorting_testimonials == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mt-1 mb-2"></div>
-                        <!-- Loop to go through the testimonials in a side ways card view -->
-                            {% for testimonial in testimonials %}
-                            <div class="card mt-3">
-                                <div class="row g-0">
-                                    <div class="card-header text-center border col-md-4">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                {{ testimonial.user }}
-                                            </div>
+            <div class="row g-0">
+                <div class="sort-select-wrapper my-auto d-flex justify-content-lg-end justify-content-center">
+                    <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
+                    <select id="sort-selector"
+                        class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
+                        <option value="reset" {% if sorting_testimonials == 'None_None' %}selected{% endif %}>Sort by...
+                        </option>
+                        <option value="rating_asc" 
+                        {% if sorting_testimonials == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                        <option value="rating_desc" 
+                        {% if sorting_testimonials == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                        <option value="date_asc" 
+                        {% if sorting_testimonials == 'date_asc' %}selected{% endif %}>Date (New to Old)</option>
+                        <option value="date_desc" 
+                        {% if sorting_testimonials == 'date_desc' %}selected{% endif %}>Date (Old to New)</option>
+                        <option value="title_asc" 
+                        {% if sorting_testimonials == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
+                        <option value="title_desc"
+                        {% if sorting_testimonials == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+                <div class="row g-0">
+                    <div class="product-container col-12 col-md-12 order-md">
+                    <!-- Loop to go through the testimonials in a side ways card view -->
+                    {% for testimonial in testimonials %}
+                        <div class="card mt-3">
+                            <div class="row g-0">
+                                <div class="card-header text-center border col-md-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            {{ testimonial.user }}
                                         </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <!-- Stars from font awesome which would be associated with the rating user provided -->
-                                                {% if testimonial.rating == 5 %}
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
-                                                {% elif testimonial.rating == 4 %}
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
-                                                {% elif testimonial.rating == 3 %}
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
-                                                {% elif testimonial.rating == 2 %}
-                                                    <i class="fas fa-star mr-1"></i>
-                                                    <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
-                                                {% elif testimonial.rating == 1 %}
-                                                    <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
-                                                {% else %}
-                                                    <small class="text-muted">No Rating</small>
-                                                {% endif %}
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- Stars from font awesome which would be associated with the rating user provided -->
+                                            {% if testimonial.rating == 5 %}
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
+                                            {% elif testimonial.rating == 4 %}
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
+                                            {% elif testimonial.rating == 3 %}
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
+                                            {% elif testimonial.rating == 2 %}
+                                                <i class="fas fa-star mr-1"></i>
+                                                <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
+                                            {% elif testimonial.rating == 1 %}
+                                                <i class="fas fa-star mr-1"></i> {{ testimonial.rating }} / 5
+                                            {% else %}
+                                                <small class="text-muted">No Rating</small>
+                                            {% endif %}
                                         </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <p class="card-text"><small class="text-muted">
-                                                    Posted on: {{ testimonial.date }}
-                                                </small></p>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="card-text"><small class="text-muted">
+                                                Posted on: {{ testimonial.date }}
+                                            </small></p>
                                         </div>
-                                        <!-- The user has the power to edit/delete their own testimonials -->
-                                        {% if user == testimonial.user or admin %}
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <p class="card-text">
-                                                    <small class="text-muted">
-                                                    <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |
-                                                    <a class="text-danger" href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
-                                                </small></p>
-                                            </div>
+                                    </div>
+                                    <!-- The user has the power to edit/delete their own testimonials -->
+                                    {% if user == testimonial.user or admin %}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="card-text">
+                                                <small class="text-muted">
+                                                <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |
+                                                <a class="text-danger" href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
+                                            </small></p>
                                         </div>
-                                        {% endif %}
+                                    </div>
+                                    {% endif %}
                                         
                                     </div>
                                     <div class="col-md-8">
@@ -127,6 +124,10 @@
                                 </div>
                             </div>
                             {% endfor %}        
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-md-5 offset-4 my-3">
+                            </div>
                         </div>
                     </div>
                 </div>
