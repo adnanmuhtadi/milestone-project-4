@@ -60,7 +60,7 @@ def all_products(request):
             # redirects them to products view
             if not query:
                 messages.error(
-                    request, "You didn't enter any search criteria!")
+                    request, "You did not enter any search criteria!")
                 return redirect(reverse('products'))
 
             # Setting a variable to Q object where it is searching
@@ -73,12 +73,12 @@ def all_products(request):
             # if zero an error toast message will display
             if len(products) == 0:
                 messages.error(
-                    request, f'No results found in regards to your search criteria: ({query})')
+                    request, f'No results found in regards to your search criteria: "{query}"')
             else:
                 # Checks if search query length is not zero 
                 # a success toast message will display
                 messages.success(
-                    request, f'{len(products)}: Results found for ({query})')
+                    request, f'{len(products)}: Results found for "{query}"')
 
     sorting_products = f'{sort}_{direction}'
 
@@ -126,7 +126,7 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, f'{product.name} has been \
+            messages.success(request, f'"{product.name}" has been \
                 successfully added!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -163,16 +163,16 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, f'{product.name} has now been \
+            messages.success(request, f'"{product.name}" has now been \
                 successfully updated!')
             return redirect(reverse('product_detail', args=[product_id]))
         else:
-            messages.error(request, f'Failed to update {product.name}. Please \
+            messages.error(request, f'Failed to update "{product.name}". Please \
             ensure the form is valid and try again')
     else:
         # Creating the instance of the product form
         form = ProductForm(instance=product)
-        messages.info(request, f'You are now editing {product.name}')
+        messages.info(request, f'You are now editing "{product.name}"')
 
     # Informing it which template to use.
     template = 'products/edit_product.html'
@@ -198,5 +198,5 @@ def delete_product(request, product_id):
     # Prefilling the form using the product_object_or_404
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, f'{product.name} has been deleted!')
+    messages.success(request, f'"{product.name}" has been deleted!')
     return redirect(reverse('products'))

@@ -118,14 +118,14 @@ def send_email(request):
         else:
             print("form invalid")
             print(form.errors)
-            messages.error(request, 'It has not been posted to the db')
+            messages.error(request, 'It has not been posted to the database')
 
         return redirect(reverse('home'))
     else:
         # Message informing the user an issue occured and redirects
         # them to the home page
         messages.error(
-            request, 'Failed to send message to admin')
+            request, 'Failed to send the message to the administrator')
         return redirect(reverse('contact'))
 
         form = ContactForm()

@@ -115,7 +115,7 @@ def checkout(request):
         basket = request.session.get('basket', {})
         if not basket:
             messages.error(
-                request, "There's nothing in the basket at the moment")
+                request, "The basket is currently empty")
             return redirect(reverse('products'))
 
         # Setting up the secret key on stripe and payment
@@ -210,7 +210,7 @@ def checkout_success(request, order_number):
             # Success message letting the user know the order number
             messages.success(request, f'Your order has been successfully processed! \
                 Your order number is {order_number}. A confirmation email \
-                will be sent to {order.email}.')
+                will be sent to "{order.email}"')
 
     # Deleting the user shopping basket from the session
     if 'basket' in request.session:

@@ -32,30 +32,32 @@
                     <a class="btn btn-grey rounded-0" href="{% url 'add_testimonial' %}">Write a Testimonial</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="sort-select-wrapper my-auto col offset-lg-9 offset-md-8 offset-4">
-                    <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
-                    <select id="sort-selector"
-                        class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
-                        <option value="reset" {% if sorting_testimonials == 'None_None' %}selected{% endif %}>Sort by...
-                        </option>
-                        <option value="rating_asc" 
-                        {% if sorting_testimonials == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                        <option value="rating_desc" 
-                        {% if sorting_testimonials == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                        <option value="date_asc" 
-                        {% if sorting_testimonials == 'date_asc' %}selected{% endif %}>Date (New to Old)</option>
-                        <option value="date_desc" 
-                        {% if sorting_testimonials == 'date_desc' %}selected{% endif %}>Date (Old to New)</option>
-                        <option value="title_asc" 
-                        {% if sorting_testimonials == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
-                        <option value="title_desc"
-                        {% if sorting_testimonials == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                    </select>
-                </div>
-            </div>
+            
                 <div class="row">
                     <div class="product-container col-10 offset-1">
+                        <div class="row">
+                            <div class="sort-select-wrapper my-auto col-12 offset-lg-9 offset-md-8 offset-4">
+                                <!-- Setting the sort selector for the user to be able to choose the order they would like to see -->
+                                <select id="sort-selector"
+                                    class="custom-select custom-select-sm rounded-0 border border-{% if sorting_testimonials != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
+                                    <option value="reset" {% if sorting_testimonials == 'None_None' %}selected{% endif %}>Sort by...
+                                    </option>
+                                    <option value="rating_asc" 
+                                    {% if sorting_testimonials == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                                    <option value="rating_desc" 
+                                    {% if sorting_testimonials == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                    <option value="date_asc" 
+                                    {% if sorting_testimonials == 'date_asc' %}selected{% endif %}>Date (New to Old)</option>
+                                    <option value="date_desc" 
+                                    {% if sorting_testimonials == 'date_desc' %}selected{% endif %}>Date (Old to New)</option>
+                                    <option value="title_asc" 
+                                    {% if sorting_testimonials == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
+                                    <option value="title_desc"
+                                    {% if sorting_testimonials == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row mt-1 mb-2"></div>
                         <!-- Loop to go through the testimonials in a side ways card view -->
                             {% for testimonial in testimonials %}

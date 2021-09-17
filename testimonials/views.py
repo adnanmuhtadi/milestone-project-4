@@ -112,7 +112,7 @@ def edit_testimonial(request, testimonial_id):
             # Creating the instance of the testimonial form
             form = TestimonialForm(instance=testimonial)
             messages.info(request, f'You are editting the testimonial \
-                for {testimonial.title}! ')
+                for "{testimonial.title}"!')
 
         # Informing it which template to use.
         template = 'testimonials/edit_testimonial.html'
@@ -123,7 +123,7 @@ def edit_testimonial(request, testimonial_id):
 
         return render(request, template, context)
     else:
-        messages.error(request, 'Access Denied!!!.')
+        messages.error(request, 'Access Denied!')
         return redirect(reverse('testimonials'))
 
 
@@ -145,5 +145,5 @@ def delete_testimonial(request, testimonial_id):
         messages.success(request, 'The testimonial has been deleted!')
         return redirect(reverse('testimonials'))
     else:
-        messages.error(request, 'Access Denied!!!.')
+        messages.error(request, 'Access Denied!')
         return redirect(reverse('testimonials'))
