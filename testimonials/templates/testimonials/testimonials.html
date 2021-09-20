@@ -107,9 +107,10 @@
                                         <div class="col-12">
                                             <p class="card-text">
                                                 <small class="text-muted">
-                                                <a href="{% url 'edit_testimonial' testimonial.id %}">Edit</a> |
-                                                <a class="text-danger" href="{% url 'delete_testimonial' testimonial.id %}">Delete</a>
-                                            </small></p>
+                                                    <button class="edit-button"><a href="{% url 'edit_testimonial' testimonial.id %}"><span>Edit</span></a></button> |
+                                                    <button class="delete-button btn-danger"><a href="{% url 'delete_testimonial' testimonial.id %}"><span>Delete</span></a></button> 
+                                                </small>
+                                            </p>
                                         </div>
                                     </div>
                                     {% endif %}
