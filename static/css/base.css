@@ -72,7 +72,12 @@ main {
 .nav-item:hover{
   background-color: #ffffff;
   font-weight: 700;
-  text-shadow: 1px 1px #FF6161;
+}
+
+.dropdown-menu {
+  background-color: rgb(240, 240, 240);
+  border: 0px;
+  border-radius: 0px;
 }
 
 /* Footer */
@@ -120,7 +125,7 @@ footer {
 }
 
 .card {
-  box-shadow: -7px 8px 20px -14px rgb(255 0 0), 7px -1px 20px -15px rgb(109 247 244);
+  box-shadow: -7px 8px 20px -14px rgb(0 0 0), 7px -1px 20px -15px rgb(109 247 244);
 }
 
 /* ------------------------------- Product Page */
@@ -337,11 +342,17 @@ display: inline-block;
 }
 
 /* override link colors for <a> elements */
-/* .btn-outline-black {
-  background: white;
-  color: black !important;
-  border: 1px solid black;
-} */
+.btn-outline-black {
+  background: #e6e6e6;
+  color: #000000 !important;
+  border: 1px solid #000000;
+}
+
+.btn-outline-black:hover {
+  background: #FF0000 ;
+  color: #ffffff !important;
+  border: 1px solid #000000;
+}
 
 /* button formatting */
 .shop-now-button:hover,
@@ -350,8 +361,8 @@ display: inline-block;
 .btn-grey:hover,
 .btn-grey:active,
 .btn-grey:focus {
-  background: #222;
-  color: white;
+  background: #222222;
+  color: #ffffff;
 }
 
 a.category-badge>span.badge:hover {
@@ -426,7 +437,8 @@ a.category-badge>span.badge:hover {
 /* I used this link https://codepen.io/matthewcain/pen/ZepbeR 
 to help create and then modify the code to suite my needs. */
 #scroll-to-top-btn {
-  background-color: #6df7f4;
+  background-color: #BEBEBE;
+  box-shadow: -7px 8px 20px -14px rgb(0 0 0), 7px -1px 20px -15px rgb(109 247 244);
   font-size: 35px;
   width: 50px;
   height: 50px;
@@ -467,7 +479,7 @@ the scroll to top button */
   }
 
   .header-container {
-    padding-top: 168px;
+    padding-top: 160px;
   }
 
   .container {
@@ -487,7 +499,7 @@ the scroll to top button */
   }
 
   .header-container {
-    padding-top: 164px;
+    padding-top: 156px;
   }
 
   .basket-summary {

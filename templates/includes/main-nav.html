@@ -7,12 +7,12 @@
                 Home</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2" href="#"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#"
                 id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
             <!-- Drop down menu for 'All products' category-->
-            <div class="dropdown-menu border-2 mt-2 text-center" aria-labelledby="all-products-link">
+            <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=size&direction=asc" class="dropdown-item">By Size</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
@@ -22,11 +22,11 @@
 
         <li class="nav-item dropdown">
             <!-- Drop down menu for 'Sneakers' category -->
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2" href="#" id="sneakers-link"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#" id="sneakers-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sneakers
             </a>
-            <div class="dropdown-menu border-2 mt-2 text-center" aria-labelledby="sneakers-link">
+            <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="sneakers-link">
                 <a href="{% url 'products' %}?category=sneakers&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=sneakers&sort=size&direction=asc" class="dropdown-item">By Size</a>
                 <a href="{% url 'products' %}?category=sneakers" class="dropdown-item">All Sneakers</a>
@@ -35,11 +35,11 @@
 
         <li class="nav-item dropdown">
             <!-- Drop down menu for 'slip ons' category -->
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2" href="#" id="slip-on-link"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#" id="slip-on-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Slip-ons
             </a>
-            <div class="dropdown-menu border-2 mt-2 text-center" aria-labelledby="slip-on-link">
+            <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="slip-on-link">
                 <a href="{% url 'products' %}?category=slip_ons&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=slip_ons&sort=size&direction=asc" class="dropdown-item">By Size</a>
                 <a href="{% url 'products' %}?category=slip_ons" class="dropdown-item">All Slip Ons</a>
@@ -48,11 +48,11 @@
 
         <li class="nav-item dropdown">
             <!-- Drop down menu for 'high tops' category -->
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2" href="#" id="high-tops-link"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#" id="high-tops-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 High Tops
             </a>
-            <div class="dropdown-menu border-2 mt-2 text-center" aria-labelledby="high-tops-link">
+            <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="high-tops-link">
                 <a href="{% url 'products' %}?category=high_tops&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=high_tops&sort=size&direction=asc" class="dropdown-item">By Size</a>
                 <a href="{% url 'products' %}?category=high_tops" class="dropdown-item">All High Tops</a>
