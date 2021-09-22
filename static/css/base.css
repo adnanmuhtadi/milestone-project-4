@@ -119,9 +119,8 @@ footer {
 }
 
 .btn-carousel {
-  background-color: #BEBEBE;
+  background-color: #ffffff;
   color: #000;
-  border-color: #696969;
 }
 
 .card {
@@ -135,21 +134,14 @@ footer {
   border-left-style: outset;
 }
 
-button{
-  background-color: #6df7f4;
-  border-radius: 5px;
-}
-
-.edit-button span {
-  background-color: #6df7f4;
+.btn-edit span {
   display: inline-block;
-  color: #000000;
   position: relative;
   transition: 0.5s;
 }
 
-.edit-button span:after {
-  content: '\2B9A';
+.btn-edit span:after {
+  content: '\270E';
   position: absolute;
   opacity: 0;
   top: 0;
@@ -157,23 +149,23 @@ button{
   transition: 0.5s;
 }
 
-.edit-button:hover span {
+.btn-edit:hover span {
   padding-right: 20px;
 }
 
-.edit-button:hover span:after {
+.btn-edit:hover span:after {
   opacity: 1;
   right: 0;
 }
 
-.delete-button span {
+.btn-delete span {
   display: inline-block;
-  color: #000000;
+  color: #ffffff;
   position: relative;
   transition: 0.5s;
 }
 
-.delete-button span:after {
+.btn-delete span:after {
   content: '\1F5D1';
   position: absolute;
   opacity: 0;
@@ -182,18 +174,13 @@ button{
   transition: 0.5s;
 }
 
-.delete-button:hover span {
+.btn-delete:hover span {
   padding-left: 20px;
 }
 
-.delete-button:hover span:after {
+.btn-delete:hover span:after {
   opacity: 1;
   left: 0;
-}
-
-/* ------------------------------- Product Detail Page */
-.product-detail-name {
-  text-shadow: -1px 1px #FF6161;
 }
 
 /* -------------------------------- About Us Page*/

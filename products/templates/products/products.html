@@ -32,9 +32,9 @@
             <div class="row mt-1 mb-2">
                 <div class="col-12">
                     <!-- The sort drop down option placeholder -->
-                    <div class="sort-select-wrapper my-auto d-flex justify-content-end">
+                    <div class="sort-select-wrapper my-auto d-flex justify-content-md-end justify-content-center">
                         <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded-0 border border-{% if sorting_products != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
+                            class="custom-select custom-select-sm rounded-2 border border-{% if sorting_products != 'None_None' %}info{% else %}black{% endif %} w-25 w-auto">
                             <option value="reset" {% if sorting_products == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
                             <option value="price_asc" {% if sorting_products == 'price_asc' %}selected{% endif %}>Price
@@ -101,9 +101,8 @@
                                             {% if not product.has_sold %}
                                                 {% if request.user.is_superuser %}
                                                 <p class="mt-2">
-                                                    <button class="edit-button"><a href="{% url 'edit_product' product.id %}"><span>Edit</span></a></button> |
-                                                    <button class="delete-button btn-danger"><a href="{% url 'delete_product' product.id %}"><span>Delete</span></a></button> 
-                                                     
+                                                    <a href="{% url 'edit_product' product.id %}" class="btn btn-primary btn-edit btn-sm" role="button"><span>Edit</span></a> |
+                                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-delete btn-sm" role="button"><span>Delete</span></a> 
                                                 </p>
                                                 {% endif %}
                                             {% endif %}
@@ -128,7 +127,7 @@
                                                 <!-- Button to add the product within the card to the basket -->
                                                 <div class="col-12 text-center">
                                                     <input type="submit"
-                                                        class="btn btn-grey rounded-0 text-uppercase mt-2"
+                                                        class="btn btn-grey rounded-2 text-uppercase mt-2"
                                                         value="Add to Basket">
                                                 </div>
                                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">

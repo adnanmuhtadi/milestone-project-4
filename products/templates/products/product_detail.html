@@ -17,7 +17,7 @@
             <!-- Product image -->
             <div class="small-container single-product mb-3">
                 <!-- Product title to be displayed in mobile view and hidden in the desktop view -->
-                <h3 class="product-detail-name mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
+                <h3 class="title title-space mt-lg-4 mt-md-2 mb-3 text-center d-block d-md-none">{{ product.name }}</h3>
                 {% if product.has_sold %}
                 <h3 class="text-danger text-center text-uppercase d-block d-md-none"><strong>sold</strong></h3>
                 {% endif %}
@@ -140,9 +140,11 @@
                         {% if request.user.is_superuser %}
                         {% if not product.has_sold %}
                             <small class="col-12 mx-auto">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                                {% endif %}
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                <p class="mt-2">
+                                    <a href="{% url 'edit_product' product.id %}" class="btn btn-primary btn-sm" role="button"><span>Edit</span></a> |
+                                    {% endif %}
+                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm" role="button"><span>Delete</span></a> 
+                                </p>
                             </small>
                         {% endif %}
 
