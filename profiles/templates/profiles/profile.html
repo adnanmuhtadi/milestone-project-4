@@ -21,23 +21,23 @@
     <div class="container">
         <!-- Title of the page -->
         <div class="row">
-            <div class="col text-center mt-lg-5 mt-md-2">
-                <h2 class="custom-font mt-lg-4 mt-md-2">Hello {{ user }}, My Profile</h2>
+            <div class="col-12 text-center mt-lg-2 mt-md-2">
+                <h2 class="title mt-lg-4 mt-md-2 mt-3">Hello {{ user }}, My Profile</h2>
                 <hr class="w-50 mb-3 mb-md-5 mx-auto">
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
                 <!-- Providing the delievery information -->
-                <p class="text-muted">Default Delivery Information</p>
+                <p class="text-muted h4">Default Delivery Information</p>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-grey rounded-0 text-uppercase float-right">Update Information</button>
+                    <button class="btn btn-grey rounded-2 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
+                <p class="text-muted h4">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>

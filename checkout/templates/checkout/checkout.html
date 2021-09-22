@@ -20,20 +20,20 @@
 <div class="container mb-2">
     <!-- Title of the page-->
     <div class="row">
-        <div class="col text-center mt-lg-2 mt-md-2">
-            <h2 class="title title-space mt-lg-4 mt-md-2">Checkout</h2>
+        <div class="col-12 text-center mt-lg-2 mt-md-2">
+            <h2 class="title mt-lg-4 mt-md-2 mt-3">Checkout</h2>
             <hr class="w-50 mb-3 mb-md-5 mx-auto">
         </div>
-        <div class="row mx-auto">
+        <div class="row mx-auto g-0">
 
         </div>
 
-        <div class="row checkout-container">
+        <div class="row checkout-container g-0">
             <div class="col-12 col-lg-6 order-lg-first mb-5 order-checkout-summary">
                 <!-- The order summary which displays all the information of the products in the bag -->
                 <div class="bg-light border border-2 rounded-3 p-3">
                     <p class="text-muted">Order Summary ({{ item_count }})</p>
-                    <div class="row">
+                    <div class="row g-0">
                         <div class="col-7 offset-2">
                             <p class="mb-1 mt-0 small text-muted">Item</p>
                         </div>
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">To complete your order, please fill out the form below</p>
+                <p class="text-muted text-center">To complete your order, please fill out the form below</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <!-- Placeholder for user details -->

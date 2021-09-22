@@ -472,6 +472,13 @@ the scroll to top button */
   .container {
     max-width: 80%;
   }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 16px;
+    width: 100%;
+  }
 }
 
 /* -------------------------------- Media Queries (min-width: 992px) and (max-width: 1025px ) */
@@ -507,6 +514,13 @@ the scroll to top button */
   .carousel-item>img {
     height: 25rem;
   }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 16px;
+    width: 100%;
+  }
 }
 
 /* -------------------------------- Media Queries (max-width: 991px) */
@@ -522,6 +536,13 @@ the scroll to top button */
 
   .price-small {
     font-size: small;
+  }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 16px;
+    width: 100%;
   }
 }
 
@@ -558,6 +579,13 @@ the scroll to top button */
   /* Carousel image */
   .carousel-item>img {
     height: 25rem;
+  }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 16px;
+    width: 100%;
   }
 }
 
@@ -621,6 +649,13 @@ the scroll to top button */
     font-size: .875rem;
     border-radius: .2rem;
   }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 15px;
+    width: 100%;
+  }
 }
 
 /* -------------------------------- Media Queries (max-width: 375px) */
@@ -645,6 +680,13 @@ the scroll to top button */
   /* Toasts */
   .message-container {
     top: 113px;
+  }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 13px;
+    width: 100%;
   }
 }
 
@@ -677,5 +719,13 @@ the scroll to top button */
   .order-checkout-summary {
     font-size: small;
   }
+
+  /* Edit Product */
+  .img-file-box {
+    background-color: #e6e6e6;
+    font-size: 11px;
+    width: 100%;
+  }
+
 }
 

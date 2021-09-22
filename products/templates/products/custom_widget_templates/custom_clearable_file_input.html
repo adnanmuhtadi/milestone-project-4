@@ -15,6 +15,6 @@
 {% endif %}
 
 <!-- Allow the file input look like a button -->
-<span class="border-0 btn btn-light rounded-0 btn-file">
-Select Image <input id="new-image" class="border-0" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
-</span>
+<div class="border-0 btn btn-light rounded-0 btn-file px-0 px-md-3 img-file-box text-md-start">Select Image:  
+    <input id="new-image" class="border-0" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+</div>
