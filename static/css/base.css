@@ -24,6 +24,7 @@ main {
 }
 
 .custom-font {
+  letter-spacing: 1px;
   color: #000000;
 }
 
@@ -78,7 +79,10 @@ main {
   background-color: rgb(240, 240, 240);
   border: 0px;
   border-radius: 0px;
+  width: 100%;
 }
+
+
 
 /* Footer */
 footer {
@@ -390,14 +394,31 @@ a.category-badge>span.badge:hover {
   overflow: visible;
 }
 
+.toast-header{
+  background-color: #E6E6E6;
+  font-weight: 600;
+  font-size: large;
+}
+
+.title-toast{
+  color: #000000;
+  text-shadow: -3px 1px 3px #BEBEBE;
+}
+
 .toast-capper {
   height: 2px;
 }
 
 .bag-notification-wrapper {
+  padding-left: 5px;
   height: 100px;
+  background-color: #ffffff;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.toast-total {
+  background-color: #E6E6E6;
 }
 
 .checkout_price {
@@ -502,7 +523,7 @@ the scroll to top button */
   }
 
   .price-small {
-    font-size: small;
+    font-size: large;
   }
 
   /* Height for the carousel */
@@ -556,6 +577,10 @@ the scroll to top button */
   /* Toasts */
   .message-container {
     top: 137px;
+  }
+  
+  .price-small {
+    font-size: large;
   }
 
   .justify-checkout-buttons {

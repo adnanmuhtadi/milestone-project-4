@@ -125,12 +125,12 @@
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="desktop-options" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
+                            <div class="text-center account-dropdown">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                     {% if request.user.is_authenticated %}
-                                        <p class="mb-0">{{ request.user }} <i class="fas fa-angle-down"></i></p>
+                                        <p class="mb-0">{{ request.user }} &nbsp;<i class="fas fa-angle-down align-baseline" id="accDropdownIcon"></i></p>
                                     {% else %}
-                                        <p class="mb-0">Account <i class="fas fa-angle-down"></i></p>
+                                        <p class="mb-0">Account &nbsp;<i class="fas fa-angle-down align-baseline" id="accDropdownIcon"></i></p>
                                     {% endif %}
                             </div>
                         </a>
@@ -157,7 +157,7 @@
                         <a class="{% if grand_price %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                             href="{% url 'view_basket' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                                 <p class="my-0">
                                     {% if grand_price %}
                                     £{{ grand_price|floatformat:2 }}
@@ -260,7 +260,7 @@
     <script type="text/javascript">
         // Initializing the bootstrap toasts for bootstrap v5 and setting toast options
         // This code was taken from the bootstrap v5 documentation
-        // Having the toast to disapear after 15 seconds
+        // Having the toast to disapear after 10 seconds
         let toastElList = [].slice.call(document.querySelectorAll('.toast'))
         let toastList = toastElList.map(function (toastEl) {
             return new bootstrap.Toast(toastEl, {
@@ -268,7 +268,15 @@
                 animation: true,
                 delay: 10000,
             }).show()
-        })
+        });
+
+        // This block of code is to toggle the angle up class 
+        // when the account dropdown is clicked.
+        $(document).ready(function(){
+            $(".account-dropdown").click(function(){
+                $("#accDropdownIcon").toggleClass("fa-angle-up");
+            });
+        });
     </script>
     {% endblock %}
 

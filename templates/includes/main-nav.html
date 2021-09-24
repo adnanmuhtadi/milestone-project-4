@@ -7,11 +7,10 @@
                 Home</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#"
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0 product-dropdown" href="#"
                 id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Products
-            </a>
-            <!-- Drop down menu for 'All products' category-->
+                All Products &nbsp;<i class="fas fa-angle-down align-baseline" id="productDropdownIcon"></i></a>
+            <!-- Drop down menu for 'All products' category with angle down icon -->
             <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=size&direction=asc" class="dropdown-item">By Size</a>
@@ -21,11 +20,10 @@
         </li>
 
         <li class="nav-item dropdown">
-            <!-- Drop down menu for 'Sneakers' category -->
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#" id="sneakers-link"
+            <!-- Drop down menu for 'Sneakers' category with angle down icon -->
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0 sneaker-dropdown" href="#" id="sneakers-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sneakers
-            </a>
+                Sneakers &nbsp;<i class="fas fa-angle-down align-baseline" id="sneakerDropdownIcon"></i></a>
             <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="sneakers-link">
                 <a href="{% url 'products' %}?category=sneakers&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=sneakers&sort=size&direction=asc" class="dropdown-item">By Size</a>
@@ -34,11 +32,10 @@
         </li>
 
         <li class="nav-item dropdown">
-            <!-- Drop down menu for 'slip ons' category -->
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#" id="slip-on-link"
+            <!-- Drop down menu for 'slip ons' category with angle down icon -->
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0 slipon-dropdown" href="#" id="slip-on-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Slip-ons
-            </a>
+                Slip-ons &nbsp;<i class="fas fa-angle-down align-baseline" id="sliponDropdownIcon"></i></a>
             <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="slip-on-link">
                 <a href="{% url 'products' %}?category=slip_ons&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=slip_ons&sort=size&direction=asc" class="dropdown-item">By Size</a>
@@ -47,11 +44,10 @@
         </li>
 
         <li class="nav-item dropdown">
-            <!-- Drop down menu for 'high tops' category -->
-            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0" href="#" id="high-tops-link"
+            <!-- Drop down menu for 'high tops' category with angle down icon -->
+            <a class="font-weight-bold nav-link text-black mx-lg-5 d-lg-inline-block text-center mb-2 mb-lg-0 hightops-dropdown" href="#" id="high-tops-link"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                High Tops
-            </a>
+                High Tops &nbsp;<i class="fas fa-angle-down align-baseline" id="hightopsDropdownIcon"></i></a>
             <div class="dropdown-menu mt-2 mt-lg-0 text-center" aria-labelledby="high-tops-link">
                 <a href="{% url 'products' %}?category=high_tops&sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?category=high_tops&sort=size&direction=asc" class="dropdown-item">By Size</a>
@@ -60,3 +56,28 @@
         </li>
     </ul>
 </div>
+
+{% block afterloadjs %}
+<script type="text/javascript">
+    // This block of code is to toggle the angle up class 
+    // when any of the product navigation buttons are clicked.
+    $(document).ready(function(){
+        // All Product navigation dropdown
+        $(".product-dropdown").click(function(){
+            $("#productDropdownIcon").toggleClass("fa-angle-up");
+        });
+        // Sneaker navigation dropdown
+        $(".sneaker-dropdown").click(function(){
+            $("#sneakerDropdownIcon").toggleClass("fa-angle-up");
+        });
+        // Slip on navigation dropdown
+        $(".slipon-dropdown").click(function(){
+            $("#sliponDropdownIcon").toggleClass("fa-angle-up");
+        });
+        // High tops navigation dropdown
+        $(".hightops-dropdown").click(function(){
+            $("#hightopsDropdownIcon").toggleClass("fa-angle-up");
+        });
+    });
+</script>
+{% endblock %}
