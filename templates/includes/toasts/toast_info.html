@@ -1,15 +1,15 @@
-<div class="toast custom-toast toast-info rounded-0 border-top-0  show" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast custom-toast toast-info rounded-0 show" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="arrow-up arrow-info"></div>
     <div class="w-100 toast-capper bg-info"></div>
     <!-- Header for the toast -->
-    <div class="toast-header bg-white text-dark">
-        <strong class="mr-auto">Alert!</strong>
+    <div class="toast-header text-dark">
+        <strong class="title mx-auto fs-3 ps-4">Alert!</strong>
         <!-- close button added to close the toast -->
-        <button type="button" class="btn-close ms-auto me-2" data-bs-dismiss="toast" aria-label="Close">
+        <button type="button" class="btn-close mx-0" data-bs-dismiss="toast" aria-label="Close">
         </button>
     </div>
     <!-- body for the toast -->
-    <div class="toast-body bg-white">
+    <div class="toast-body bg-white text-center">
         <!-- message container which will live in the base template -->
         {{ message }}
     </div>

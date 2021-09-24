@@ -381,7 +381,7 @@ a.category-badge>span.badge:hover {
 /* ------------------------------- Bootstrap toasts */
 .message-container {
   position: fixed;
-  top: 160px;
+  top: 158px;
   right: 5px;
   overflow: auto;
   max-height: 665px;
@@ -576,7 +576,7 @@ the scroll to top button */
 
   /* Toasts */
   .message-container {
-    top: 137px;
+    top: 154px;
   }
   
   .price-small {
@@ -586,6 +586,7 @@ the scroll to top button */
   .justify-checkout-buttons {
     text-align: right;
   }
+  
   .nav-link {
     padding: 0;
   }
@@ -615,7 +616,7 @@ the scroll to top button */
 }
 
 /* -------------------------------- Media Queries (max-width: 425px) */
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .header-container {
     padding-top: 146px;
   }
@@ -635,7 +636,7 @@ the scroll to top button */
 
   /* Toasts */
   .message-container {
-    top: 136px;
+    top: 147px;
   }
 
   .justify-checkout-buttons {
@@ -684,7 +685,7 @@ the scroll to top button */
 }
 
 /* -------------------------------- Media Queries (max-width: 375px) */
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .header-container {
     padding-top: 135px;
   }
@@ -704,7 +705,12 @@ the scroll to top button */
 
   /* Toasts */
   .message-container {
-    top: 113px;
+    top: 136px;
+  }
+
+  .toast {
+    margin-left: auto;
+    width: 100%;
   }
 
   /* Edit Product */
@@ -731,9 +737,13 @@ the scroll to top button */
   }
 
   /* Toasts */
+  .message-container {
+    top: 135px;
+  }
+
   .toast {
     margin-left: auto;
-    width: 75%;
+    width: 96%;
   }
 
   /* Checkout */
