@@ -381,7 +381,7 @@ a.category-badge>span.badge:hover {
 /* ------------------------------- Bootstrap toasts */
 .message-container {
   position: fixed;
-  top: 158px;
+  top: 159px;
   right: 5px;
   overflow: auto;
   max-height: 665px;
@@ -573,10 +573,9 @@ the scroll to top button */
     padding-top: 154px;
   }
 
-
   /* Toasts */
   .message-container {
-    top: 154px;
+    top: 155px;
   }
   
   .price-small {

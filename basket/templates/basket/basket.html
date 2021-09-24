@@ -153,9 +153,9 @@
     </div>
 
     {% endblock %}
-    {{ block.super }}
-    {% block afterloadjs %}
 
+    {% block afterloadjs %}
+    {{ block.super }}
     <script type="text/javascript">
         // Remove the token and item from the dictionary and reload on click
         $('.remove-item').click(function(e) {
