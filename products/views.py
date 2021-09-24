@@ -78,7 +78,7 @@ def all_products(request):
                 # Checks if search query length is not zero 
                 # a success toast message will display
                 messages.success(
-                    request, f'{len(products)}: Results found for "{query}"')
+                    request, f'{len(products)} Results found for "{query}"')
 
     sorting_products = f'{sort}_{direction}'
 
