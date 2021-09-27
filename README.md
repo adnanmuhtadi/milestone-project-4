@@ -293,6 +293,7 @@ On code completion, I ensured my code was validated with no syntax errors. I use
 - Layout structure, due to the fact I was including the base files which has the doctypes.
 - To resolve the errors, I stripped the base file and added the other files in between the code which effectively resolved more of the common errors, to ensure the code itself would pass the validator.
 
+After recieving feedback from the assessors further work was required on the site which required me to do further validation testing - [View Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/resubmission/html-validation.md)
 
 #### CSS - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/validation/w3c-css-validator-results.pdf)
 
@@ -330,6 +331,12 @@ All tests that have been mentioned in the link above was tested on the following
 - When deleting a product, it will also delete it from the order history when I user purchases it.
 - In testimonials, the user can either put a -number or a number more than 5 when creating a new testimonial, however, it will still be displayed as no ratings on the testimonial main page
 - When sending an email from the front end, it is sending as expected, as well it is posting to the DB as expected however the name of the user is not being pushed to Django admin with the contact details.
+
+### Resubmission & Amendments - [View Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/resubmission/amendment.md)
+
+After recieving feedback from the assessors, further development was required to the site.
+
+I have created a list of problems that i had as well as solutions and screenshots in how i resolved the original problem. 
 
 ## Deployment
 
