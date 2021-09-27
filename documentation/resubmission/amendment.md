@@ -1,5 +1,7 @@
 <h1 align="center">Amendments & Fixes</h1>
 
+I created a list of suggested improvements made by the assessors. It covers UX design improvements, Secruity issues and HTML Validations
+
 ## UX Design Improvements
 
 - <h2> Home logo link in responsive mobile nav</h2>
@@ -126,7 +128,7 @@
 
     <img src="../images/resubmission-images/resubmission11.png">
 
-## HTML Validation
+## HTML Validation - [View Results](https://github.com/adnanmuhtadi/milestone-project-4/blob/main/documentation/resubmission/html-validation.md)
 
 - <h2> HTML Validation errors </h2>
 
@@ -151,3 +153,5 @@
         - I amended the 'if' statement so that both superuser and the user that created the testimonial, would be able to edit and/or delete a testimonial. Other registered users will not be able to edit or delete other user testimonials and cannot gain access to other users testimonials by manipulating the URL.
 
     <img src="../images/resubmission-images/resubmission12.png">
+
+[Return to main README.md](https://github.com/adnanmuhtadi/milestone-project-4)
