@@ -608,6 +608,24 @@ Note: this can be found in Heroku app settings and then in Config Vars.
 -   Readme File
     - [Responsive Image](http://ami.responsivedesign.is/) - Used http://ami.responsivedesign.is/ to product the image.
 
+### Other
+
+- [Contrast Checker](https://webaim.org/resources/contrastchecker/)
+    - Was used to ensure the colour of the font aligned with the background
+- [Box Shadow 1](https://www.w3schools.com/cssref/css3_pr_box-shadow.asp)
+- [Box Shadow 2](https://www.w3schools.com/css/css3_shadows_box.asp)
+    - Used a combination of both links to assist with the creation and styling for box shadowing
+- [Unicode Character Table](https://unicode-table.com/en/)
+    - To add small icons inside buttons for effects
+- [Button Styling](https://www.w3schools.com/css/css3_buttons.asp)
+    - Styling of anchor tags to make them look like buttons
+- [Animated Hover Buttons](https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_animate1)
+    - Animation for the buttons when hovering over them.
+- [Back to the Top Button](https://codepen.io/matthewcain/pen/ZepbeR)
+    - A feature which would assist the user experience to take them back to the top of the page after scrolling down
+- [Admin Page](https://stackoverflow.com/questions/44130643/django-admin-urls)
+    - For the admin user to be able to go the admin page without changing the URL
+
 ### Acknowledgements
 
 I want to thank my mentor Aaron Sinnott who guided me in the right direction and for his support. This project has allowed me to experience the powers of Python, Django and much more. It has enabled the developer/me to understand and appreciate the extensive strength of apps and how they all interlock. It has made me aware that doing this project, I have only scratched the surface when coding in Python.
