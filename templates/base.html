@@ -239,11 +239,11 @@
                 </div>
                 <div class="col text-md-end">
                     <span class="icon">
-                        <a href="https://www.instagram.com/_cloutmafia_/" class="text-decoration-none text-black"><i
+                        <a href="https://www.instagram.com/_cloutmafia_/" class="text-decoration-none text-black" target="_blank"><i
                                 class="fab fa-instagram-square"></i></a>
                     </span>
                     <span class="icon">
-                        <a href="https://www.facebook.com" class="text-decoration-none text-black"><i
+                        <a href="https://www.facebook.com" class="text-decoration-none text-black" target="_blank"><i
                                 class="fab fa-facebook-square"></i></a>
                     </span>
                 </div>
@@ -271,10 +271,15 @@
         });
 
         // This block of code is to toggle the angle up class 
-        // when the account dropdown is clicked.
+        // when the account dropdown is clicked for larger screens.
         $(document).ready(function(){
             $(".account-dropdown").click(function(){
                 $("#accDropdownIcon").toggleClass("fa-angle-up");
+            });
+            // This block of code is to toggle the angle up class 
+            // when the account dropdown is clicked for smaller screens.
+            $(".account-dropdown-mobile").click(function(){
+                $("#accMobileDropdownIcon").toggleClass("fa-angle-up");
             });
         });
     </script>

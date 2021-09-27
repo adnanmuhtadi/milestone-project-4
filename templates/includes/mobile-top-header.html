@@ -21,7 +21,7 @@
                         </button>
                     </div>
                     <!-- Placeholder for the search text box -->
-                    <input class="search-box form-control border" type="text" name="q" placeholder="Search the site">
+                    <input class="search-box form-control border" type="text" name="search_q" placeholder="Search the site">
                 </div>
             </form>
         </div>
@@ -31,29 +31,29 @@
         <!-- Navigation for mobile view -->
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-options" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <div class="text-center">
-                <div><i class="fas fa-user fa-lg"></i></div>
-                <p class="my-0">My Account</p>
+            <div class="text-center account-dropdown-mobile">
+                    <i class="fas fa-user fa-lg"></i>
+                    <p class="mb-0">Account &nbsp;<i class="fas fa-angle-down align-baseline" id="accMobileDropdownIcon"></i></p>
             </div>
         </a>
         <!-- The search form is displayed as drop down menu for space utilisation and it will search in the product page -->
-        <div class="dropdown-menu border-1 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-options">
+        <div class="dropdown-menu border-1 w-100 p-2 rounded-0 my-0" aria-labelledby="mobile-options">
             <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-a input-group">
                     <!-- Input append group which makes the search icon (https://fontawesome.com/v5.15/icons/search?style=solid) appear on the right-->
-                    <div class="input-group text-end">
+                    <div class="input-group text-center">
                         <!-- If the user has an account and is classified as a super user display the following -->
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'profile' %}" class="dropdown-item pt-0 pb-2">My Profile</a>
                         {% if request.user.is_superuser %}
-                        <a href="{% url 'add_product' %}" class="dropdown-item">Add a Product</a>
+                        <a href="{% url 'add_product' %}" class="dropdown-item pt-0 pb-2">Add a Product</a>
                         {% endif %}
-                        <a href="{% url 'add_testimonial' %}" class="dropdown-item">Write a Review</a>
-                        <a href="{% url 'contact' %}" class="dropdown-item">Contact Us</a>
-                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        <a href="{% url 'add_testimonial' %}" class="dropdown-item pt-0 pb-2">Write a Review</a>
+                        <a href="{% url 'contact' %}" class="dropdown-item pt-0 pb-2">Contact Us</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item pt-0 pb-2">Logout</a>
                         {% else %}
-                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        <a href="{% url 'account_signup' %}" class="dropdown-item pt-0 pb-2">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item pt-0">Login</a>
                         {% endif %}
                     </div>
                 </div>
@@ -66,7 +66,7 @@
         <a class="{% if grand_price %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
             href="{% url 'view_basket' %}">
             <div class="text-center">
-                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                 <p class="my-0">
                     {% if grand_price %}
                     £{{ grand_price|floatformat:2 }}
