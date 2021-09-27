@@ -70,7 +70,7 @@ def add_testimonial(request):
             # On success, redirect the user to the testimonials home page
             return redirect(reverse('testimonials'))
         else:
-            messages.error(request, 'Failed to add product. Please \
+            messages.error(request, 'Failed to add testimonial. Please \
                 ensure the form is valid.')
     else:
         form = TestimonialForm()
@@ -123,7 +123,7 @@ def edit_testimonial(request, testimonial_id):
 
         return render(request, template, context)
     else:
-        messages.error(request, 'Access Denied!')
+        messages.error(request, 'Access Denied! You do not own this testimonial')
         return redirect(reverse('testimonials'))
 
 
@@ -145,5 +145,5 @@ def delete_testimonial(request, testimonial_id):
         messages.success(request, 'The testimonial has been deleted!')
         return redirect(reverse('testimonials'))
     else:
-        messages.error(request, 'Access Denied!')
+        messages.error(request, 'Access Denied! You do own this testimonial')
         return redirect(reverse('testimonials'))
